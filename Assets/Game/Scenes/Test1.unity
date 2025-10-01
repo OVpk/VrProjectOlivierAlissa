@@ -431,7 +431,7 @@ Transform:
   m_GameObject: {fileID: 750366839}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41, y: 1.42, z: -2.26}
+  m_LocalPosition: {x: -0.41, y: 1.42, z: -2.954}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -464,6 +464,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   currentHand: 0
+  anchor: {fileID: 1449627937}
 --- !u!1 &1426191424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1178,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   currentHand: 1
+  anchor: {fileID: 1571575411}
 --- !u!1 &2120347084
 GameObject:
   m_ObjectHideFlags: 0

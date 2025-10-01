@@ -50,7 +50,7 @@ public class HandController : MonoBehaviour
                 LastCard = null;
             }
             cardRB.isKinematic = false;
-            cardRB.DORotate(new Vector3(90f, 0f, 0f), 0.2f);
+            cardRB.DORotate(new Vector3(90f, cardRB.transform.rotation.eulerAngles.y, cardRB.transform.rotation.eulerAngles.z), 0.2f);
             cardInHand.transform.parent = null;
             LastCard = cardInHand;
             cardInHand = null;
