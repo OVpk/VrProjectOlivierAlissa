@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43431d70ceeabe4094abbd8b7215323, type: 3}
   m_Name: ShopObject 1
   m_EditorClassIdentifier: Assembly-CSharp::ShopObjects
-  name: object1
-  price: 100
-  icon: {fileID: -1659708932042841261, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
+  name: object2
+  price: 200
+  icon: {fileID: 21300014, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
