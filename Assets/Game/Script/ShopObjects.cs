@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "ShopObjects", menuName = "Scriptable Objects/ShopObjects")]
+[CreateAssetMenu(fileName = "ShopObject", menuName = "Scriptable Objects/ShopObjects")]
 public class ShopObjects : ScriptableObject
 {
     public string name;
-    public int price;
+    public string price;
     public Sprite icon;
 }
