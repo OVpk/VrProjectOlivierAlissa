@@ -9,7 +9,14 @@ public class InputManager : MonoBehaviour
     public void SmallInput(InputAction.CallbackContext ctx)
     {
         if (ctx.started)
-            Debug.Log("pressed small");
+        {
+            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand))
+            {
+                ActionManager.changeCard?.Invoke(EnumHand.LeftHand);
+                return;
+            }
+            ActionManager.changeCard?.Invoke(EnumHand.RightHand);
+        }
     }
 
     public void BigInput(InputAction.CallbackContext ctx)
