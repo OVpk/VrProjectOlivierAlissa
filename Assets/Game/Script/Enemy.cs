@@ -19,12 +19,10 @@ public class Enemy : MonoBehaviour
     public void PlaceCard()
     {
         GameObject card = Instantiate(cardPrefab);
-        card.AddComponent<Card>();
+        card.AddComponent<CardDestroyer>();
         Rigidbody cardRB = card.GetComponent<Rigidbody>();
-        Card check = cardRB.GetComponent<Card>();
-
-        check.isEnemy = true;
+        CardDestroyer check = cardRB.GetComponent<CardDestroyer>();
         cardRB.isKinematic = false;
-        card.transform.position = transform.position - (Vector3.forward * 1.7f) + Vector3.up;
+        card.transform.position = transform.position - (Vector3.forward * 1.5f) + Vector3.up;
     }
 }

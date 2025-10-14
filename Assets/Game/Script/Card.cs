@@ -1,22 +1,9 @@
-using NUnit.Framework;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
-    public bool isEnemy;
+    [field : SerializeField] public Image spriteDisplayer {  get;  private set; }
 
-    private bool wonAlready;
-
-    private void OnEnable()
-    {
-        ActionManager.destroyAllCard += DeleteAllCard;
-    }
-
-    private void OnDisable()
-    {
-        ActionManager.destroyAllCard -= DeleteAllCard;
-    }
-
-    private void DeleteAllCard() => Destroy(gameObject);
+    public bool isPlayer;
 }

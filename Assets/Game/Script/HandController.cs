@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HandController : MonoBehaviour
 {
-    [SerializeField] private GameObject[] cardPrefab;
+    [SerializeField] private CardData[] cards;
+    [SerializeField] private GameObject cardPrefab;
     [SerializeField] private LayerMask cardValideLayers;
     [SerializeField] private EnumHand currentHand;
     [SerializeField] private GameObject anchor;
@@ -12,6 +13,7 @@ public class HandController : MonoBehaviour
     private GameObject cardInHand;
     private Rigidbody cardRB;
     private GameObject LastCard;
+    private Card cardScript;
     private int cardIndex = 0;
 
     private void OnEnable()
@@ -34,7 +36,9 @@ public class HandController : MonoBehaviour
             return;
         if (cardInHand == null)
         {
-            cardInHand = Instantiate(cardPrefab[cardIndex], anchor.transform);
+            cardInHand = Instantiate(cardPrefab, anchor.transform);
+            cardScript = cardInHand.GetComponent<Card>();
+            cardScript.spriteDisplayer.sprite = cards[cardIndex].visual;
             cardInHand.transform.localPosition = Vector3.zero;
             cardRB = cardInHand.GetComponent<Rigidbody>();
         }
@@ -48,7 +52,9 @@ public class HandController : MonoBehaviour
         {
             Destroy(cardInHand.gameObject);
             cardInHand = null;
-            if (cardIndex == cardPrefab.Length - 1)
+            cardScript = null;
+            cardRB = null;
+            if (cardIndex == cards.Length - 1)
                 cardIndex = 0;
             else
                 cardIndex += 1;
@@ -70,17 +76,26 @@ public class HandController : MonoBehaviour
                 Destroy(LastCard);
                 LastCard = null;
             }
+
             cardRB.isKinematic = false;
             cardRB.DORotate(new Vector3(90f, cardRB.transform.rotation.eulerAngles.y, cardRB.transform.rotation.eulerAngles.z), 0.2f);
-            cardInHand.transform.parent = null;
+            cardRB = null;
+
             LastCard = cardInHand;
-            cardInHand.AddComponent<Card>();
+
+            cardInHand.transform.parent = null;
+            cardInHand.AddComponent<CardDestroyer>();
             cardInHand = null;
+
+            cardScript.isPlayer = true;
+            cardScript = null;  
         }
         else
         {
             Destroy(cardInHand);
             cardInHand = null;
+            cardRB = null;
+            cardScript = null;
         }
     }
 }

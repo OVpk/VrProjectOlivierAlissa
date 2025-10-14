@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public enum CardColors
@@ -7,21 +8,23 @@ public enum CardColors
     Blue
 }
 
+
 public enum CardState
 {
     Declaration,
     Play
 }
 
+[CreateAssetMenu (fileName = "CardData" , menuName = "ScriptableObject/Card")]
 public class CardData : ScriptableObject
 {
-    [SerializeField] public CardColors color {get; private set;}
-    
-    [SerializeField] public Sprite visual {get; private set;}
+    [field : SerializeField] public CardColors color {get; private set;}
 
-    [SerializeField] public AudioClip declarationSound {get; private set;}
-    
-    [SerializeField] public AudioClip playSound {get; private set;}
+    [field: SerializeField] public Sprite visual {get; private set;}
+
+    [field: SerializeField] public AudioClip declarationSound {get; private set;}
+
+    [field: SerializeField] public AudioClip playSound {get; private set;}
 
     public CardDataInstance Instance(CardState state)
     {
@@ -29,6 +32,7 @@ public class CardData : ScriptableObject
     }
     
 }
+
 
 public class CardDataInstance
 {
