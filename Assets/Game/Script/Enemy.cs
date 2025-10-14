@@ -5,23 +5,13 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject cardPrefab;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void PlaceCard()
+    public void PlaceCard(CardDataInstance cardToPlace)
     {
         GameObject card = Instantiate(cardPrefab);
-        card.AddComponent<CardDestroyer>();
+        card.AddComponent<DroppedCard>();
+        card.GetComponent<Card>().spriteDisplayer.sprite = cardToPlace.visual;
         Rigidbody cardRB = card.GetComponent<Rigidbody>();
-        CardDestroyer check = cardRB.GetComponent<CardDestroyer>();
+        DroppedCard check = cardRB.GetComponent<DroppedCard>();
         cardRB.isKinematic = false;
         card.transform.position = transform.position - (Vector3.forward * 1.5f) + Vector3.up;
     }

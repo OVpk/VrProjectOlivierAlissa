@@ -2,8 +2,11 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardDestroyer : MonoBehaviour
+public class DroppedCard : MonoBehaviour
 {
+    public CardDataInstance cardData;
+
+    public bool isPlayer;
     private void OnEnable()
     {
         ActionManager.destroyAllCard += DeleteAllCard;

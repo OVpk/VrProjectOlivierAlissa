@@ -4,14 +4,12 @@ public class CarDetectionTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Card"))
+        if (other.gameObject.CompareTag("Card") && other.TryGetComponent( out DroppedCard card))
         {
-            Card card = other.GetComponent<Card>();
-
             switch (card.isPlayer)
             {
                 case true:
-                    ActionManager.setTruePlayer.Invoke();
+                    ActionManager.setTruePlayer.Invoke(card.cardData.color);
                     break;
                 case false:
                     ActionManager.setTrueEnemy.Invoke();

@@ -14,6 +14,7 @@ public class RoundManager : MonoBehaviour
     private bool haveEnemyPlayed;
     private bool havePlayerPlayed;
     private Sequence[] round;
+    private CardColors playerUsedColor;
 
     private void OnEnable()
     {
@@ -67,14 +68,15 @@ public class RoundManager : MonoBehaviour
                         break;
                     case CardState.Play:
                         audio2.Play();
-                        enemy.PlaceCard();
+                        enemy.PlaceCard(sequence[i]);
                         yield return new WaitForSeconds(1);
                         break;
                 }
             }
 
             yield return new WaitUntil(() => haveEnemyPlayed);
-            if (havePlayerPlayed)
+
+            if (havePlayerPlayed && sequence[sequence.Length-1].color == playerUsedColor)
                 Debug.Log("WINNNNNNNNN");
             else
                 Debug.Log("LOOOOOOOSE");
@@ -86,6 +88,10 @@ public class RoundManager : MonoBehaviour
         }
     }
 
-    private void PlayerPlayed() => havePlayerPlayed = true;
+    private void PlayerPlayed(CardColors color)
+    {
+        havePlayerPlayed = true;
+        playerUsedColor = color;
+    }
     private void EnnemyPlayed() => haveEnemyPlayed = true;
 }

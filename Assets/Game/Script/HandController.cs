@@ -14,6 +14,7 @@ public class HandController : MonoBehaviour
     private Rigidbody cardRB;
     private GameObject LastCard;
     private Card cardScript;
+    private DroppedCard cardDropped;
     private int cardIndex = 0;
 
     private void OnEnable()
@@ -37,10 +38,14 @@ public class HandController : MonoBehaviour
         if (cardInHand == null)
         {
             cardInHand = Instantiate(cardPrefab, anchor.transform);
-            cardScript = cardInHand.GetComponent<Card>();
-            cardScript.spriteDisplayer.sprite = cards[cardIndex].visual;
             cardInHand.transform.localPosition = Vector3.zero;
+
             cardRB = cardInHand.GetComponent<Rigidbody>();
+            cardScript = cardInHand.GetComponent<Card>();
+
+            cardScript.spriteDisplayer.sprite = cards[cardIndex].visual;
+
+
         }
     }
 
@@ -84,10 +89,13 @@ public class HandController : MonoBehaviour
             LastCard = cardInHand;
 
             cardInHand.transform.parent = null;
-            cardInHand.AddComponent<CardDestroyer>();
+            cardDropped = cardInHand.AddComponent<DroppedCard>();
             cardInHand = null;
 
-            cardScript.isPlayer = true;
+            cardDropped.isPlayer = true;
+
+            cardDropped.cardData = cards[cardIndex].Instance(CardState.Play);
+
             cardScript = null;  
         }
         else

@@ -617,7 +617,9 @@ MonoBehaviour:
   audio2: {fileID: 165818042}
   enemy: {fileID: 1125847271}
   enemyCards:
-  - {fileID: 11400000, guid: cafaca710c3cc734f8665a69fdc036d4, type: 2}
+  - {fileID: 11400000, guid: 35d1110ffda85104bab0ab5682f1884e, type: 2}
+  - {fileID: 11400000, guid: f620e17e89c191a449d0ae345f1c0b6e, type: 2}
+  - {fileID: 11400000, guid: 9881f4fe281a50648b5e538dfcb00d5f, type: 2}
 --- !u!4 &464261618
 Transform:
   m_ObjectHideFlags: 0

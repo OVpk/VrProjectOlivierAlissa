@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5c3d1744643744ca15af4c21ac12ce, type: 3}
   m_Name: CardGreen
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  <color>k__BackingField: 0
+  <color>k__BackingField: 1
   <visual>k__BackingField: {fileID: 21300000, guid: 518b787c9945c294091b0363655bf11f, type: 3}
   <declarationSound>k__BackingField: {fileID: 0}
   <playSound>k__BackingField: {fileID: 0}
