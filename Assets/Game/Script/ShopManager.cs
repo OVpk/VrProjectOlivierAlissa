@@ -37,11 +37,22 @@ public class ShopManager : MonoBehaviour
 
     void Buy(int _itemId)
     {
-        if (inventoryReference.money >= shopItems[_itemId].price)
+        Items item = shopItems[_itemId];
+
+        if (inventoryReference.money >= item.price)
         {
-            inventoryReference.money -= shopItems[_itemId].price;
-            inventoryReference.items.Add(1,shopItems[_itemId]);
-            //TODO Fix this : .Add(1,shopItems[_itemId])
+            inventoryReference.money -= item.price;
+            Debug.Log("Item Bought");
+
+            if (inventoryReference.items.ContainsKey(item))
+                inventoryReference.items[item] += 1;
+            else
+                inventoryReference.items[item] = 1;
+        }
+        else
+        {
+            Debug.Log("Not enough money");
         }
     }
+
 }
