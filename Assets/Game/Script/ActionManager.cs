@@ -9,4 +9,5 @@ public static class ActionManager
     public static Action destroyAllCard;
     public static Action<CardColors> setTruePlayer;
     public static Action setTrueEnemy;
+    public static Action setTrueTimer;
 }

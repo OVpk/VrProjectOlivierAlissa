@@ -13,6 +13,7 @@ public class RoundManager : MonoBehaviour
     private int maxNbOfSequences = 5;
     private bool haveEnemyPlayed;
     private bool havePlayerPlayed;
+    private bool haveTimerOk;
     private Sequence[] round;
     private CardColors playerUsedColor;
 
@@ -20,12 +21,14 @@ public class RoundManager : MonoBehaviour
     {
         ActionManager.setTrueEnemy += EnnemyPlayed;
         ActionManager.setTruePlayer += PlayerPlayed;
+        ActionManager.setTrueTimer += TimerOk;
     }
 
     private void OnDisable()
     {
         ActionManager.setTrueEnemy -= EnnemyPlayed;
         ActionManager.setTruePlayer -= PlayerPlayed;
+        ActionManager.setTrueTimer -= TimerOk;
     }
 
     void Start()
@@ -76,7 +79,7 @@ public class RoundManager : MonoBehaviour
 
             yield return new WaitUntil(() => haveEnemyPlayed);
 
-            if (havePlayerPlayed && sequence[sequence.Length-1].color == playerUsedColor)
+            if (havePlayerPlayed && sequence[sequence.Length-1].color == playerUsedColor && haveTimerOk)
                 Debug.Log("WINNNNNNNNN");
             else
                 Debug.Log("LOOOOOOOSE");
@@ -85,6 +88,7 @@ public class RoundManager : MonoBehaviour
 
             havePlayerPlayed = false;
             haveEnemyPlayed = false;
+            haveTimerOk = false;
         }
     }
 
@@ -94,4 +98,6 @@ public class RoundManager : MonoBehaviour
         playerUsedColor = color;
     }
     private void EnnemyPlayed() => haveEnemyPlayed = true;
+
+    private void TimerOk() => haveTimerOk = true;
 }
