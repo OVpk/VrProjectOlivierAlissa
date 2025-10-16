@@ -10,4 +10,5 @@ public static class ActionManager
     public static Action<CardColors> setTruePlayer;
     public static Action setTrueEnemy;
     public static Action setTrueTimer;
+    public static Action<AudioClip> playSound;
 }

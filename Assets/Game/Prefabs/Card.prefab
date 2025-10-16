@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 6486900297796335622}
   - component: {fileID: 7701418523255214027}
   - component: {fileID: 9015959261731719663}
-  - component: {fileID: 8236348587528592410}
+  - component: {fileID: 3156930570236597194}
   m_Layer: 0
   m_Name: Card
   m_TagString: Card
@@ -314,11 +314,11 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8236348587528592410
+--- !u!114 &3156930570236597194
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,7 +327,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7760847889021447132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9bf87b7a6a35041b500536d50a34bf, type: 3}
+  m_Script: {fileID: 11500000, guid: ce91b8ad20328504494144e247924099, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Card
-  <spriteDisplayer>k__BackingField: {fileID: 2499542291183926577}
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedCard
+  spriteDisplayer: {fileID: 2499542291183926577}
+  isPlayer: 0

@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class CarDetectionTrigger : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Card") && other.TryGetComponent( out DroppedCard card))
+        if (other.TryGetComponent(out DroppedCard card))
         {
+            if (!card.IsDropped) return;
+
             switch (card.isPlayer)
             {
                 case true:
@@ -14,7 +16,7 @@ public class CarDetectionTrigger : MonoBehaviour
                 case false:
                     ActionManager.setTrueEnemy.Invoke();
                     break;
-            } 
+            }
         }
     }
 }

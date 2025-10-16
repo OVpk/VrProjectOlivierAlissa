@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class RoundManager : MonoBehaviour
@@ -66,11 +67,11 @@ public class RoundManager : MonoBehaviour
                 switch (sequence[i].cardState)
                 {
                     case CardState.Declaration:
-                        audio1.Play();
+                        ActionManager.playSound.Invoke(sequence[i].declarationSound);
                         yield return new WaitForSeconds(1);
                         break;
                     case CardState.Play:
-                        audio2.Play();
+                        ActionManager.playSound.Invoke(sequence[i].playSound);
                         enemy.PlaceCard(sequence[i]);
                         yield return new WaitForSeconds(1);
                         break;
@@ -94,10 +95,17 @@ public class RoundManager : MonoBehaviour
 
     private void PlayerPlayed(CardColors color)
     {
+        if (havePlayerPlayed) return;
+
         havePlayerPlayed = true;
         playerUsedColor = color;
     }
-    private void EnnemyPlayed() => haveEnemyPlayed = true;
+    private void EnnemyPlayed()
+    {
+        if (haveEnemyPlayed) return;
+
+        haveEnemyPlayed = true;
+    }
 
     private void TimerOk() => haveTimerOk = true;
 }
