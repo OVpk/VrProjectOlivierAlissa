@@ -35,12 +35,12 @@ public class RoundManager : MonoBehaviour
     void Start()
     {
         StartRound();
-        StartCoroutine(ReadSequence());
     }
 
     private void StartRound()
     {
         round = GenerateRound();
+        StartCoroutine(ReadSequence());
     }
 
     public Sequence[] GenerateRound()
