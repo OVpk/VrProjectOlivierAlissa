@@ -10,12 +10,13 @@ public class InputManager : MonoBehaviour
     {
         if (ctx.started)
         {
-            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand))
+            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.currentGameState == GameState.InRound)
             {
                 ActionManager.changeCard?.Invoke(EnumHand.LeftHand);
                 return;
             }
-            ActionManager.changeCard?.Invoke(EnumHand.RightHand);
+            else if(GameManager.instance.currentGameState == GameState.InRound)
+                ActionManager.changeCard?.Invoke(EnumHand.RightHand);
         }
     }
 
@@ -23,22 +24,24 @@ public class InputManager : MonoBehaviour
     {
         if (ctx.started)
         {
-            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand))
+            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.currentGameState == GameState.InRound)
             {
                 ActionManager.spawnCard?.Invoke(EnumHand.LeftHand);
                 return;
             }
-            ActionManager.spawnCard?.Invoke(EnumHand.RightHand);
+            else if(GameManager.instance.currentGameState == GameState.InRound)
+                ActionManager.spawnCard?.Invoke(EnumHand.RightHand);
         }
 
         else if (ctx.canceled)
         {
-            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand))
+            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.currentGameState == GameState.InRound)
             {
                 ActionManager.removeCard?.Invoke(EnumHand.LeftHand);
                 return;
             }
-            ActionManager.removeCard?.Invoke(EnumHand.RightHand);
+            else if(GameManager.instance.currentGameState == GameState.InRound)
+                ActionManager.removeCard?.Invoke(EnumHand.RightHand);
         }
     }
 

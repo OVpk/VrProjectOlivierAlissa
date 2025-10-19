@@ -62,7 +62,7 @@ public class HandController : MonoBehaviour
 
     private void ChangeCard(EnumHand pHand)
     {
-        if (currentHand != pHand)
+        if (currentHand != pHand || !cardInHand.activeInHierarchy)
             return;
 
         cardIndex = (cardIndex +1) % cards.Length;
@@ -71,7 +71,7 @@ public class HandController : MonoBehaviour
 
     private void ReleaseCard(EnumHand pHand)
     {
-        if (currentHand != pHand || cardInHand == null)
+        if (currentHand != pHand || !cardInHand.activeInHierarchy)
             return;
 
         RaycastHit hit;

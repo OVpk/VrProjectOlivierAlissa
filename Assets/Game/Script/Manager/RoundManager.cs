@@ -16,6 +16,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private float timeBetweenNote = 1f;
     [SerializeField] private float minusEveryRound = 0.1f;
     [SerializeField] private float minSpeed = 0.5f;
+    [SerializeField] private GameObject shop;
 
     private int maxNbOfSequences = 5;
     private bool haveEnemyPlayed;
@@ -29,6 +30,7 @@ public class RoundManager : MonoBehaviour
         ActionManager.setTrueEnemy += EnnemyPlayed;
         ActionManager.setTruePlayer += PlayerPlayed;
         ActionManager.setTrueTimer += TimerOk;
+        ActionManager.startRound += StartRound;
     }
 
     private void OnDisable()
@@ -36,6 +38,7 @@ public class RoundManager : MonoBehaviour
         ActionManager.setTrueEnemy -= EnnemyPlayed;
         ActionManager.setTruePlayer -= PlayerPlayed;
         ActionManager.setTrueTimer -= TimerOk;
+        ActionManager.startRound -= StartRound;
     }
 
     void Start()
@@ -101,8 +104,9 @@ public class RoundManager : MonoBehaviour
         timeBetweenNote = Mathf.Clamp(timeBetweenNote, minSpeed, 1f);
 
         yield return new WaitForSeconds(1);
-        ResetAllState();
-        StartRound();
+
+        shop.SetActive(true);
+        ActionManager.changeGameState(GameState.InShop);
     }
 
     private void ResetAllState()
