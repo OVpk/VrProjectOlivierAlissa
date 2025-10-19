@@ -99,7 +99,6 @@ public class RoundManager : MonoBehaviour
             
         }
 
-        Debug.Log("End of round");
         timeBetweenNote -= minusEveryRound;
         timeBetweenNote = Mathf.Clamp(timeBetweenNote, minSpeed, 1f);
 
@@ -111,7 +110,6 @@ public class RoundManager : MonoBehaviour
 
     private void ResetAllState()
     {
-        Debug.Log("reseting");
         ActionManager.destroyAllCard?.Invoke();
 
         havePlayerPlayed = false;
