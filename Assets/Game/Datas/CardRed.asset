@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   <color>k__BackingField: 0
   <visual>k__BackingField: {fileID: 21300000, guid: 829432ed4219eef46bbed771eaaa4588, type: 3}
-  <declarationSound>k__BackingField: {fileID: 0}
-  <playSound>k__BackingField: {fileID: 0}
+  <declarationSound>k__BackingField: {fileID: 8300000, guid: 3b958fb6223cc6d4ebdbefedb1e5387c, type: 3}
+  <playSound>k__BackingField: {fileID: 8300000, guid: a70be3478a8479e49b338325517c994b, type: 3}

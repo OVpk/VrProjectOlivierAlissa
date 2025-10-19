@@ -620,6 +620,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35d1110ffda85104bab0ab5682f1884e, type: 2}
   - {fileID: 11400000, guid: f620e17e89c191a449d0ae345f1c0b6e, type: 2}
   - {fileID: 11400000, guid: 9881f4fe281a50648b5e538dfcb00d5f, type: 2}
+  minNumSequence: 2
+  maxNumSequence: 4
+  timeBetweenNote: 1
+  minusEveryRound: 0.1
+  minSpeed: 0.5
 --- !u!4 &464261618
 Transform:
   m_ObjectHideFlags: 0
@@ -1623,8 +1628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd1a9792e9f8e24c855024b42c17c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  handControllerLeft: {fileID: 983978941}
-  handControllerRight: {fileID: 1891727690}
 --- !u!1 &1571575411
 GameObject:
   m_ObjectHideFlags: 0

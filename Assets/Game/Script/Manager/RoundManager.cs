@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class RoundManager : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private AudioSource audio2;
     [SerializeField] private Enemy enemy;
     [SerializeField] private List<CardData> enemyCards;
+    [SerializeField] private int minNumSequence = 2;
+    [SerializeField] private int maxNumSequence = 4;
+    [SerializeField] private float timeBetweenNote = 1f;
+    [SerializeField] private float minusEveryRound = 0.1f;
+    [SerializeField] private float minSpeed = 0.5f;
 
     private int maxNbOfSequences = 5;
     private bool haveEnemyPlayed;
@@ -48,7 +54,7 @@ public class RoundManager : MonoBehaviour
         Sequence[] round = new Sequence[maxNbOfSequences];
         for (int i = 0; i < maxNbOfSequences; i++)
         {
-            round[i] = new Sequence(Random.Range(2, 4), enemyCards[Random.Range(0, enemyCards.Count)]);
+            round[i] = new Sequence(Random.Range(minNumSequence, maxNbOfSequences), enemyCards[Random.Range(0, enemyCards.Count)]);
         }
 
         return round;
@@ -56,9 +62,10 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator ReadSequence()
     {
+        Debug.Log(timeBetweenNote);
         for (int y = 0; y < round.Length; y++)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(timeBetweenNote);
 
             CardDataInstance[] sequence = round[y].beats;
 
@@ -68,12 +75,12 @@ public class RoundManager : MonoBehaviour
                 {
                     case CardState.Declaration:
                         ActionManager.playSound.Invoke(sequence[i].declarationSound);
-                        yield return new WaitForSeconds(1);
+                        yield return new WaitForSeconds(timeBetweenNote);
                         break;
                     case CardState.Play:
                         ActionManager.playSound.Invoke(sequence[i].playSound);
                         enemy.PlaceCard(sequence[i]);
-                        yield return new WaitForSeconds(1);
+                        yield return new WaitForSeconds(timeBetweenNote);
                         break;
                 }
             }
@@ -85,12 +92,27 @@ public class RoundManager : MonoBehaviour
             else
                 Debug.Log("LOOOOOOOSE");
 
-            ActionManager.destroyAllCard.Invoke();
-
-            havePlayerPlayed = false;
-            haveEnemyPlayed = false;
-            haveTimerOk = false;
+            ResetAllState();
+            
         }
+
+        Debug.Log("End of round");
+        timeBetweenNote -= minusEveryRound;
+        timeBetweenNote = Mathf.Clamp(timeBetweenNote, minSpeed, 1f);
+
+        yield return new WaitForSeconds(1);
+        ResetAllState();
+        StartRound();
+    }
+
+    private void ResetAllState()
+    {
+        Debug.Log("reseting");
+        ActionManager.destroyAllCard?.Invoke();
+
+        havePlayerPlayed = false;
+        haveEnemyPlayed = false;
+        haveTimerOk = false;
     }
 
     private void PlayerPlayed(CardColors color)
