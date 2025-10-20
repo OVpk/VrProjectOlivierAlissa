@@ -104,8 +104,9 @@ public class RoundManager : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        shop.SetActive(true);
+        ActionManager.ResetCardInHand.Invoke();
         ActionManager.changeGameState(GameState.InShop);
+        shop.SetActive(true);
     }
 
     private void ResetAllState()

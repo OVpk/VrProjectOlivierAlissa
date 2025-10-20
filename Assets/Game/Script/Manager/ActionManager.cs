@@ -14,4 +14,5 @@ public static class ActionManager
     public static Action<AudioClip> playSound;
     public static Action startRound;
     public static Action<Sequence[]> makePredictionUI;
+    public static Action ResetCardInHand;
 }

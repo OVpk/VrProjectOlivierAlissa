@@ -11,6 +11,7 @@ public class HandController : MonoBehaviour
     [SerializeField] private EnumHand currentHand;
     [SerializeField] private GameObject anchor;
 
+    private Collider cardCollider;
     private GameObject cardInHand;
     private Rigidbody cardRB;
     private DroppedCard cardDropped;
@@ -21,6 +22,7 @@ public class HandController : MonoBehaviour
         ActionManager.spawnCard += SpawnCard;
         ActionManager.removeCard += ReleaseCard;
         ActionManager.changeCard += ChangeCard;
+        ActionManager.ResetCardInHand += DeactivateCard;
     }
 
     private void OnDestroy()
@@ -28,6 +30,7 @@ public class HandController : MonoBehaviour
         ActionManager.spawnCard -= SpawnCard;
         ActionManager.removeCard -= ReleaseCard;
         ActionManager.changeCard -= ChangeCard;
+        ActionManager.ResetCardInHand -= DeactivateCard;
     }
 
     private void Start()
@@ -35,6 +38,7 @@ public class HandController : MonoBehaviour
         cardInHand = Instantiate(cardPrefab, anchor.transform);
         cardRB = cardInHand.GetComponent<Rigidbody>();
         cardDropped = cardInHand.GetComponent<DroppedCard>();
+        cardCollider = cardInHand.GetComponent<Collider>();
         cardDropped.isPlayer = true;
         ResetCardPosition();
         cardInHand.SetActive(false);
@@ -56,6 +60,7 @@ public class HandController : MonoBehaviour
 
         ResetCardPosition();
         cardInHand.SetActive(true);
+        cardCollider.enabled = false;
         cardDropped.spriteDisplayer.sprite = cards[cardIndex].visual;
 
     }
@@ -79,6 +84,7 @@ public class HandController : MonoBehaviour
         {
             cardInHand.transform.parent = null;
             cardRB.isKinematic = false;
+            cardCollider.enabled = true;
             cardRB.DORotate(new Vector3(90f, cardRB.transform.rotation.eulerAngles.y, cardRB.transform.rotation.eulerAngles.z), 0.2f);
 
             cardDropped.IsDropped = true;
@@ -86,7 +92,9 @@ public class HandController : MonoBehaviour
         }
         else
         {
-            cardInHand.SetActive(false);
+            DeactivateCard();
         }
     }
+
+    private void DeactivateCard() => cardInHand.SetActive(false);
 }
