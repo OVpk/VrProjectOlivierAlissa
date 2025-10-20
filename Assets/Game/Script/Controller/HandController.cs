@@ -80,7 +80,7 @@ public class HandController : MonoBehaviour
             return;
 
         RaycastHit hit;
-        if (Physics.Raycast(cardInHand.transform.position, Vector3.down, out hit, Mathf.Infinity, cardValideLayers))
+        if (Physics.Raycast(cardInHand.transform.position, Vector3.down, out hit, 10f, cardValideLayers))
         {
             cardInHand.transform.parent = null;
             cardRB.isKinematic = false;
