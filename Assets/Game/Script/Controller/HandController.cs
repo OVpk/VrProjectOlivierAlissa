@@ -22,7 +22,7 @@ public class HandController : MonoBehaviour
         ActionManager.spawnCard += SpawnCard;
         ActionManager.removeCard += ReleaseCard;
         ActionManager.changeCard += ChangeCard;
-        ActionManager.ResetCardInHand += DeactivateCard;
+        ActionManager.resetCardInHand += DeactivateCard;
     }
 
     private void OnDestroy()
@@ -30,7 +30,7 @@ public class HandController : MonoBehaviour
         ActionManager.spawnCard -= SpawnCard;
         ActionManager.removeCard -= ReleaseCard;
         ActionManager.changeCard -= ChangeCard;
-        ActionManager.ResetCardInHand -= DeactivateCard;
+        ActionManager.resetCardInHand -= DeactivateCard;
     }
 
     private void Start()

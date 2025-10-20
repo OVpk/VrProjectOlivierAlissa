@@ -10,7 +10,7 @@ public class DroppedCard : MonoBehaviour
     public bool isPlayer;
     private float timer;
     private const string cardTag = "Card";
-    private float timeMaxBefore = .5f;
+    private float timeMaxBefore = 1F;
 
     private bool isDropped;
     public bool IsDropped

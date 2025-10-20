@@ -90,11 +90,15 @@ public class RoundManager : MonoBehaviour
 
             yield return new WaitUntil(() => haveEnemyPlayed);
 
-            if (havePlayerPlayed && sequence[sequence.Length-1].color == playerUsedColor && haveTimerOk)
+            if (havePlayerPlayed && sequence[sequence.Length - 1].color == playerUsedColor && haveTimerOk)
+            {
                 Debug.Log("WINNNNNNNNN");
+                ActionManager.onWin.Invoke();
+            }
             else
                 Debug.Log("LOOOOOOOSE");
 
+            yield return new WaitForSeconds(1.5f);
             ResetAllState();
             
         }
@@ -104,7 +108,7 @@ public class RoundManager : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        ActionManager.ResetCardInHand.Invoke();
+        ActionManager.resetCardInHand.Invoke();
         ActionManager.changeGameState(GameState.InShop);
         shop.SetActive(true);
     }
@@ -118,12 +122,18 @@ public class RoundManager : MonoBehaviour
         haveTimerOk = false;
     }
 
-    private void PlayerPlayed(CardColors color)
+    private void PlayerPlayed(CardColors pColor)
     {
         if (havePlayerPlayed) return;
 
+        StartCoroutine(WaitForCheck(pColor));
+    }
+
+    private IEnumerator WaitForCheck(CardColors pColor)
+    {
+        yield return null;
         havePlayerPlayed = true;
-        playerUsedColor = color;
+        playerUsedColor = pColor;
     }
     private void EnnemyPlayed()
     {
