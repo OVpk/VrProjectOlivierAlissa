@@ -11,10 +11,10 @@ public class CarDetectionTrigger : MonoBehaviour
             switch (card.isPlayer)
             {
                 case true:
-                    ActionManager.setTruePlayer.Invoke(card.cardData.color);
+                    ActionManager.setTruePlayer?.Invoke(card.cardData.color);
                     break;
                 case false:
-                    ActionManager.setTrueEnemy.Invoke();
+                    ActionManager.setTrueEnemy?.Invoke();
                     break;
             }
         }

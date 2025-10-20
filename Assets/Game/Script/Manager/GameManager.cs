@@ -2,12 +2,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameState currentGameState { get; private set; } = GameState.InRound;
+    private GameState currentGameState = GameState.InRound;
+    public GameState CurrentGameState
+    {
+        get
+        { return currentGameState; }
+        private set
+        {
+            currentGameState = value;
+            if (currentGameState == GameState.InShop)
+                ActionManager.resetCardInHand.Invoke();
+        }
+    }
 
     public static GameManager instance;
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
@@ -16,7 +27,7 @@ public class GameManager : MonoBehaviour
     }
     private void ChangeGameState(GameState pGameState)
     {
-        if(currentGameState == pGameState) return;
+        if (currentGameState == pGameState) return;
         currentGameState = pGameState;
     }
 

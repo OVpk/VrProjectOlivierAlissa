@@ -10,12 +10,12 @@ public class InputManager : MonoBehaviour
     {
         if (ctx.started)
         {
-            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.currentGameState == GameState.InRound)
+            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.CurrentGameState == GameState.InRound)
             {
                 ActionManager.changeCard?.Invoke(EnumHand.LeftHand);
                 return;
             }
-            else if(GameManager.instance.currentGameState == GameState.InRound)
+            else if(GameManager.instance.CurrentGameState == GameState.InRound)
                 ActionManager.changeCard?.Invoke(EnumHand.RightHand);
         }
     }
@@ -24,23 +24,23 @@ public class InputManager : MonoBehaviour
     {
         if (ctx.started)
         {
-            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.currentGameState == GameState.InRound)
+            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.CurrentGameState == GameState.InRound)
             {
                 ActionManager.spawnCard?.Invoke(EnumHand.LeftHand);
                 return;
             }
-            else if(GameManager.instance.currentGameState == GameState.InRound)
+            else if(GameManager.instance.CurrentGameState == GameState.InRound)
                 ActionManager.spawnCard?.Invoke(EnumHand.RightHand);
         }
 
         else if (ctx.canceled)
         {
-            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.currentGameState == GameState.InRound)
+            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.CurrentGameState == GameState.InRound)
             {
                 ActionManager.removeCard?.Invoke(EnumHand.LeftHand);
                 return;
             }
-            else if(GameManager.instance.currentGameState == GameState.InRound)
+            else if(GameManager.instance.CurrentGameState == GameState.InRound)
                 ActionManager.removeCard?.Invoke(EnumHand.RightHand);
         }
     }

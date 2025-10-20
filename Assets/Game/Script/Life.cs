@@ -7,6 +7,8 @@ public class Life : MonoBehaviour
     [SerializeField] private float lifeLostByError = 0.2f;
     [SerializeField] private float lifeWin = 0.3f;
     [SerializeField] private bool godMod;
+    [SerializeField] private Canvas looseCanvas;
+    [SerializeField] private RoundManager roundManager;
 
     private void OnEnable()
     {
@@ -26,6 +28,22 @@ public class Life : MonoBehaviour
             return;
         lifeSlider.value -= lifeLostByError;
         lifeSlider.value = Mathf.Clamp01(lifeSlider.value);
+
+        if(lifeSlider.value <= 0)
+        {
+            looseCanvas.gameObject.SetActive(true);
+            ActionManager.changeGameState.Invoke(GameState.InShop);
+            roundManager.StopAllCoroutines();
+            roundManager.enabled = false;
+        }
+    }
+
+    public void OnPlayAgain()
+    {
+        lifeSlider.value = 1;
+        looseCanvas.gameObject.SetActive(false);
+        ActionManager.changeGameState.Invoke(GameState.InRound);
+        roundManager.enabled = true;
     }
 
     private void WinLife()

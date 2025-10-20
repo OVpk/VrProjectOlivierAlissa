@@ -31,6 +31,10 @@ public class RoundManager : MonoBehaviour
         ActionManager.setTruePlayer += PlayerPlayed;
         ActionManager.setTrueTimer += TimerOk;
         ActionManager.startRound += StartRound;
+
+        ResetAllState();
+        ResetDifficultyValue();
+        StartRound();
     }
 
     private void OnDisable()
@@ -41,9 +45,19 @@ public class RoundManager : MonoBehaviour
         ActionManager.startRound -= StartRound;
     }
 
+    private void Update()
+    {
+        Debug.Log("round Manager alive");
+    }
     void Start()
     {
-        StartRound();
+    }
+
+    private void ResetDifficultyValue()
+    {
+        timeBetweenNote = 1f;
+        //Ici on pourra rajouter toutes les valeurs lié a la difficulté a reinitialiser quand on meurt
+        //comme la vitesse a taille des rounds etc...  fin ta capter quoi
     }
 
     private void StartRound()
@@ -96,7 +110,10 @@ public class RoundManager : MonoBehaviour
                 ActionManager.onWin.Invoke();
             }
             else
+            {
                 Debug.Log("LOOOOOOOSE");
+                ActionManager.onLoose.Invoke();
+            }
 
             yield return new WaitForSeconds(1.5f);
             ResetAllState();
@@ -108,7 +125,6 @@ public class RoundManager : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        ActionManager.resetCardInHand.Invoke();
         ActionManager.changeGameState(GameState.InShop);
         shop.SetActive(true);
     }
