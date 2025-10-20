@@ -16,4 +16,5 @@ public static class ActionManager
     public static Action<Sequence[]> makePredictionUI;
     public static Action resetCardInHand;
     public static Action onWin;
+    public static Action onLoose;
 }

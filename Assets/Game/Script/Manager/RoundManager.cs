@@ -65,7 +65,6 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator ReadSequence()
     {
-        Debug.Log(timeBetweenNote);
         for (int y = 0; y < round.Length; y++)
         {
             yield return new WaitForSeconds(timeBetweenNote);
@@ -89,7 +88,8 @@ public class RoundManager : MonoBehaviour
             }
 
             yield return new WaitUntil(() => haveEnemyPlayed);
-
+            
+            Debug.Log(havePlayerPlayed);
             if (havePlayerPlayed && sequence[sequence.Length - 1].color == playerUsedColor && haveTimerOk)
             {
                 Debug.Log("WINNNNNNNNN");
@@ -126,15 +126,11 @@ public class RoundManager : MonoBehaviour
     {
         if (havePlayerPlayed) return;
 
-        StartCoroutine(WaitForCheck(pColor));
-    }
-
-    private IEnumerator WaitForCheck(CardColors pColor)
-    {
-        yield return null;
+        Debug.Log("setting it to true bitches");
         havePlayerPlayed = true;
         playerUsedColor = pColor;
     }
+
     private void EnnemyPlayed()
     {
         if (haveEnemyPlayed) return;
