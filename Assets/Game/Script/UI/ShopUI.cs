@@ -4,7 +4,7 @@ public class ShopUI : MonoBehaviour
 {
     public void OnPressed()
     {
-        ActionManager.changeGameState(GameState.InRound);
+        GameManager.instance.CurrentGameState = GameState.InRound;
         ActionManager.startRound.Invoke();
         gameObject.SetActive(false);
     }

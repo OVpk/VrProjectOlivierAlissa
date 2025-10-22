@@ -45,14 +45,6 @@ public class RoundManager : MonoBehaviour
         ActionManager.startRound -= StartRound;
     }
 
-    private void Update()
-    {
-        Debug.Log("round Manager alive");
-    }
-    void Start()
-    {
-    }
-
     private void ResetDifficultyValue()
     {
         timeBetweenNote = 1f;
@@ -103,7 +95,6 @@ public class RoundManager : MonoBehaviour
 
             yield return new WaitUntil(() => haveEnemyPlayed);
             
-            Debug.Log(havePlayerPlayed);
             if (havePlayerPlayed && sequence[sequence.Length - 1].color == playerUsedColor && haveTimerOk)
             {
                 Debug.Log("WINNNNNNNNN");
@@ -125,7 +116,7 @@ public class RoundManager : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        ActionManager.changeGameState(GameState.InShop);
+        GameManager.instance.CurrentGameState = GameState.InShop;
         shop.SetActive(true);
     }
 
@@ -142,7 +133,6 @@ public class RoundManager : MonoBehaviour
     {
         if (havePlayerPlayed) return;
 
-        Debug.Log("setting it to true bitches");
         havePlayerPlayed = true;
         playerUsedColor = pColor;
     }

@@ -12,7 +12,7 @@ public class HandController : MonoBehaviour
     [SerializeField] private EnumHand currentHand;
     [SerializeField] private GameObject anchor;
     [SerializeField] private Transform tableTarget;
-    [SerializeField] private float throwInfluence = 0.4f; 
+    [SerializeField] private float throwInfluence = 0.4f;
     [SerializeField] private float throwForce = 8f;
 
     private Collider cardCollider;
@@ -107,7 +107,7 @@ public class HandController : MonoBehaviour
         cardCollider.enabled = true;
 
         float handSpeed = anchorVelocity.magnitude;
-        
+
 
         if (handSpeed > 0.35f)
         {
@@ -123,5 +123,9 @@ public class HandController : MonoBehaviour
         cardDropped.cardData = cards[cardIndex].Instance(CardState.Play);
     }
 
-    private void DeactivateCard() => cardInHand.SetActive(false);
+    private void DeactivateCard()
+    {
+        Debug.Log("deactivating");
+        cardInHand.SetActive(false);
+    }
 }

@@ -32,7 +32,7 @@ public class Life : MonoBehaviour
         if(lifeSlider.value <= 0)
         {
             looseCanvas.gameObject.SetActive(true);
-            ActionManager.changeGameState.Invoke(GameState.InShop);
+            GameManager.instance.CurrentGameState = GameState.InShop;
             roundManager.StopAllCoroutines();
             roundManager.enabled = false;
         }
@@ -42,7 +42,7 @@ public class Life : MonoBehaviour
     {
         lifeSlider.value = 1;
         looseCanvas.gameObject.SetActive(false);
-        ActionManager.changeGameState.Invoke(GameState.InRound);
+        GameManager.instance.CurrentGameState = GameState.InRound;
         roundManager.enabled = true;
     }
 

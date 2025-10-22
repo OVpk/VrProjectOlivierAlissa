@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     {
         get
         { return currentGameState; }
-        private set
+        set
         {
             currentGameState = value;
             if (currentGameState == GameState.InShop)
