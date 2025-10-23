@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class Life : MonoBehaviour
+public class LifeAndScore : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI numChip;
     [SerializeField] private int lifeLostByError = 1;
