@@ -17,4 +17,5 @@ public static class ActionManager
     public static Action resetCardInHand;
     public static Action onWin;
     public static Action onLoose;
+    public static Action<Color> playParticle;
 }
