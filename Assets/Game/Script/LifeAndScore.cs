@@ -76,6 +76,7 @@ public class LifeAndScore : MonoBehaviour
             GameManager.instance.CurrentGameState = GameState.InShop;
             roundManager.StopAllCoroutines();
             roundManager.enabled = false;
+            AddStartChip();
         }
     }
 

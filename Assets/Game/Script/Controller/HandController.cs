@@ -14,6 +14,7 @@ public class HandController : MonoBehaviour
     [SerializeField] private Transform tableTarget;
     [SerializeField] private float throwInfluence = 0.4f;
     [SerializeField] private float throwForce = 8f;
+    [SerializeField] private float minToVelocity = 0.42f;
 
     private Collider cardCollider;
     private GameObject cardInHand;
@@ -109,7 +110,7 @@ public class HandController : MonoBehaviour
         float handSpeed = anchorVelocity.magnitude;
 
 
-        if (handSpeed > 0.35f)
+        if (handSpeed > minToVelocity)
         {
             Vector3 toTable = (tableTarget.position - anchor.transform.position).normalized;
             Vector3 handDir = anchorVelocity.normalized;
