@@ -76,7 +76,6 @@ public class LifeAndScore : MonoBehaviour
             GameManager.instance.CurrentGameState = GameState.InShop;
             roundManager.StopAllCoroutines();
             roundManager.enabled = false;
-            AddStartChip();
         }
     }
 
@@ -87,6 +86,7 @@ public class LifeAndScore : MonoBehaviour
         looseCanvas.gameObject.SetActive(false);
         GameManager.instance.CurrentGameState = GameState.InRound;
         roundManager.enabled = true;
+        AddStartChip();
     }
 
     private void WinLife()

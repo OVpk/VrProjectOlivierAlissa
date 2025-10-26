@@ -93,24 +93,24 @@ public class RoundManager : MonoBehaviour
             }
 
             yield return new WaitUntil(() => haveEnemyPlayed);
-            
+
 
             if (havePlayerPlayed && sequence[sequence.Length - 1].color == playerUsedColor && haveTimerOk)
             {
                 Debug.Log("WINNNNNNNNN");
                 ActionManager.onWin.Invoke();
-                ActionManager.playParticle.Invoke(Color.green);
+                //ActionManager.playParticle.Invoke(Color.green);
             }
             else
             {
                 Debug.Log("LOOOOOOOSE");
                 ActionManager.onLoose.Invoke();
-                ActionManager.playParticle.Invoke(Color.red);
+                //ActionManager.playParticle.Invoke(Color.red);
             }
 
             yield return new WaitForSeconds(1.5f);
             ResetAllState();
-            
+
         }
 
         timeBetweenNote -= minusEveryRound;
