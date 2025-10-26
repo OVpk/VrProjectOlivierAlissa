@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         {
             currentGameState = value;
             if (currentGameState == GameState.InShop)
-                ActionManager.resetCardInHand.Invoke();
+                ActionManager.resetCardInHand?.Invoke();
         }
     }
 

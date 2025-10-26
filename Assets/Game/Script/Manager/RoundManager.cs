@@ -80,12 +80,14 @@ public class RoundManager : MonoBehaviour
             {
                 switch (sequence[i].cardState)
                 {
-                    case CardState.Declaration:
-                        ActionManager.playSound.Invoke(sequence[i].declarationSound);
+                    case CardState.Declaration :
+                        ActionManager.playSound?.Invoke(sequence[i].declarationSound);
+                        if (sequence[i +1].cardState == CardState.Shoot)
+                            ActionManager.enemyShoot?.Invoke(timeBetweenNote);
                         yield return new WaitForSeconds(timeBetweenNote);
                         break;
                     case CardState.Play:
-                        ActionManager.playSound.Invoke(sequence[i].playSound);
+                        ActionManager.playSound?.Invoke(sequence[i].playSound);
                         enemy.PlaceCard(sequence[i]);
                         yield return new WaitForSeconds(timeBetweenNote);
                         break;
@@ -98,13 +100,13 @@ public class RoundManager : MonoBehaviour
             if (havePlayerPlayed && sequence[sequence.Length - 1].color == playerUsedColor && haveTimerOk)
             {
                 Debug.Log("WINNNNNNNNN");
-                ActionManager.onWin.Invoke();
+                ActionManager.onWin?.Invoke();
                 //ActionManager.playParticle.Invoke(Color.green);
             }
             else
             {
                 Debug.Log("LOOOOOOOSE");
-                ActionManager.onLoose.Invoke();
+                ActionManager.onLoose?.Invoke();
                 //ActionManager.playParticle.Invoke(Color.red);
             }
 

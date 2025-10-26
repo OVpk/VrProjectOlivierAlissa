@@ -15,6 +15,7 @@ public class HandController : MonoBehaviour
     [SerializeField] private float throwInfluence = 0.4f;
     [SerializeField] private float throwForce = 8f;
     [SerializeField] private float minToVelocity = 0.42f;
+    [SerializeField] private GameObject gun;
 
     private Collider cardCollider;
     private GameObject cardInHand;
@@ -30,6 +31,9 @@ public class HandController : MonoBehaviour
         ActionManager.removeCard += ReleaseCard;
         ActionManager.changeCard += ChangeCard;
         ActionManager.resetCardInHand += DeactivateCard;
+        ActionManager.resetCardInHand += DespawnGun;
+        ActionManager.GunDisapear += DespawnGun;
+        ActionManager.GunAppear += SpawnGun;
     }
 
     private void OnDestroy()
@@ -38,6 +42,9 @@ public class HandController : MonoBehaviour
         ActionManager.removeCard -= ReleaseCard;
         ActionManager.changeCard -= ChangeCard;
         ActionManager.resetCardInHand -= DeactivateCard;
+        ActionManager.resetCardInHand -= DespawnGun;
+        ActionManager.GunAppear -= SpawnGun;
+        ActionManager.GunDisapear -= DespawnGun;
     }
 
     private void Start()
@@ -84,8 +91,23 @@ public class HandController : MonoBehaviour
         cardInHand.SetActive(true);
         cardCollider.enabled = false;
         cardDropped.spriteDisplayer.sprite = cards[cardIndex].visual;
-
     }
+
+    private void SpawnGun(EnumHand pHand)
+    {
+        if (currentHand != pHand)
+            return;
+
+        if (!gun.activeInHierarchy)
+            gun.SetActive(true);
+    }
+
+    private void DespawnGun()
+    {
+        if (gun.activeInHierarchy)
+            gun.SetActive(false);
+    }
+
 
     private void ChangeCard(EnumHand pHand)
     {
@@ -126,7 +148,6 @@ public class HandController : MonoBehaviour
 
     private void DeactivateCard()
     {
-        Debug.Log("deactivating");
         cardInHand.SetActive(false);
     }
 }

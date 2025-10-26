@@ -12,7 +12,8 @@ public enum CardColors
 public enum CardState
 {
     Declaration,
-    Play
+    Play,
+    Shoot
 }
 
 [CreateAssetMenu (fileName = "CardData" , menuName = "ScriptableObject/Card")]

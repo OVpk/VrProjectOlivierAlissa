@@ -12,7 +12,7 @@ public class InputManager : MonoBehaviour
         {
             if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.CurrentGameState == GameState.InRound)
             {
-                ActionManager.changeCard?.Invoke(EnumHand.LeftHand);
+                ActionManager.playerShoot?.Invoke();
                 return;
             }
             else if(GameManager.instance.CurrentGameState == GameState.InRound)
@@ -26,7 +26,7 @@ public class InputManager : MonoBehaviour
         {
             if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.CurrentGameState == GameState.InRound)
             {
-                ActionManager.spawnCard?.Invoke(EnumHand.LeftHand);
+                ActionManager.GunAppear?.Invoke(EnumHand.LeftHand);
                 return;
             }
             else if(GameManager.instance.CurrentGameState == GameState.InRound)
@@ -37,7 +37,7 @@ public class InputManager : MonoBehaviour
         {
             if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.CurrentGameState == GameState.InRound)
             {
-                ActionManager.removeCard?.Invoke(EnumHand.LeftHand);
+                ActionManager.GunDisapear?.Invoke();
                 return;
             }
             else if(GameManager.instance.CurrentGameState == GameState.InRound)

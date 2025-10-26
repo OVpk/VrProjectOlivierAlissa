@@ -4,14 +4,10 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform anchorLaunchBullet;
-    [SerializeField] private bool isPlayer;
+    [SerializeField] protected bool isPlayer;
     private GameObject bullet;
 
-    private void Start()
-    {
-        Shoot();
-    }
-    private void Shoot()
+    protected virtual void Shoot()
     {
         if(bullet != null)
         {
@@ -25,4 +21,5 @@ public class Gun : MonoBehaviour
 
         bullet.transform.rotation = gameObject.transform.rotation;
     }
+
 }
