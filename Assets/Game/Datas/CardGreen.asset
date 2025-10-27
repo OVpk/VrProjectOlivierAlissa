@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CardGreen
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   <color>k__BackingField: 1
-  <visual>k__BackingField: {fileID: 21300000, guid: 518b787c9945c294091b0363655bf11f, type: 3}
+  <visual>k__BackingField: {fileID: 21300000, guid: b59f786f92f57ef44950d4907f065b5a, type: 3}
   <declarationSound>k__BackingField: {fileID: 8300000, guid: 0c3289568e17d8345985e9a8d85fc358, type: 3}
   <playSound>k__BackingField: {fileID: 8300000, guid: bd1d77f92854d6449b1ec1139b563e65, type: 3}
