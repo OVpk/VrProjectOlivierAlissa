@@ -17,6 +17,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private float minusEveryRound = 0.1f;
     [SerializeField] private float minSpeed = 0.5f;
     [SerializeField] private GameObject shop;
+    [SerializeField] private GlobalCardsUI prediction;
 
     private int maxNbOfSequences = 5;
     private bool haveEnemyPlayed;
@@ -52,10 +53,19 @@ public class RoundManager : MonoBehaviour
         //comme la vitesse a taille des rounds etc...  fin ta capter quoi
     }
 
+    private IEnumerator ShowUI()
+    {
+        prediction.gameObject.SetActive(true);
+        prediction.Setup(round);
+        yield return new WaitForSeconds(10f);
+        StartCoroutine(ReadSequence());
+        prediction.gameObject.SetActive(false);
+    }
+
     private void StartRound()
     {
         round = GenerateRound();
-        StartCoroutine(ReadSequence());
+        StartCoroutine(ShowUI());
     }
 
     public Sequence[] GenerateRound()
