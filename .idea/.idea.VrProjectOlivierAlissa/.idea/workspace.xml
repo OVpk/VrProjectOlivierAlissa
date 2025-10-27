@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5925cef1-4240-4bf3-8887-3b0928496060" name="Changes" comment="" />
+    <list default="true" id="5925cef1-4240-4bf3-8887-3b0928496060" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Game/3DAsset/card/CkeckIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/3DAsset/card/CkeckIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/3DAsset/card/CroixIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/3DAsset/card/CroixIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/3DAsset/card/GunTargetIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/3DAsset/card/GunTargetIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/UI/MemoUi.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/UI/MemoUi/CardUi.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/UI/MemoUi/CardUi.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/UI/MemoUi/SequenceUi.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/UI/MemoUi/SequenceUi.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/CardUi.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/CardUi.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/GlobalCardsUi.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/GlobalCardsUi.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/SequenceUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/SequenceUI.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +33,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Game/Script/Sequence.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Script/UI/GlobalCardsUi.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -30,7 +49,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev/Olivier&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev/alissa&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -105,6 +124,7 @@
       <workItem from="1760344212934" duration="5527000" />
       <workItem from="1760430470583" duration="2887000" />
       <workItem from="1760439394427" duration="630000" />
+      <workItem from="1761576464311" duration="13724000" />
     </task>
     <servers />
   </component>
