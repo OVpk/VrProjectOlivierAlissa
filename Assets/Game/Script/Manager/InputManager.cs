@@ -30,14 +30,18 @@ public class InputManager : MonoBehaviour
                 return;
             }
             else if(GameManager.instance.CurrentGameState == GameState.InRound)
+            {
                 ActionManager.spawnCard?.Invoke(EnumHand.RightHand);
+                Debug.Log("input");
+            }
+                
         }
 
         else if (ctx.canceled)
         {
             if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.CurrentGameState == GameState.InRound)
             {
-                ActionManager.GunDisapear?.Invoke();
+                ActionManager.GunDisapear?.Invoke(EnumHand.LeftHand);
                 return;
             }
             else if(GameManager.instance.CurrentGameState == GameState.InRound)

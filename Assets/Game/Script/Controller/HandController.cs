@@ -31,7 +31,7 @@ public class HandController : MonoBehaviour
         ActionManager.removeCard += ReleaseCard;
         ActionManager.changeCard += ChangeCard;
         ActionManager.resetCardInHand += DeactivateCard;
-        ActionManager.resetCardInHand += DespawnGun;
+        ActionManager.resetCardInHand += () => DespawnGun(EnumHand.LeftHand);
         ActionManager.GunDisapear += DespawnGun;
         ActionManager.GunAppear += SpawnGun;
     }
@@ -42,7 +42,7 @@ public class HandController : MonoBehaviour
         ActionManager.removeCard -= ReleaseCard;
         ActionManager.changeCard -= ChangeCard;
         ActionManager.resetCardInHand -= DeactivateCard;
-        ActionManager.resetCardInHand -= DespawnGun;
+        ActionManager.resetCardInHand -= () => DespawnGun(EnumHand.LeftHand);
         ActionManager.GunAppear -= SpawnGun;
         ActionManager.GunDisapear -= DespawnGun;
     }
@@ -87,8 +87,10 @@ public class HandController : MonoBehaviour
         if (currentHand != pHand)
             return;
 
+        Debug.Log("ShouldSpawn");
         ResetCardPosition();
         cardInHand.SetActive(true);
+        Debug.Log(cardInHand.activeSelf);
         cardCollider.enabled = false;
         cardDropped.spriteDisplayer.sprite = cards[cardIndex].visual;
     }
@@ -102,8 +104,11 @@ public class HandController : MonoBehaviour
             gun.SetActive(true);
     }
 
-    private void DespawnGun()
+    private void DespawnGun(EnumHand pHand)
     {
+        if (currentHand != pHand)
+            return;
+
         if (gun.activeInHierarchy)
             gun.SetActive(false);
     }

@@ -19,7 +19,7 @@ public static class ActionManager
     public static Action onLoose;
     public static Action<Color> playParticle;
     public static Action<EnumHand> GunAppear;
-    public static Action GunDisapear;
+    public static Action<EnumHand> GunDisapear;
     public static Action playerShoot;
     public static Action<float> enemyShoot;
 }
