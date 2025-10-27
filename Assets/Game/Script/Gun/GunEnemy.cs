@@ -25,6 +25,9 @@ public class GunEnemy : Gun
     private void DoRotationBeforeShoot(float pHowLongToRotate)
     {
         howLongToRotate = pHowLongToRotate;
+
+        ActionManager.timerToShoot.Invoke(pHowLongToRotate - 0.2f);
+
         transform
             .DORotate(new Vector3(0f, origineRotation.y, origineRotation.z), howLongToRotate)
             .OnComplete(() => StartShooting());
@@ -43,4 +46,5 @@ public class GunEnemy : Gun
             howLongToRotate
         );
     }
+
 }

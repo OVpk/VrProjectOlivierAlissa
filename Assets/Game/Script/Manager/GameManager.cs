@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -15,6 +16,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField] private GunPlayer GunPlayer;
+
+    public bool canShoot = false;
+    private Coroutine playerShootCoroutine;
+
     public static GameManager instance;
     private void Awake()
     {
@@ -24,6 +30,21 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         ActionManager.changeGameState += ChangeGameState;
+        
+    }
+
+    private void OnEnable()
+    {
+        ActionManager.numShootToGive += SetNumShot;
+        ActionManager.timerToShoot += StartPlayerShoot;
+        ActionManager.playerShoot += StopCoroutineTimer;
+    }
+
+    private void OnDestroy()
+    {
+        ActionManager.changeGameState -= ChangeGameState;
+        ActionManager.numShootToGive -= SetNumShot;
+        ActionManager.timerToShoot -= StartPlayerShoot;
     }
     private void ChangeGameState(GameState pGameState)
     {
@@ -31,4 +52,31 @@ public class GameManager : MonoBehaviour
         currentGameState = pGameState;
     }
 
+    private void SetNumShot(int pNum)
+    {
+        Debug.Log(pNum);
+        GunPlayer.NumMaxShootSequence = pNum;
+    }
+
+    private void StartPlayerShoot(float pTimeToWait)
+    {
+        playerShootCoroutine = StartCoroutine(TimerPlayerShoot(pTimeToWait));
+    }
+    private IEnumerator TimerPlayerShoot(float pTimeToWait)
+    {
+        yield return new WaitForSeconds(pTimeToWait);
+        canShoot = true;
+        yield return new WaitForSeconds(1f);
+        canShoot = false;
+        ActionManager.onLoose?.Invoke();
+    }
+
+    private void StopCoroutineTimer()
+    {
+        if (!canShoot)
+            return;
+
+        Debug.Log("shouldStop");
+        StopCoroutine(playerShootCoroutine);
+    }
 }

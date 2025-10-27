@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -67,9 +68,25 @@ public class RoundManager : MonoBehaviour
 
         return round;
     }
+    
+    private void CountShootInRound()
+    {
+        int numShot = 0; 
+
+        foreach(Sequence sequence in round)
+        {
+            foreach(CardDataInstance card in sequence.beats)
+            {
+                if (card.cardState == CardState.Shoot)
+                    numShot++;
+            }
+        }
+        ActionManager.numShootToGive?.Invoke(numShot);
+    }
 
     private IEnumerator ReadSequence()
     {
+        CountShootInRound();
         for (int y = 0; y < round.Length; y++)
         {
             yield return new WaitForSeconds(timeBetweenNote);
@@ -86,6 +103,12 @@ public class RoundManager : MonoBehaviour
                             ActionManager.enemyShoot?.Invoke(timeBetweenNote);
                         yield return new WaitForSeconds(timeBetweenNote);
                         break;
+
+                    case CardState.Shoot :
+                        ActionManager.playSound?.Invoke(sequence[i].declarationSound);
+                        yield return new WaitForSeconds(timeBetweenNote);
+                        break;
+
                     case CardState.Play:
                         ActionManager.playSound?.Invoke(sequence[i].playSound);
                         enemy.PlaceCard(sequence[i]);

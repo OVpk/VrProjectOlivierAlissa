@@ -28,8 +28,9 @@ public class Sequence
         if (shouldShoot)
         {
             int shootIndex = Random.Range(1, nbOfBeats - 1);
-            beats[shootIndex] = card.Instance(CardState.Shoot); 
+            beats[shootIndex] = card.Instance(CardState.Shoot);
         }
+
     }
     
     
