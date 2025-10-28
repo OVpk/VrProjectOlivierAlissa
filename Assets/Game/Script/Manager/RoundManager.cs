@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -16,6 +17,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private float minusEveryRound = 0.1f;
     [SerializeField] private float minSpeed = 0.5f;
     [SerializeField] private GameObject shop;
+    [SerializeField] private GlobalCardsUI prediction;
 
     private int maxNbOfSequences = 5;
     private bool haveEnemyPlayed;
@@ -51,10 +53,19 @@ public class RoundManager : MonoBehaviour
         //comme la vitesse a taille des rounds etc...  fin ta capter quoi
     }
 
+    private IEnumerator ShowUI()
+    {
+        prediction.gameObject.SetActive(true);
+        prediction.Setup(round);
+        yield return new WaitForSeconds(10f);
+        StartCoroutine(ReadSequence());
+        prediction.gameObject.SetActive(false);
+    }
+
     private void StartRound()
     {
         round = GenerateRound();
-        StartCoroutine(ReadSequence());
+        StartCoroutine(ShowUI());
     }
 
     public Sequence[] GenerateRound()
@@ -67,9 +78,25 @@ public class RoundManager : MonoBehaviour
 
         return round;
     }
+    
+    private void CountShootInRound()
+    {
+        int numShot = 0; 
+
+        foreach(Sequence sequence in round)
+        {
+            foreach(CardDataInstance card in sequence.beats)
+            {
+                if (card.cardState == CardState.Shoot)
+                    numShot++;
+            }
+        }
+        ActionManager.numShootToGive?.Invoke(numShot);
+    }
 
     private IEnumerator ReadSequence()
     {
+        CountShootInRound();
         for (int y = 0; y < round.Length; y++)
         {
             yield return new WaitForSeconds(timeBetweenNote);
@@ -86,6 +113,12 @@ public class RoundManager : MonoBehaviour
                             ActionManager.enemyShoot?.Invoke(timeBetweenNote);
                         yield return new WaitForSeconds(timeBetweenNote);
                         break;
+
+                    case CardState.Shoot :
+                        ActionManager.playSound?.Invoke(sequence[i].declarationSound);
+                        yield return new WaitForSeconds(timeBetweenNote);
+                        break;
+
                     case CardState.Play:
                         ActionManager.playSound?.Invoke(sequence[i].playSound);
                         enemy.PlaceCard(sequence[i]);

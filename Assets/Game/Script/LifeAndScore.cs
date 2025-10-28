@@ -81,6 +81,7 @@ public class LifeAndScore : MonoBehaviour
 
     public void OnPlayAgain()
     {
+        Debug.Log("detected");
         startChip = 5;
         numChip.text = startChip.ToString();
         looseCanvas.gameObject.SetActive(false);
@@ -108,8 +109,5 @@ public class LifeAndScore : MonoBehaviour
         disactiveChip.Remove(lChip);
         activeChip.Add(lChip);
         lChip.SetActive(true);
-
-
-
     }
 }
