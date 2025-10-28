@@ -103,33 +103,39 @@ public class RoundManager : MonoBehaviour
 
             CardDataInstance[] sequence = round[y].beats;
 
-            for (int i = 0; i < sequence.Length; i++)
+            enemy.SetDisplay(sequence[0], timeBetweenNote);
+            
+            for (int i = -1; i < sequence.Length-1; i++)
             {
-                switch (sequence[i].cardState)
+                switch (sequence[i+1].cardState)
                 {
                     case CardState.Declaration :
-                        ActionManager.playSound?.Invoke(sequence[i].declarationSound);
+                        
+                        /*
                         if (sequence[i +1].cardState == CardState.Shoot)
                             ActionManager.enemyShoot?.Invoke(timeBetweenNote);
+                        */
+                        
+                        enemy.DeclareCard();
                         yield return new WaitForSeconds(timeBetweenNote);
                         break;
 
+                    /*
                     case CardState.Shoot :
                         ActionManager.playSound?.Invoke(sequence[i].declarationSound);
                         yield return new WaitForSeconds(timeBetweenNote);
                         break;
+                    */
+                    
 
                     case CardState.Play:
-                        ActionManager.playSound?.Invoke(sequence[i].playSound);
-                        enemy.PlaceCard(sequence[i]);
+                        
+                        enemy.PlaceCard();
                         yield return new WaitForSeconds(timeBetweenNote);
                         break;
                 }
             }
-
-            yield return new WaitUntil(() => haveEnemyPlayed);
-
-
+            
             if (havePlayerPlayed && sequence[sequence.Length - 1].color == playerUsedColor && haveTimerOk)
             {
                 Debug.Log("WINNNNNNNNN");

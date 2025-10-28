@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5925cef1-4240-4bf3-8887-3b0928496060" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/SequenceUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/SequenceUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/alissa.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/alissa.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Manager/RoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Manager/RoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +113,7 @@
       <workItem from="1760430470583" duration="2887000" />
       <workItem from="1760439394427" duration="630000" />
       <workItem from="1761576464311" duration="13724000" />
-      <workItem from="1761647615498" duration="399000" />
+      <workItem from="1761647615498" duration="8895000" />
     </task>
     <servers />
   </component>
