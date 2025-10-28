@@ -55,10 +55,12 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator ShowUI()
     {
+        GameManager.instance.CurrentGameState = GameState.InShop;
         prediction.gameObject.SetActive(true);
         prediction.Setup(round);
         yield return new WaitForSeconds(10f);
         StartCoroutine(ReadSequence());
+        GameManager.instance.CurrentGameState = GameState.InRound;
         prediction.gameObject.SetActive(false);
     }
 
