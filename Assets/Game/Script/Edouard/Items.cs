@@ -7,4 +7,9 @@ public class Items : ScriptableObject
     public string name;
     public int price;
     public Sprite icon;
+
+    public void UseItem()
+    {
+        Debug.Log($"Item {name} was used");
+    }
 }

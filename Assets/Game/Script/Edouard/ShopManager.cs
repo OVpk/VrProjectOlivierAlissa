@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class ShopManager : MonoBehaviour
+{
+    #region Unity Variables
+    [SerializeField] GameObject shopUI;
+    [SerializeField] GameObject shopItemUIPrefab;
+    [SerializeField] public List<Items>  shopItems = new List<Items>();
+    [SerializeField] InventoryManager inventoryManagerReference;
+    [SerializeField] ItemUI ItemUIReference;
+    #endregion
+
+    void Start()
+    {
+        for (int i = 0; i < shopItems.Count; i++)
+        {
+            ItemUIReference.itemsReference = shopItems[i]; ItemUIReference.shopManagerReference = this;
+            ItemUIReference.itemID = i;
+            Instantiate(shopItemUIPrefab, shopUI.transform);
+        }
+    }
+
+    public void Buy(int _itemId)
+    {
+        Items itemsReference = shopItems[_itemId];
+
+        if (inventoryManagerReference.money >= itemsReference.price)
+        {
+            inventoryManagerReference.money -= itemsReference.price;
+            Debug.Log("Item Bought");
+
+            if (inventoryManagerReference.itemsDictionary.ContainsKey(itemsReference))
+                inventoryManagerReference.itemsDictionary[itemsReference] += 1;
+            else
+                inventoryManagerReference.itemsDictionary[itemsReference] = 1;
+            
+            inventoryManagerReference.DictionaryToLists();
+        }
+        else
+        {
+            Debug.Log("Not enough money");
+        }
+    }
+
+}
