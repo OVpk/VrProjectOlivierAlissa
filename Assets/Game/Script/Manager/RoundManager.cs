@@ -154,6 +154,7 @@ public class RoundManager : MonoBehaviour
         timeBetweenNote = Mathf.Clamp(timeBetweenNote, minSpeed, 1f);
 
         yield return new WaitForSeconds(1);
+        ActionManager.endOfRound.Invoke();
 
         GameManager.instance.CurrentGameState = GameState.InShop;
         shop.SetActive(true);

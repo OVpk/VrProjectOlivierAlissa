@@ -71,8 +71,13 @@ public class SequenceUI : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        ActionManager.destroyAllCard += () => Destroy(this.gameObject);
+        ActionManager.endOfRound += () => Destroy(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        ActionManager.endOfRound -= () => Destroy(this.gameObject);
     }
 }

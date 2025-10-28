@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-
     public void SmallInput(InputAction.CallbackContext ctx)
     {
         if (ctx.started)
