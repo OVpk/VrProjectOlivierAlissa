@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -68,5 +69,10 @@ public class SequenceUI : MonoBehaviour
             float xPos = startX + i * (cardWidth + cardSpacing);
             rect.anchoredPosition = new Vector2(xPos, 0f);
         }
+    }
+
+    private void Start()
+    {
+        ActionManager.destroyAllCard += () => Destroy(this.gameObject);
     }
 }
