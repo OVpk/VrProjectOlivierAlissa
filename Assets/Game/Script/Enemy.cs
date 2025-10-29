@@ -2,30 +2,40 @@ using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-{
-    [SerializeField] private GameObject cardPrefab;
-    private GameObject card;
+{ 
+    [SerializeField] private GameObject enemyCardDisplay;
     private DroppedCard droppedCard;
 
+    private AudioClip songToPlay;
+
+    [SerializeField] private Animator animator;
+
+    private CardDataInstance enemyCardData;
+
+    public void DoSong() => ActionManager.playSound(songToPlay);
+    
     private void Start()
     {
-        card = Instantiate(cardPrefab);
-        droppedCard = card.GetComponent<DroppedCard>();
+        droppedCard = enemyCardDisplay.GetComponent<DroppedCard>();
         droppedCard.IsDropped = true;
-        card.SetActive(false);
     }
 
-    public void PlaceCard(CardDataInstance cardToPlace)
+    public void SetDisplay(CardDataInstance cardToPlace, float timeBetweenBeats)
     {
-        ResetCardPosition();
-        card.SetActive(true);
-
-        droppedCard.spriteDisplayer.sprite = cardToPlace.visual;
+        enemyCardData = cardToPlace;
+        
+        droppedCard.spriteDisplayer.sprite = enemyCardData.visual;
+        animator.speed = timeBetweenBeats;
+        songToPlay = enemyCardData.declarationSound;
     }
 
-    private void ResetCardPosition()
+    public void PlaceCard()
     {
-        card.transform.position = transform.position - (Vector3.forward * 1.5f) + Vector3.up;
-        card.transform.rotation = Quaternion.Euler(new Vector3(90f, 0f, 0f));
+        songToPlay = enemyCardData.playSound;
+        
+        animator.SetTrigger("PlayCard");
     }
+
+    public void DeclareCard() => animator.SetTrigger("DeclareCard");
+    
 }
