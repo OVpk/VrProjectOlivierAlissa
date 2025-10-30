@@ -10,9 +10,8 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private AudioSource audio1;
     [SerializeField] private AudioSource audio2;
     [SerializeField] private Enemy enemy;
-    [SerializeField] private List<CardData> enemyCards;
-    [SerializeField] private int minNumSequence = 2;
-    [SerializeField] private int maxNumSequence = 4;
+
+
     [SerializeField] private float timeBetweenNote = 1f;
     [SerializeField] private float minusEveryRound = 0.1f;
     [SerializeField] private float minSpeed = 0.5f;
@@ -73,7 +72,7 @@ public class RoundManager : MonoBehaviour
         Sequence[] round = new Sequence[maxNbOfSequences];
         for (int i = 0; i < maxNbOfSequences; i++)
         {
-            round[i] = new Sequence(Random.Range(minNumSequence, maxNbOfSequences), enemyCards[Random.Range(0, enemyCards.Count)]);
+           // round[i] = new Sequence(Random.Range(minNumSequence, maxNbOfSequences), enemyCards[Random.Range(0, enemyCards.Count)]);
         }
 
         return round;
@@ -105,9 +104,9 @@ public class RoundManager : MonoBehaviour
 
             enemy.SetDisplay(sequence[0], timeBetweenNote);
             
-            for (int i = -1; i < sequence.Length-1; i++)
+            for (int i = 0; i < sequence.Length; i++)
             {
-                switch (sequence[i+1].cardState)
+                switch (sequence[i].cardState)
                 {
                     case CardState.Declaration :
                         

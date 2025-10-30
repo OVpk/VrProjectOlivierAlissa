@@ -1425,8 +1425,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35d1110ffda85104bab0ab5682f1884e, type: 2}
   - {fileID: 11400000, guid: f620e17e89c191a449d0ae345f1c0b6e, type: 2}
   - {fileID: 11400000, guid: 9881f4fe281a50648b5e538dfcb00d5f, type: 2}
-  minNumSequence: 2
-  maxNumSequence: 4
   timeBetweenNote: 1
   minusEveryRound: 0.1
   minSpeed: 0.5
@@ -3787,6 +3785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1377386316}
+  - component: {fileID: 1377386317}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3814,6 +3813,21 @@ Transform:
   - {fileID: 2120347086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377386317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377386315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ea92b8e1c685146aeb0d1e1c9594e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoundGenerator
+  minNumSequence: 2
+  maxNumSequence: 4
+  test3: 15
 --- !u!1 &1389874216
 GameObject:
   m_ObjectHideFlags: 0
