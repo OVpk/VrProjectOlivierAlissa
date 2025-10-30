@@ -21,6 +21,7 @@ public static class ActionManager
     public static Action<EnumHand> GunAppear;
     public static Action<EnumHand> GunDisapear;
     public static Action playerShoot;
+    public static Action endOfRound;
     public static Action<float> enemyShoot;
     public static Action<int> numShootToGive;
     public static Action <float> timerToShoot;

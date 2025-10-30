@@ -54,10 +54,12 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator ShowUI()
     {
+        GameManager.instance.CurrentGameState = GameState.InShop;
         prediction.gameObject.SetActive(true);
         prediction.Setup(round);
         yield return new WaitForSeconds(10f);
         StartCoroutine(ReadSequence());
+        GameManager.instance.CurrentGameState = GameState.InRound;
         prediction.gameObject.SetActive(false);
     }
 
@@ -157,6 +159,7 @@ public class RoundManager : MonoBehaviour
         timeBetweenNote = Mathf.Clamp(timeBetweenNote, minSpeed, 1f);
 
         yield return new WaitForSeconds(1);
+        ActionManager.endOfRound.Invoke();
 
         GameManager.instance.CurrentGameState = GameState.InShop;
         shop.SetActive(true);

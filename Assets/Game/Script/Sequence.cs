@@ -3,7 +3,7 @@ using UnityEngine;
 public class Sequence 
 {
     public CardDataInstance[] beats { get; private set; }
-    private int chanceToShoot = 10;
+    private int chanceToShoot = 0;
 
     public Sequence(int nbOfBeats, CardData card)
     {
