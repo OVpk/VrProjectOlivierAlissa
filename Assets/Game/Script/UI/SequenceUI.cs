@@ -71,13 +71,15 @@ public class SequenceUI : MonoBehaviour
         }
     }
 
+    private void ClearSequence() => Destroy(this.gameObject);
+
     private void Awake()
     {
-        ActionManager.endOfRound += () => Destroy(this.gameObject);
+        ActionManager.endOfRound += ClearSequence;
     }
 
     private void OnDestroy()
     {
-        ActionManager.endOfRound -= () => Destroy(this.gameObject);
+        ActionManager.endOfRound -= ClearSequence;
     }
 }

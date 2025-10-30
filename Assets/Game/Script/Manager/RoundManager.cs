@@ -11,14 +11,15 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private AudioSource audio2;
     [SerializeField] private Enemy enemy;
 
+    [SerializeField] private int difficultyLevel = 5;
 
     [SerializeField] private float timeBetweenNote = 1f;
     [SerializeField] private float minusEveryRound = 0.1f;
     [SerializeField] private float minSpeed = 0.5f;
     [SerializeField] private GameObject shop;
     [SerializeField] private GlobalCardsUI prediction;
+    [SerializeField] private RoundGenerator roundGenerator;
 
-    private int maxNbOfSequences = 5;
     private bool haveEnemyPlayed;
     private bool havePlayerPlayed;
     private bool haveTimerOk;
@@ -63,21 +64,22 @@ public class RoundManager : MonoBehaviour
         prediction.gameObject.SetActive(false);
     }
 
-    private void StartRound()
+    [SerializeField] private int minBeatToAddForLevelUp = 1;
+    [SerializeField] private int maxBeatToAddForLevelUp = 3;
+
+    private void DifficultyLevelUp()
     {
-        round = GenerateRound();
-        StartCoroutine(ShowUI());
+        int rndLevelToAdd = Random.Range(minBeatToAddForLevelUp, maxBeatToAddForLevelUp + 1);
+        difficultyLevel += rndLevelToAdd;
+        
+        timeBetweenNote -= minusEveryRound;
+        timeBetweenNote = Mathf.Clamp(timeBetweenNote, minSpeed, 1f);
     }
 
-    public Sequence[] GenerateRound()
+    private void StartRound()
     {
-        Sequence[] round = new Sequence[maxNbOfSequences];
-        for (int i = 0; i < maxNbOfSequences; i++)
-        {
-           // round[i] = new Sequence(Random.Range(minNumSequence, maxNbOfSequences), enemyCards[Random.Range(0, enemyCards.Count)]);
-        }
-
-        return round;
+        round = roundGenerator.GenerateRound(difficultyLevel);
+        StartCoroutine(ShowUI());
     }
     
     private void CountShootInRound()
@@ -112,10 +114,10 @@ public class RoundManager : MonoBehaviour
                 {
                     case CardState.Declaration :
                         
-                        /*
+                        
                         if (sequence[i +1].cardState == CardState.Shoot)
                             ActionManager.enemyShoot?.Invoke(timeBetweenNote);
-                        */
+                        
                         
                         enemy.DeclareCard();
                         yield return new WaitForSeconds(timeBetweenNote);
@@ -155,8 +157,7 @@ public class RoundManager : MonoBehaviour
 
         }
 
-        timeBetweenNote -= minusEveryRound;
-        timeBetweenNote = Mathf.Clamp(timeBetweenNote, minSpeed, 1f);
+        DifficultyLevelUp();
 
         yield return new WaitForSeconds(1);
         ActionManager.endOfRound.Invoke();

@@ -12,8 +12,8 @@ public class RoundGenerator : MonoBehaviour
     
     public Sequence[] GenerateRound(int nbTotalOfBeats)
     {
-        Sequence[] round = new Sequence[nbTotalOfBeats];
         List<int> sequencesSizes = DecomposeNumber(nbTotalOfBeats, minNumSequence, maxNumSequence);
+        Sequence[] round = new Sequence[sequencesSizes.Count];
         for (int i = 0; i < sequencesSizes.Count; i++)
         {
             round[i] = new Sequence(sequencesSizes[i], enemyCards[Random.Range(0, enemyCards.Length)]);
@@ -38,7 +38,7 @@ public class RoundGenerator : MonoBehaviour
             parts.Add(next);
             number -= next;
         }
-
+        
         return parts;
     }
 }

@@ -1622,15 +1622,15 @@ MonoBehaviour:
   audio1: {fileID: 0}
   audio2: {fileID: 0}
   enemy: {fileID: 1125847271}
-  enemyCards:
-  - {fileID: 11400000, guid: 35d1110ffda85104bab0ab5682f1884e, type: 2}
-  - {fileID: 11400000, guid: f620e17e89c191a449d0ae345f1c0b6e, type: 2}
-  - {fileID: 11400000, guid: 9881f4fe281a50648b5e538dfcb00d5f, type: 2}
+  difficultyLevel: 5
   timeBetweenNote: 1
   minusEveryRound: 0.1
   minSpeed: 0.5
   shop: {fileID: 866518910}
   prediction: {fileID: 1063888450}
+  roundGenerator: {fileID: 1377386317}
+  minBeatToAddForLevelUp: 1
+  maxBeatToAddForLevelUp: 3
 --- !u!4 &464261618
 Transform:
   m_ObjectHideFlags: 0
@@ -4208,7 +4208,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoundGenerator
   minNumSequence: 2
   maxNumSequence: 4
-  test3: 15
+  enemyCards:
+  - {fileID: 11400000, guid: 35d1110ffda85104bab0ab5682f1884e, type: 2}
+  - {fileID: 11400000, guid: f620e17e89c191a449d0ae345f1c0b6e, type: 2}
+  - {fileID: 11400000, guid: 9881f4fe281a50648b5e538dfcb00d5f, type: 2}
 --- !u!1 &1389874216
 GameObject:
   m_ObjectHideFlags: 0
