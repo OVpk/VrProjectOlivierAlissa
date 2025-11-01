@@ -81,7 +81,7 @@ public class LifeAndScore : MonoBehaviour
 
     public void OnPlayAgain()
     {
-        Debug.Log("detected");
+        ActionManager.endOfRound.Invoke();
         chipNum = 5;
         numChip.text = chipNum.ToString();
         looseCanvas.gameObject.SetActive(false);

@@ -12,7 +12,10 @@ public class Enemy : MonoBehaviour
 
     private CardDataInstance enemyCardData;
 
-    public void DoSong() => ActionManager.playSound(songToPlay);
+    public void DoSong()
+    {
+        ActionManager.playSound(songToPlay);
+    }
     
     private void Start()
     {

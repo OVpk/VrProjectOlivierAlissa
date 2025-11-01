@@ -19,6 +19,8 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private GameObject shop;
     [SerializeField] private GlobalCardsUI prediction;
     [SerializeField] private RoundGenerator roundGenerator;
+    [SerializeField] private int minBeatToAddForLevelUp = 1;
+    [SerializeField] private int maxBeatToAddForLevelUp = 3;
 
     private bool haveEnemyPlayed;
     private bool havePlayerPlayed;
@@ -64,8 +66,7 @@ public class RoundManager : MonoBehaviour
         prediction.gameObject.SetActive(false);
     }
 
-    [SerializeField] private int minBeatToAddForLevelUp = 1;
-    [SerializeField] private int maxBeatToAddForLevelUp = 3;
+    
 
     private void DifficultyLevelUp()
     {
