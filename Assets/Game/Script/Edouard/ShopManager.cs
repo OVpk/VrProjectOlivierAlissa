@@ -12,6 +12,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] public List<Items>  shopItems = new List<Items>();
     [SerializeField] InventoryManager inventoryManagerReference;
     [SerializeField] ItemUI ItemUIReference;
+    [SerializeField] LifeAndScore moneyRef;
     #endregion
 
     void Start()
@@ -28,9 +29,9 @@ public class ShopManager : MonoBehaviour
     {
         Items itemsReference = shopItems[_itemId];
 
-        if (inventoryManagerReference.money >= itemsReference.price)
+        if (moneyRef.chipNum >= itemsReference.price)
         {
-            inventoryManagerReference.money -= itemsReference.price;
+            moneyRef.chipNum -= itemsReference.price;
             Debug.Log("Item Bought");
 
             if (inventoryManagerReference.itemsDictionary.ContainsKey(itemsReference))

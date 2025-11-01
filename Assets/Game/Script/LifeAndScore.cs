@@ -13,7 +13,7 @@ public class LifeAndScore : MonoBehaviour
     [SerializeField] private bool godMod;
     [SerializeField] private Canvas looseCanvas;
     [SerializeField] private RoundManager roundManager;
-    [SerializeField] private int startChip = 5;
+    public int chipNum = 5;
 
     [SerializeField] private GameObject chip;
     [SerializeField] private GameObject chipContainer;
@@ -35,14 +35,14 @@ public class LifeAndScore : MonoBehaviour
 
     private void Start()
     {
-        numChip.text = startChip.ToString();
+        numChip.text = chipNum.ToString();
 
         AddStartChip();
     }
 
     private void AddStartChip()
     {
-        for (int i = 0; i < startChip; i++)
+        for (int i = 0; i < chipNum; i++)
         {
             GameObject lChip = Instantiate(chip, GetRandomPosition(), Quaternion.identity, chipContainer.transform);
             activeChip.Add(lChip);
@@ -62,15 +62,15 @@ public class LifeAndScore : MonoBehaviour
         if (godMod)
             return;
 
-        startChip -= lifeLostByError;
-        numChip.text = startChip.ToString();
+        chipNum -= lifeLostByError;
+        numChip.text = chipNum.ToString();
         GameObject lChip = activeChip[0];
         lChip.SetActive(false);
 
         disactiveChip.Add(lChip);
         activeChip.Remove(lChip);
 
-        if (startChip <= 0)
+        if (chipNum <= 0)
         {
             looseCanvas.gameObject.SetActive(true);
             GameManager.instance.CurrentGameState = GameState.InShop;
@@ -82,8 +82,8 @@ public class LifeAndScore : MonoBehaviour
     public void OnPlayAgain()
     {
         Debug.Log("detected");
-        startChip = 5;
-        numChip.text = startChip.ToString();
+        chipNum = 5;
+        numChip.text = chipNum.ToString();
         looseCanvas.gameObject.SetActive(false);
         GameManager.instance.CurrentGameState = GameState.InRound;
         roundManager.enabled = true;
@@ -94,8 +94,8 @@ public class LifeAndScore : MonoBehaviour
     {
         if (godMod)
             return;
-        startChip += lifeWin;
-        numChip.text = startChip.ToString();
+        chipNum += lifeWin;
+        numChip.text = chipNum.ToString();
 
         GameObject lChip;
         if (disactiveChip.Count == 0)
