@@ -12,9 +12,11 @@ public class CarDetectionTrigger : MonoBehaviour
             {
                 case true:
                     ActionManager.setTruePlayer?.Invoke(card.cardData.color);
+                    Debug.Log("player");
                     break;
                 case false:
                     ActionManager.setTrueEnemy?.Invoke();
+                    Debug.Log("enemy detected");
                     break;
             }
         }

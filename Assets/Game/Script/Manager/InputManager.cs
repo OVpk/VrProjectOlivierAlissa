@@ -39,7 +39,6 @@ public class InputManager : MonoBehaviour
             else if(GameManager.instance.CurrentGameState == GameState.InRound && ctx.control.device.usages.Contains(CommonUsages.RightHand))
             {
                 ActionManager.spawnCard?.Invoke(EnumHand.RightHand);
-                Debug.Log("input");
             }
                 
         }

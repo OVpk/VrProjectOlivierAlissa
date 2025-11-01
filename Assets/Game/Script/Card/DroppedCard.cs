@@ -12,7 +12,6 @@ public class DroppedCard : MonoBehaviour
     public bool isPlayer;
 
     private float timer;
-    private float timeToFall = .3f;
     private const string cardTag = "Card";
     private float timeMaxBefore = 1F;
 
@@ -43,7 +42,7 @@ public class DroppedCard : MonoBehaviour
     }
     private void Update()
     {
-        if (!isDropped)
+        if (!isDropped || !isPlayer)
             return;
 
         timer += Time.deltaTime;
@@ -51,16 +50,17 @@ public class DroppedCard : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!isDropped)
+        if (!isDropped || !isPlayer)
             return;
 
-        if (collision.gameObject.CompareTag(cardTag))
-        {
+        Debug.Log(timer);
+        //if (collision.gameObject.CompareTag(cardTag))
+        //{
             if (timer > timeMaxBefore)
                 return;
 
             ActionManager.setTrueTimer.Invoke();
-        }
+        //}
     }
 
     private void OnDisable()
@@ -74,7 +74,6 @@ public class DroppedCard : MonoBehaviour
         if (!isDropped)
             return;
 
-        if(isPlayer)
-            gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

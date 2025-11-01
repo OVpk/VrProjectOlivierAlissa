@@ -139,7 +139,10 @@ public class RoundManager : MonoBehaviour
                         break;
                 }
             }
-            
+
+            yield return new WaitUntil(() => haveEnemyPlayed);
+
+            Debug.Log("have player played: " + havePlayerPlayed + "haveTimerOk: " + haveTimerOk);
             if (havePlayerPlayed && sequence[sequence.Length - 1].color == playerUsedColor && haveTimerOk)
             {
                 Debug.Log("WINNNNNNNNN");
