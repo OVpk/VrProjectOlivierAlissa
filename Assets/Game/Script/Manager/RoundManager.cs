@@ -113,23 +113,23 @@ public class RoundManager : MonoBehaviour
                 switch (sequence[i].cardState)
                 {
                     case CardState.Declaration :
-                        
-                        
-                        if (sequence[i +1].cardState == CardState.Shoot)
-                            ActionManager.enemyShoot?.Invoke(timeBetweenNote);
-
                         enemy.DeclareCard();
                         yield return new WaitForSeconds(timeBetweenNote);
                         ActionManager.playSound(sequence[i].declarationSound);
                         break;
 
-                    /*
-                    case CardState.Shoot :
-                        ActionManager.playSound?.Invoke(sequence[i].declarationSound);
-                        yield return new WaitForSeconds(timeBetweenNote);
-                        break;
-                    */
                     
+                    case CardState.Shoot :
+                        //ENEMY.TIRER
+                        yield return new WaitForSeconds(timeBetweenNote - 0.2f);
+                        //CAN SHOOT = TRUE
+                        yield return new WaitForSeconds(0.2f);
+                        ActionManager.playSound(sequence[i].playSound);
+                        yield return new WaitForSeconds(0.2f);
+                        //CAN SHOOT = FALSE
+                        //VERIFICATION DE SI SHOOT A TEMPS
+                        break;
+
 
                     case CardState.Play:
                         enemy.PlaceCard();
