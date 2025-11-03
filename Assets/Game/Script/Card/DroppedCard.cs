@@ -53,13 +53,11 @@ public class DroppedCard : MonoBehaviour
         if (!isDropped || !isPlayer)
             return;
 
-        Debug.Log(timer);
         //if (collision.gameObject.CompareTag(cardTag))
         //{
             if (timer > timeMaxBefore)
                 return;
 
-            ActionManager.setTrueTimer.Invoke();
         //}
     }
 

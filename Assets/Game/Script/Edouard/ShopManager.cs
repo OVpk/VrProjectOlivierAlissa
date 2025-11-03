@@ -32,7 +32,6 @@ public class ShopManager : MonoBehaviour
         if (moneyRef.chipNum >= itemsReference.price)
         {
             moneyRef.chipNum -= itemsReference.price;
-            Debug.Log("Item Bought");
 
             if (inventoryManagerReference.itemsDictionary.ContainsKey(itemsReference))
                 inventoryManagerReference.itemsDictionary[itemsReference] += 1;
@@ -43,7 +42,6 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough money");
         }
     }
 

@@ -24,15 +24,15 @@ public class RoundManager : MonoBehaviour
 
     private bool haveEnemyPlayed;
     private bool havePlayerPlayed;
-    private bool haveTimerOk;
     private Sequence[] round;
     private CardColors playerUsedColor;
+
+    private bool canPlay = false;
 
     private void OnEnable()
     {
         ActionManager.setTrueEnemy += EnnemyPlayed;
         ActionManager.setTruePlayer += PlayerPlayed;
-        ActionManager.setTrueTimer += TimerOk;
         ActionManager.startRound += StartRound;
 
         ResetAllState();
@@ -44,13 +44,12 @@ public class RoundManager : MonoBehaviour
     {
         ActionManager.setTrueEnemy -= EnnemyPlayed;
         ActionManager.setTruePlayer -= PlayerPlayed;
-        ActionManager.setTrueTimer -= TimerOk;
         ActionManager.startRound -= StartRound;
     }
 
     private void ResetDifficultyValue()
     {
-        timeBetweenNote = 1f;
+        //timeBetweenNote = 1f;
         //Ici on pourra rajouter toutes les valeurs lié a la difficulté a reinitialiser quand on meurt
         //comme la vitesse a taille des rounds etc...  fin ta capter quoi
     }
@@ -73,8 +72,8 @@ public class RoundManager : MonoBehaviour
         int rndLevelToAdd = Random.Range(minBeatToAddForLevelUp, maxBeatToAddForLevelUp + 1);
         difficultyLevel += rndLevelToAdd;
         
-        timeBetweenNote -= minusEveryRound;
-        timeBetweenNote = Mathf.Clamp(timeBetweenNote, minSpeed, 1f);
+        //timeBetweenNote -= minusEveryRound;
+        //timeBetweenNote = Mathf.Clamp(timeBetweenNote, minSpeed, 1f);
     }
 
     private void StartRound()
@@ -118,10 +117,10 @@ public class RoundManager : MonoBehaviour
                         
                         if (sequence[i +1].cardState == CardState.Shoot)
                             ActionManager.enemyShoot?.Invoke(timeBetweenNote);
-                        
-                        
+
                         enemy.DeclareCard();
                         yield return new WaitForSeconds(timeBetweenNote);
+                        ActionManager.playSound(sequence[i].declarationSound);
                         break;
 
                     /*
@@ -133,29 +132,31 @@ public class RoundManager : MonoBehaviour
                     
 
                     case CardState.Play:
-                        
                         enemy.PlaceCard();
-                        yield return new WaitForSeconds(timeBetweenNote);
+                        yield return new WaitForSeconds(timeBetweenNote -0.2f);
+                        canPlay = true;
+                        yield return new WaitForSeconds(0.2f);
+                        ActionManager.playSound(sequence[i].playSound);
                         break;
                 }
             }
 
             yield return new WaitUntil(() => haveEnemyPlayed);
+            yield return new WaitForSeconds(0.2f);
+            canPlay = false;
 
-            Debug.Log("have player played: " + havePlayerPlayed + "haveTimerOk: " + haveTimerOk);
-            if (havePlayerPlayed && sequence[sequence.Length - 1].color == playerUsedColor && haveTimerOk)
+            if (havePlayerPlayed && sequence[sequence.Length - 1].color == playerUsedColor)
             {
                 Debug.Log("WINNNNNNNNN");
                 ActionManager.onWin?.Invoke();
-                //ActionManager.playParticle.Invoke(Color.green);
             }
             else
             {
                 Debug.Log("LOOOOOOOSE");
                 ActionManager.onLoose?.Invoke();
-                //ActionManager.playParticle.Invoke(Color.red);
             }
 
+            ActionManager.setTruePlayer += PlayerPlayed;
             yield return new WaitForSeconds(1.5f);
             ResetAllState();
 
@@ -176,13 +177,15 @@ public class RoundManager : MonoBehaviour
 
         havePlayerPlayed = false;
         haveEnemyPlayed = false;
-        haveTimerOk = false;
     }
 
     private void PlayerPlayed(CardColors pColor)
     {
-        if (havePlayerPlayed) return;
-
+        ActionManager.setTruePlayer -= PlayerPlayed;
+        if (!canPlay) 
+            return;
+        if (havePlayerPlayed) 
+            return;
         havePlayerPlayed = true;
         playerUsedColor = pColor;
     }
@@ -194,5 +197,4 @@ public class RoundManager : MonoBehaviour
         haveEnemyPlayed = true;
     }
 
-    private void TimerOk() => haveTimerOk = true;
 }

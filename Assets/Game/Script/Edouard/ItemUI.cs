@@ -16,7 +16,6 @@ public class ItemUI : MonoBehaviour
     
     private void Awake()
     {
-        Debug.Log($"{itemName} Awakened");
         itemName = itemsReference.name;
         itemPrice.text = itemsReference.price.ToString();
         itemIcon.sprite = itemsReference.icon;

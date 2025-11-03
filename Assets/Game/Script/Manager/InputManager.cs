@@ -50,15 +50,4 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    public void UpInput(InputAction.CallbackContext ctx)
-    {
-        if (ctx.started)
-            Debug.Log("pressed UP");
-    }
-
-    public void DownInput(InputAction.CallbackContext ctx)
-    {
-        if (ctx.started)
-            Debug.Log("pressed DOWN");
-    }
 }
