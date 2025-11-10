@@ -3,6 +3,7 @@ using System.ComponentModel.Design;
 using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 
 public class HandController : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class HandController : MonoBehaviour
     private int cardIndex = 0;
     private Vector3 lastAnchorPos;
     private Vector3 anchorVelocity;
+    private float rotateCard = 90f;
+    private float tweenDuration = .2f;
 
     private void OnEnable()
     {
@@ -143,7 +146,7 @@ public class HandController : MonoBehaviour
             cardRB.AddForce(finalDir * throwForce, ForceMode.VelocityChange);
         }
 
-        cardRB.DORotate(new Vector3(90f, cardRB.transform.rotation.eulerAngles.y, cardRB.transform.rotation.eulerAngles.z), 0.2f);
+        cardRB.DORotate(new Vector3(rotateCard, cardRB.transform.rotation.eulerAngles.y, cardRB.transform.rotation.eulerAngles.z), tweenDuration);
 
         cardDropped.IsDropped = true;
         cardDropped.cardData = cards[cardIndex].Instance(CardState.Play);

@@ -1,9 +1,12 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
     [SerializeField] private float speedBullet = 1000;
+
+    private float waitTime = 2.5f;
 
     private void OnEnable()
     {
@@ -16,7 +19,7 @@ public class bullet : MonoBehaviour
 
     private IEnumerator WaitBeforeDisactivate()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(waitTime);
         gameObject.SetActive(false);    
     }
 }

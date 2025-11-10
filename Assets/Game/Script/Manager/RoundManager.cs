@@ -31,6 +31,10 @@ public class RoundManager : MonoBehaviour
     private bool canPlay = false;
     private bool canShoot = false;
 
+    private float waitTimeSequenceUI = 10f;
+    private float waitMargin = .2f;
+    private float waitBetweenRound = 1.5f;
+
     private void OnEnable()
     {
         ActionManager.setTrueEnemy += EnnemyPlayed;
@@ -51,7 +55,7 @@ public class RoundManager : MonoBehaviour
 
     private void ResetDifficultyValue()
     {
-        //timeBetweenNote = 1f;
+        timeBetweenNote = 1f;
         //Ici on pourra rajouter toutes les valeurs lié a la difficulté a reinitialiser quand on meurt
         //comme la vitesse a taille des rounds etc...  fin ta capter quoi
     }
@@ -61,7 +65,7 @@ public class RoundManager : MonoBehaviour
         GameManager.instance.CurrentGameState = GameState.InShop;
         prediction.gameObject.SetActive(true);
         prediction.Setup(round);
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(waitTimeSequenceUI);
         StartCoroutine(ReadSequence());
         GameManager.instance.CurrentGameState = GameState.InRound;
         prediction.gameObject.SetActive(false);
@@ -71,9 +75,8 @@ public class RoundManager : MonoBehaviour
     {
         int rndLevelToAdd = Random.Range(minBeatToAddForLevelUp, maxBeatToAddForLevelUp + 1);
         difficultyLevel += rndLevelToAdd;
-        
-        //timeBetweenNote -= minusEveryRound;
-        //timeBetweenNote = Mathf.Clamp(timeBetweenNote, minSpeed, 1f);
+        if (!(timeBetweenNote <= minSpeed))
+            timeBetweenNote -= minusEveryRound;
     }
 
     private void StartRound()
@@ -124,13 +127,13 @@ public class RoundManager : MonoBehaviour
                     case CardState.Shoot :
                         havePlayerShoot = false;
                         enemy.Shoot();
-                        yield return new WaitForSeconds(timeBetweenNote - 0.2f);
+                        yield return new WaitForSeconds(timeBetweenNote - waitMargin);
                         canShoot = true;
 
-                        yield return new WaitForSeconds(0.2f);
+                        yield return new WaitForSeconds(waitMargin);
                         ActionManager.playSound(sequence[i].playSound);
 
-                        yield return new WaitForSeconds(0.2f);
+                        yield return new WaitForSeconds(waitMargin);
                         canShoot = false;
 
                         if (havePlayerShoot)
@@ -148,14 +151,14 @@ public class RoundManager : MonoBehaviour
                     case CardState.Play:
                         ActionManager.setTruePlayer += PlayerPlayed;
                         enemy.PlaceCard();
-                        yield return new WaitForSeconds(timeBetweenNote -0.2f);
+                        yield return new WaitForSeconds(timeBetweenNote - waitMargin);
                         canPlay = true;
 
-                        yield return new WaitForSeconds(0.2f);
+                        yield return new WaitForSeconds(waitMargin);
                         ActionManager.playSound(sequence[i].playSound);
 
                         yield return new WaitUntil(() => haveEnemyPlayed);
-                        yield return new WaitForSeconds(0.2f);
+                        yield return new WaitForSeconds(waitMargin);
                         canPlay = false;
                         if (havePlayerPlayed && sequence[sequence.Length - 1].color == playerUsedColor)
                         {
@@ -167,17 +170,12 @@ public class RoundManager : MonoBehaviour
                             Debug.Log("LOOOOOOOSE");
                             ActionManager.onLoose?.Invoke();
                         }
-
-
                         break;
-
                 }
             }
 
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(waitBetweenRound);
             ResetAllState();
-
-
         }
 
         DifficultyLevelUp();

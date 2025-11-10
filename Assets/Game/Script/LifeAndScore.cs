@@ -13,7 +13,10 @@ public class LifeAndScore : MonoBehaviour
     [SerializeField] private bool godMod;
     [SerializeField] private Canvas looseCanvas;
     [SerializeField] private RoundManager roundManager;
+
     public int chipNum = 5;
+    private float margin = .05f;
+    private int baseChip = 5;
 
     [SerializeField] private GameObject chip;
     [SerializeField] private GameObject chipContainer;
@@ -52,8 +55,8 @@ public class LifeAndScore : MonoBehaviour
     private Vector3 GetRandomPosition()
     {
         Vector3 lPosStart = chipContainer.transform.position;
-        float lRandomX = Random.Range(lPosStart.x - 0.05f, lPosStart.x + 0.05f);
-        float lRandomZ = Random.Range(lPosStart.z - 0.05f, lPosStart.z + 0.05f);
+        float lRandomX = Random.Range(lPosStart.x - margin, lPosStart.x + margin);
+        float lRandomZ = Random.Range(lPosStart.z - margin, lPosStart.z + margin);
         return new Vector3(lRandomX, lPosStart.y, lRandomZ);
     }
 
@@ -82,7 +85,7 @@ public class LifeAndScore : MonoBehaviour
     public void OnPlayAgain()
     {
         ActionManager.endOfRound.Invoke();
-        chipNum = 5;
+        chipNum = baseChip;
         numChip.text = chipNum.ToString();
         looseCanvas.gameObject.SetActive(false);
         GameManager.instance.CurrentGameState = GameState.InRound;

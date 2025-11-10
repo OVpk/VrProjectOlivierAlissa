@@ -9,11 +9,10 @@ public class DroppedCard : MonoBehaviour
 
     public Image spriteDisplayer;
     public CardDataInstance cardData;
-    public bool isPlayer;
 
+    public bool isPlayer;
     private float timer;
-    private const string cardTag = "Card";
-    private float timeMaxBefore = 1F;
+    private float timeMaxBefore = 1f;
 
     private bool isDropped;
     public bool IsDropped
@@ -53,12 +52,8 @@ public class DroppedCard : MonoBehaviour
         if (!isDropped || !isPlayer)
             return;
 
-        //if (collision.gameObject.CompareTag(cardTag))
-        //{
-            if (timer > timeMaxBefore)
-                return;
-
-        //}
+        if (timer > timeMaxBefore)
+            return;
     }
 
     private void OnDisable()

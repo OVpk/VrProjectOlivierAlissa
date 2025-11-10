@@ -7,9 +7,6 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     #region Variables
-    /*[SerializeField] GameObject inventoryUI;
-    [SerializeField] GameObject shopItemUIPrefab;
-    [SerializeField] ItemUI ItemUIReference;*/
 
     #region Lists
     [SerializeField] List<Items> itemList = new List<Items>();
@@ -22,8 +19,6 @@ public class InventoryManager : MonoBehaviour
     
     #endregion
 
-    
-    
     public void DictionaryToLists()
     {
         itemInt.Clear();

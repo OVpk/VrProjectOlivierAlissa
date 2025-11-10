@@ -40,7 +40,6 @@ public class ShopManagerOUTDATED : MonoBehaviour
         if (inventoryManagerReference.money >= item.price)
         {
             inventoryManagerReference.money -= item.price;
-            Debug.Log("Item Bought");
 
             if (inventoryManagerReference.itemsDictionary.ContainsKey(item))
                 inventoryManagerReference.itemsDictionary[item] += 1;
@@ -48,10 +47,6 @@ public class ShopManagerOUTDATED : MonoBehaviour
                 inventoryManagerReference.itemsDictionary[item] = 1;
             
             inventoryManagerReference.DictionaryToLists();
-        }
-        else
-        {
-            Debug.Log("Not enough money");
         }
     }
 

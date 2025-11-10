@@ -42,13 +42,11 @@ public class GameMenuManager : MonoBehaviour
     #region MainMenuFunctions
     void StartGame()
     {
-        Debug.Log("Starting Game");
         gameState = GameState.InGame;
     }
 
     void ExitGame()
     {
-        Debug.Log("Exiting Game");
         Application.Quit();
     }
     #endregion
@@ -57,7 +55,6 @@ public class GameMenuManager : MonoBehaviour
 
     void ReturnToMenu()
     {
-        Debug.Log("Returning to menu");
         gameState = GameState.MainMenu;
     }
     #endregion

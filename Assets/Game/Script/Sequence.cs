@@ -4,7 +4,7 @@ public class Sequence
 {
     public CardDataInstance[] beats { get; private set; }
     private int chanceToShoot = 8;
-
+    private int maxChance = 10;
     public Sequence(int nbOfBeats, CardData card)
     {
         beats = new CardDataInstance[nbOfBeats];
@@ -12,7 +12,7 @@ public class Sequence
 
         if(nbOfBeats > 2)
         {
-            int random = Random.Range(1, 10);
+            int random = Random.Range(1, maxChance);
             if(random <= chanceToShoot)
             {
                 shouldShoot = true;

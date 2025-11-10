@@ -74,7 +74,6 @@ public class GameManager : MonoBehaviour
         if (!canShoot)
             return;
 
-        Debug.Log("shouldStop");
         StopCoroutine(playerShootCoroutine);
     }
 }
