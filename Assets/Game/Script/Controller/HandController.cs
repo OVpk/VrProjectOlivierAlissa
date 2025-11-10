@@ -87,10 +87,8 @@ public class HandController : MonoBehaviour
         if (currentHand != pHand)
             return;
 
-        Debug.Log("ShouldSpawn");
         ResetCardPosition();
         cardInHand.SetActive(true);
-        Debug.Log(cardInHand.activeSelf);
         cardCollider.enabled = false;
         cardDropped.spriteDisplayer.sprite = cards[cardIndex].visual;
     }

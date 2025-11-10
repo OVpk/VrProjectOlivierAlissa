@@ -2,24 +2,21 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform anchorLaunchBullet;
-    [SerializeField] protected bool isPlayer;
-    private GameObject bullet;
+    //[serializefield] protected bool isplayer;
 
-    protected virtual void Shoot()
-    {
-        if(bullet != null)
-        {
-            bullet.transform.position = anchorLaunchBullet.transform.position;
-            bullet.SetActive(true);
-        }
-        else
-        {
-            bullet = Instantiate(bulletPrefab, anchorLaunchBullet.position, Quaternion.identity);
-        }
+    //protected virtual void shoot()
+    //{
+    //    if (bullet != null)
+    //    {
+    //        bullet.transform.position = anchorlaunchbullet.transform.position;
+    //        bullet.setactive(true);
+    //    }
+    //    else
+    //    {
+    //        bullet = instantiate(bulletprefab, anchorlaunchbullet.position, quaternion.identity);
+    //    }
 
-        bullet.transform.rotation = gameObject.transform.rotation;
-    }
+    //    bullet.transform.rotation = gameobject.transform.rotation;
+    //}
 
 }

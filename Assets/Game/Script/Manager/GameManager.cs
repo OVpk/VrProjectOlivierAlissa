@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
     {
         ActionManager.numShootToGive += SetNumShot;
         ActionManager.timerToShoot += StartPlayerShoot;
-        ActionManager.playerShoot += StopCoroutineTimer;
     }
 
     private void OnDestroy()
@@ -54,7 +53,6 @@ public class GameManager : MonoBehaviour
 
     private void SetNumShot(int pNum)
     {
-        Debug.Log(pNum);
         GunPlayer.NumMaxShootSequence = pNum;
     }
 

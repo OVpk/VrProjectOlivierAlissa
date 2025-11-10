@@ -25,4 +25,6 @@ public class Enemy : MonoBehaviour
 
     public void DeclareCard() => animator.SetTrigger("DeclareCard");
 
+    public void Shoot() => animator.SetTrigger("Shoot");
+
 }

@@ -120,7 +120,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6667195871572499579}
-  - component: {fileID: 4716336664911304332}
   m_Layer: 0
   m_Name: EnemyGun
   m_TagString: Untagged
@@ -147,23 +146,6 @@ Transform:
   - {fileID: 8209928336462109288}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &4716336664911304332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958470320540417633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a224c87775ad6b64ea7be9e50c492010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GunEnemy
-  bulletPrefab: {fileID: 8693324065650451056, guid: 5103125307638e447863b647ae0ee5d5, type: 3}
-  anchorLaunchBullet: {fileID: 8028900446744891294}
-  isPlayer: 0
-  howLongToRotate: 0.5
-  waitBeforeGoingDown: 0.2
 --- !u!1 &1288817768501993180
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ public class GunEnemy : Gun
 
     private void StartShooting()
     {
-        Shoot();
+        //Shoot();
         StartCoroutine(WaitBeforeDown());
     }
     private IEnumerator WaitBeforeDown()

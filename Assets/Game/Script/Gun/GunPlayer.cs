@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
 
-public class GunPlayer : Gun
+public class GunPlayer : MonoBehaviour
 {
     private int numMaxShootSequence;
 
@@ -35,14 +35,11 @@ public class GunPlayer : Gun
     {
         ActionManager.playerShoot -= Shoot;
     }
-    protected override void Shoot()
+    protected void Shoot()
     {
         hasShootNum++;
         int lBulletLeft = (numMaxShootSequence - hasShootNum);
         if(lBulletLeft >= 0) 
             UiGun.text = lBulletLeft.ToString();
-
-        if(hasShootNum <=  numMaxShootSequence) 
-            base.Shoot();
     }
 }
