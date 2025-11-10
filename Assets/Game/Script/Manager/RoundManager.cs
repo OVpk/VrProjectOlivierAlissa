@@ -104,7 +104,7 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator ReadSequence()
     {
-        //CountShootInRound();
+        CountShootInRound();
         for (int y = 0; y < round.Length; y++)
         {
             yield return new WaitForSeconds(timeBetweenNote);

@@ -13458,8 +13458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e51f7138346554b886f29f814bfe74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  GunPlayer: {fileID: 0}
-  canShoot: 0
 --- !u!4 &954688232
 Transform:
   m_ObjectHideFlags: 0
@@ -29819,7 +29817,7 @@ GameObject:
   - component: {fileID: 2017263488}
   - component: {fileID: 2017263489}
   m_Layer: 0
-  m_Name: LifeManager
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29853,6 +29851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Life
   numChip: {fileID: 818944049}
+  UiGun: {fileID: 1715944634}
   lifeLostByError: 1
   lifeWin: 1
   godMod: 0
@@ -31171,6 +31170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef96540ce5df9f940abbdce9d61f8e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
+  player: {fileID: 2017263489}
 --- !u!4 &2120347086
 Transform:
   m_ObjectHideFlags: 0

@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class LifeAndScore : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI numChip;
+    [SerializeField] private TextMeshProUGUI UiGun;
     [SerializeField] private int lifeLostByError = 1;
     [SerializeField] private int lifeWin = 1;
     [SerializeField] private bool godMod;
@@ -17,6 +18,7 @@ public class LifeAndScore : MonoBehaviour
     public int chipNum = 5;
     private float margin = .05f;
     private int baseChip = 5;
+    private int nbOfShoot;
 
     [SerializeField] private GameObject chip;
     [SerializeField] private GameObject chipContainer;
@@ -28,12 +30,14 @@ public class LifeAndScore : MonoBehaviour
     {
         ActionManager.onWin += WinLife;
         ActionManager.onLoose += LooseLife;
+        ActionManager.numShootToGive += SetNumShot;
     }
 
     private void OnDisable()
     {
         ActionManager.onWin -= WinLife;
         ActionManager.onLoose -= LooseLife;
+        ActionManager.numShootToGive -= SetNumShot;
     }
 
     private void Start()
@@ -113,4 +117,22 @@ public class LifeAndScore : MonoBehaviour
         activeChip.Add(lChip);
         lChip.SetActive(true);
     }
+
+    private void SetNumShot(int pNum)
+    {
+        nbOfShoot = pNum;
+        DisplayBullets();
+    }
+
+    private void DisplayBullets() => UiGun.text = nbOfShoot.ToString();
+    
+    public void TryShoot()
+    {
+        if (nbOfShoot == 0) return;
+
+        nbOfShoot--;
+        DisplayBullets();
+        ActionManager.playerShoot?.Invoke();
+    }
+
 }

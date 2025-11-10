@@ -12,7 +12,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] public List<Items>  shopItems = new List<Items>();
     [SerializeField] InventoryManager inventoryManagerReference;
     [SerializeField] ItemUI ItemUIReference;
-    [SerializeField] LifeAndScore moneyRef;
+    [SerializeField] Player moneyRef;
     #endregion
 
     void Start()

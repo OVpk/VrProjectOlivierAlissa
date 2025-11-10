@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    [SerializeField] private Player player;
+
     public void SmallInput(InputAction.CallbackContext ctx)
     {
         if (ctx.started)
@@ -33,7 +35,7 @@ public class InputManager : MonoBehaviour
         {
             if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.instance.CurrentGameState == GameState.InRound)
             {
-                ActionManager.playerShoot?.Invoke();
+                player.TryShoot();
                 return;
             }
             else if(GameManager.instance.CurrentGameState == GameState.InRound && ctx.control.device.usages.Contains(CommonUsages.RightHand))
