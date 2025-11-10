@@ -34,7 +34,6 @@ public class RoundManager : MonoBehaviour
     private void OnEnable()
     {
         ActionManager.setTrueEnemy += EnnemyPlayed;
-        ActionManager.setTruePlayer += PlayerPlayed;
         ActionManager.playerShoot += PlayerShoot;
         ActionManager.startRound += StartRound;
 
@@ -46,7 +45,6 @@ public class RoundManager : MonoBehaviour
     private void OnDisable()
     {
         ActionManager.setTrueEnemy -= EnnemyPlayed;
-        ActionManager.setTruePlayer -= PlayerPlayed;
         ActionManager.playerShoot -= PlayerShoot;
         ActionManager.startRound -= StartRound;
     }
@@ -148,6 +146,7 @@ public class RoundManager : MonoBehaviour
 
 
                     case CardState.Play:
+                        ActionManager.setTruePlayer += PlayerPlayed;
                         enemy.PlaceCard();
                         yield return new WaitForSeconds(timeBetweenNote -0.2f);
                         canPlay = true;
@@ -177,7 +176,6 @@ public class RoundManager : MonoBehaviour
 
             yield return new WaitForSeconds(1.5f);
             ResetAllState();
-            ActionManager.setTruePlayer += PlayerPlayed;
 
 
         }
