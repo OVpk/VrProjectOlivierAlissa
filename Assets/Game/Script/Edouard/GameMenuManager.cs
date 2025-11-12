@@ -6,9 +6,9 @@ public class GameMenuManager : MonoBehaviour
 {
     #region Unity Variables
     [Header("MenuUi")]
-    [SerializeField] GameObject gameMenu;
+    [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject settingsMenu;
-
+    
     enum GameState
     {
         MainMenu,
@@ -20,6 +20,7 @@ public class GameMenuManager : MonoBehaviour
     #region MainMenuButtons
     [Header("MainMenuButtons")]
     [SerializeField] Button StartGameButton;
+    [SerializeField] Button OpenSettingsButton;
     [SerializeField] Button ExitGameButton;
     #endregion
     
@@ -35,6 +36,7 @@ public class GameMenuManager : MonoBehaviour
     {
         StartGameButton.onClick.AddListener(StartGame);
         ExitGameButton.onClick.AddListener(ExitGame);
+        OpenSettingsButton.onClick.AddListener(OpenSettings);
         ReturnToMainMenuButton.onClick.AddListener(ReturnToMainMenu);
     }
 
@@ -43,6 +45,7 @@ public class GameMenuManager : MonoBehaviour
     {
         Debug.Log("Starting Game");
         gameState = GameState.InGame;
+        mainMenu.SetActive(false);
     }
 
     void ExitGame()
@@ -58,18 +61,21 @@ public class GameMenuManager : MonoBehaviour
     {
         Debug.Log("Returning to mainMenu");
         gameState = GameState.MainMenu;
+        mainMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+    }
+
+    void OpenSettings()
+    {
+        Debug.Log("Opening Settings");
+        gameState = GameState.MainMenu;
+        settingsMenu.SetActive(true);
+    }
+
+    void CloseSettings()
+    {
+        Debug.Log("Closing Settings");
+        settingsMenu.SetActive(false);
     }
     #endregion
-
-    private void Update()
-    {
-        if (gameState == GameState.InGame)
-        {
-            
-        }
-        else if (gameState == GameState.MainMenu)
-        {
-            
-        }
-    }
 }
