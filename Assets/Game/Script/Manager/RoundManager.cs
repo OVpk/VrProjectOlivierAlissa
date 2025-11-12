@@ -37,7 +37,6 @@ public class RoundManager : MonoBehaviour
 
     private void OnEnable()
     {
-        ActionManager.setTrueEnemy += EnnemyPlayed;
         ActionManager.playerShoot += PlayerShoot;
         ActionManager.startRound += StartRound;
 
@@ -48,7 +47,6 @@ public class RoundManager : MonoBehaviour
 
     private void OnDisable()
     {
-        ActionManager.setTrueEnemy -= EnnemyPlayed;
         ActionManager.playerShoot -= PlayerShoot;
         ActionManager.startRound -= StartRound;
     }
@@ -89,20 +87,14 @@ public class RoundManager : MonoBehaviour
     
     private void CountShootInRound()
     {
-        int numShot = 0; 
-
+        int numShot = 0;
         foreach(Sequence sequence in round)
-        {
             foreach(CardDataInstance card in sequence.beats)
-            {
-                if (card.cardState == CardState.Shoot)
-                    numShot++;
-            }
-        }
+                if (card.cardState == CardState.Shoot) numShot++;
+        
+        
         ActionManager.numShootToGive?.Invoke(numShot);
     }
-
-
 
     private IEnumerator ReadSequence()
     {
@@ -120,58 +112,15 @@ public class RoundManager : MonoBehaviour
                 switch (sequence[i].cardState)
                 {
                     case CardState.Declaration :
-                        enemy.DeclareCard();
-                        yield return new WaitForSeconds(timeBetweenNote);
-                        ActionManager.playSound(sequence[i].declarationSound);
+                        yield return DeclarationBeat(sequence[i]);
                         break;
-
                     
                     case CardState.Shoot :
-                        havePlayerShoot = false;
-                        enemy.Shoot();
-                        yield return new WaitForSeconds(timeBetweenNote - waitMargin);
-                        canShoot = true;
-
-                        yield return new WaitForSeconds(waitMargin);
-                        ActionManager.playSound(sequence[i].playSound);
-
-                        yield return new WaitForSeconds(waitMargin);
-                        canShoot = false;
-
-                        if (havePlayerShoot)
-                        {
-                            Debug.Log("WINNNNNNNNN SHOOOOT");
-                        }
-                        else
-                        {
-                            Debug.Log("LOOOOOOOSE SHOOOOT");
-                            ActionManager.onLoose?.Invoke();
-                        }
+                        yield return ShootBeat(sequence[i]);
                         break;
-
-
+                    
                     case CardState.Play:
-                        ActionManager.setTruePlayer += PlayerPlayed;
-                        enemy.PlaceCard();
-                        yield return new WaitForSeconds(timeBetweenNote - waitMargin);
-                        canPlay = true;
-
-                        yield return new WaitForSeconds(waitMargin);
-                        ActionManager.playSound(sequence[i].playSound);
-
-                        yield return new WaitUntil(() => haveEnemyPlayed);
-                        yield return new WaitForSeconds(waitMargin);
-                        canPlay = false;
-                        if (havePlayerPlayed && sequence[sequence.Length - 1].color == playerUsedColor)
-                        {
-                            Debug.Log("WINNNNNNNNN");
-                            ActionManager.onWin?.Invoke();
-                        }
-                        else
-                        {
-                            Debug.Log("LOOOOOOOSE");
-                            ActionManager.onLoose?.Invoke();
-                        }
+                        yield return PlayBeat(sequence[i]);
                         break;
                 }
             }
@@ -189,6 +138,51 @@ public class RoundManager : MonoBehaviour
         shop.SetActive(true);
     }
 
+    private IEnumerator DeclarationBeat(CardDataInstance beat)
+    {
+        enemy.DeclareCard();
+        yield return new WaitForSeconds(timeBetweenNote);
+        ActionManager.playSound(beat.declarationSound);
+    }
+    
+    private IEnumerator ShootBeat(CardDataInstance beat)
+    {
+        havePlayerShoot = false;
+        enemy.Shoot();
+        yield return new WaitForSeconds(timeBetweenNote - waitMargin);
+        canShoot = true;
+
+        yield return new WaitForSeconds(waitMargin);
+        ActionManager.playSound(beat.playSound);
+
+        yield return new WaitForSeconds(waitMargin);
+        canShoot = false;
+        
+        if (!havePlayerShoot)
+            ActionManager.onLoose?.Invoke();
+    }
+
+    private IEnumerator PlayBeat(CardDataInstance beat)
+    {
+        ActionManager.setTruePlayer += PlayerPlayed;
+        enemy.PlaceCard();
+        yield return new WaitForSeconds(timeBetweenNote - waitMargin);
+        canPlay = true;
+
+        yield return new WaitForSeconds(waitMargin);
+        ActionManager.playSound(beat.playSound);
+
+        //yield return new WaitUntil(() => haveEnemyPlayed);
+        yield return new WaitForSeconds(waitMargin);
+        canPlay = false;
+        
+        if (havePlayerPlayed && beat.color == playerUsedColor)
+            ActionManager.onWin?.Invoke();
+        else
+            ActionManager.onLoose?.Invoke();
+    }
+    
+
     private void ResetAllState()
     {
         ActionManager.destroyAllCard?.Invoke();
@@ -200,7 +194,6 @@ public class RoundManager : MonoBehaviour
     private void PlayerPlayed(CardColors pColor)
     {
         ActionManager.setTruePlayer -= PlayerPlayed;
-        Debug.Log(canPlay);
 
         if (!canPlay) 
             return;
@@ -217,11 +210,11 @@ public class RoundManager : MonoBehaviour
         havePlayerShoot = true;
     }
 
-    private void EnnemyPlayed()
+    /*private void EnnemyPlayed()
     {
         if (haveEnemyPlayed) return;
 
         haveEnemyPlayed = true;
-    }
+    }*/
 
 }
