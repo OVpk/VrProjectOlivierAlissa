@@ -31,7 +31,7 @@ public class RoundManager : MonoBehaviour
     private bool canPlay = false;
     private bool canShoot = false;
 
-    private float waitTimeSequenceUI = 10f;
+    private float waitTimeSequenceUI = 3f;
     private float waitMargin = .2f;
     private float waitBetweenRound = 1.5f;
 
@@ -55,9 +55,9 @@ public class RoundManager : MonoBehaviour
 
     private void ResetDifficultyValue()
     {
+        difficultyLevel = 5;
         timeBetweenNote = 1f;
-        //Ici on pourra rajouter toutes les valeurs lié a la difficulté a reinitialiser quand on meurt
-        //comme la vitesse a taille des rounds etc...  fin ta capter quoi
+        waitTimeSequenceUI = 3f;
     }
 
     private IEnumerator ShowUI()
@@ -75,8 +75,10 @@ public class RoundManager : MonoBehaviour
     {
         int rndLevelToAdd = Random.Range(minBeatToAddForLevelUp, maxBeatToAddForLevelUp + 1);
         difficultyLevel += rndLevelToAdd;
+        waitTimeSequenceUI += 0.5f;
         if (!(timeBetweenNote <= minSpeed))
             timeBetweenNote -= minusEveryRound;
+        
     }
 
     private void StartRound()
