@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool godMod;
     [SerializeField] private Canvas looseCanvas;
     [SerializeField] private RoundManager roundManager;
+    [SerializeField] private ParticleSystem particleGun;
 
     public int chipNum = 5;
     private float margin = .05f;
@@ -129,7 +130,7 @@ public class Player : MonoBehaviour
     public void TryShoot()
     {
         if (nbOfShoot == 0) return;
-
+        particleGun.Play();
         nbOfShoot--;
         DisplayBullets();
         ActionManager.playerShoot?.Invoke();

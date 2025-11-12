@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject enemyCardDisplay;
+    [SerializeField] private ParticleSystem particleGun;
     private DroppedCard droppedCard;
 
     [SerializeField] private Animator animator;
@@ -25,6 +26,14 @@ public class Enemy : MonoBehaviour
 
     public void DeclareCard() => animator.SetTrigger("DeclareCard");
 
-    public void Shoot() => animator.SetTrigger("Shoot");
+    public void Shoot()
+    {
+        animator.SetTrigger("Shoot");
+    }
+
+    private void PlayParticle()
+    {
+        particleGun.Play();
+    }
 
 }
