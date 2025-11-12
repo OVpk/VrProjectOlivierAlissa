@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5925cef1-4240-4bf3-8887-3b0928496060" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Card/CarDetectionTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Card/CarDetectionTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Edouard/ShopManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Edouard/ShopManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Manager/RoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Manager/RoundManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/AndroidXR/AndroidXRSettingsInitializer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/AndroidXR/AndroidXRSettingsInitializer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

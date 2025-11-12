@@ -15,6 +15,22 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Player moneyRef;
     #endregion
 
+    private void Awake()
+    {
+        ActionManager.endOfRound += ActiveShop;
+    }
+
+    private void OnDestroy()
+    {
+        ActionManager.endOfRound -= ActiveShop;
+    }
+
+    private void ActiveShop()
+    {
+        GameManager.instance.CurrentGameState = GameState.InShop;
+        gameObject.SetActive(true);
+    }
+
     void Start()
     {
         for (int i = 0; i < shopItems.Count; i++)
@@ -23,6 +39,7 @@ public class ShopManager : MonoBehaviour
             ItemUIReference.itemID = i;
             Instantiate(shopItemUIPrefab, shopUI.transform);
         }
+        gameObject.SetActive(false);
     }
 
     public void Buy(int _itemId)

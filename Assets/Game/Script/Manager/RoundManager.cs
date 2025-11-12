@@ -1,22 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class RoundManager : MonoBehaviour
 {
-
-    [SerializeField] private AudioSource audio1;
-    [SerializeField] private AudioSource audio2;
     [SerializeField] private Enemy enemy;
 
     [SerializeField] private int difficultyLevel = 5;
-
     [SerializeField] private float timeBetweenNote = 1f;
     [SerializeField] private float minusEveryRound = 0.1f;
     [SerializeField] private float minSpeed = 0.5f;
-    [SerializeField] private GameObject shop;
     [SerializeField] private GlobalCardsUI prediction;
     [SerializeField] private RoundGenerator roundGenerator;
     [SerializeField] private int minBeatToAddForLevelUp = 1;
@@ -35,20 +27,29 @@ public class RoundManager : MonoBehaviour
     private float waitMargin = .2f;
     private float waitBetweenRound = 1.5f;
 
+    #region Init
+    
     private void OnEnable()
     {
         ActionManager.playerShoot += PlayerShoot;
-        ActionManager.startRound += StartRound;
+        ActionManager.startRound += OnStartRound;
 
-        ResetAllState();
-        ResetDifficultyValue();
-        StartRound();
+        InitRound();
+        StartCoroutine(StartRound());
     }
 
     private void OnDisable()
     {
         ActionManager.playerShoot -= PlayerShoot;
-        ActionManager.startRound -= StartRound;
+        ActionManager.startRound -= OnStartRound;
+    }
+
+    private void InitRound()
+    {
+        ResetAllState();
+        ResetDifficultyValue();
+        round = roundGenerator.GenerateRound(difficultyLevel);
+        CountShootInRound();
     }
 
     private void ResetDifficultyValue()
@@ -57,52 +58,49 @@ public class RoundManager : MonoBehaviour
         timeBetweenNote = 1f;
         waitTimeSequenceUI = 3f;
     }
+    
+    private void CountShootInRound()
+    {
+        int numShot = 0;
+        foreach(Sequence sequence in round)
+        foreach(CardDataInstance card in sequence.beats)
+            if (card.cardState == CardState.Shoot) numShot++;
+        
+        ActionManager.numShootToGive?.Invoke(numShot);
+    }
+    
+    private void ResetAllState()
+    {
+        ActionManager.destroyAllCard?.Invoke();
 
+        havePlayerPlayed = false;
+        haveEnemyPlayed = false;
+    }
+
+    #endregion
+
+    private void OnStartRound() => StartCoroutine(StartRound());
+    
+    private IEnumerator StartRound()
+    {
+        yield return ShowUI();
+        GameManager.instance.CurrentGameState = GameState.InRound;
+        StartCoroutine(ReadSequences());
+    }
+    
     private IEnumerator ShowUI()
     {
         GameManager.instance.CurrentGameState = GameState.InShop;
         prediction.gameObject.SetActive(true);
         prediction.Setup(round);
         yield return new WaitForSeconds(waitTimeSequenceUI);
-        StartCoroutine(ReadSequence());
-        GameManager.instance.CurrentGameState = GameState.InRound;
         prediction.gameObject.SetActive(false);
     }
-
-    private void DifficultyLevelUp()
-    {
-        int rndLevelToAdd = Random.Range(minBeatToAddForLevelUp, maxBeatToAddForLevelUp + 1);
-        difficultyLevel += rndLevelToAdd;
-        waitTimeSequenceUI += 0.5f;
-        if (!(timeBetweenNote <= minSpeed))
-            timeBetweenNote -= minusEveryRound;
-        
-    }
-
-    private void StartRound()
-    {
-        round = roundGenerator.GenerateRound(difficultyLevel);
-        StartCoroutine(ShowUI());
-    }
     
-    private void CountShootInRound()
+    private IEnumerator ReadSequences()
     {
-        int numShot = 0;
-        foreach(Sequence sequence in round)
-            foreach(CardDataInstance card in sequence.beats)
-                if (card.cardState == CardState.Shoot) numShot++;
-        
-        
-        ActionManager.numShootToGive?.Invoke(numShot);
-    }
-
-    private IEnumerator ReadSequence()
-    {
-        CountShootInRound();
         for (int y = 0; y < round.Length; y++)
         {
-            yield return new WaitForSeconds(timeBetweenNote);
-
             CardDataInstance[] sequence = round[y].beats;
 
             enemy.SetDisplay(sequence[0], timeBetweenNote);
@@ -128,15 +126,12 @@ public class RoundManager : MonoBehaviour
             yield return new WaitForSeconds(waitBetweenRound);
             ResetAllState();
         }
-
         DifficultyLevelUp();
 
-        yield return new WaitForSeconds(1);
         ActionManager.endOfRound.Invoke();
-
-        GameManager.instance.CurrentGameState = GameState.InShop;
-        shop.SetActive(true);
     }
+
+    #region BeatReaders
 
     private IEnumerator DeclarationBeat(CardDataInstance beat)
     {
@@ -172,7 +167,6 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(waitMargin);
         ActionManager.playSound(beat.playSound);
 
-        //yield return new WaitUntil(() => haveEnemyPlayed);
         yield return new WaitForSeconds(waitMargin);
         canPlay = false;
         
@@ -181,40 +175,36 @@ public class RoundManager : MonoBehaviour
         else
             ActionManager.onLoose?.Invoke();
     }
+
+    #endregion
     
-
-    private void ResetAllState()
-    {
-        ActionManager.destroyAllCard?.Invoke();
-
-        havePlayerPlayed = false;
-        haveEnemyPlayed = false;
-    }
+    #region Player Actions Catcher
 
     private void PlayerPlayed(CardColors pColor)
     {
         ActionManager.setTruePlayer -= PlayerPlayed;
 
-        if (!canPlay) 
-            return;
-        if (havePlayerPlayed) 
-            return;
+        if (!canPlay) return;
+        if (havePlayerPlayed) return;
+        
         havePlayerPlayed = true;
         playerUsedColor = pColor;
     }
 
     private void PlayerShoot()
     {
-        if (!canShoot)
-            return;
+        if (!canShoot) return;
         havePlayerShoot = true;
     }
 
-    /*private void EnnemyPlayed()
+    #endregion
+
+    private void DifficultyLevelUp()
     {
-        if (haveEnemyPlayed) return;
-
-        haveEnemyPlayed = true;
-    }*/
-
+        int rndLevelToAdd = Random.Range(minBeatToAddForLevelUp, maxBeatToAddForLevelUp + 1);
+        difficultyLevel += rndLevelToAdd;
+        waitTimeSequenceUI += 0.5f;
+        if (!(timeBetweenNote <= minSpeed))
+            timeBetweenNote -= minusEveryRound;
+    }
 }
