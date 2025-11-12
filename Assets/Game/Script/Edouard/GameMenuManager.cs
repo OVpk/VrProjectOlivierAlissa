@@ -1,6 +1,5 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
 public class GameMenuManager : MonoBehaviour
@@ -36,7 +35,7 @@ public class GameMenuManager : MonoBehaviour
     {
         StartGameButton.onClick.AddListener(StartGame);
         ExitGameButton.onClick.AddListener(ExitGame);
-        ReturnToMainMenuButton.onClick.AddListener(ReturnToMenu);
+        ReturnToMainMenuButton.onClick.AddListener(ReturnToMainMenu);
     }
 
     #region MainMenuFunctions
@@ -55,10 +54,22 @@ public class GameMenuManager : MonoBehaviour
     
     #region SettingsFunctions
 
-    void ReturnToMenu()
+    void ReturnToMainMenu()
     {
-        Debug.Log("Returning to menu");
+        Debug.Log("Returning to mainMenu");
         gameState = GameState.MainMenu;
     }
     #endregion
+
+    private void Update()
+    {
+        if (gameState == GameState.InGame)
+        {
+            
+        }
+        else if (gameState == GameState.MainMenu)
+        {
+            
+        }
+    }
 }

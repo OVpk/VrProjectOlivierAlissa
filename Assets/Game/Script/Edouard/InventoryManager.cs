@@ -1,14 +1,11 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
     #region Variables
     [Tooltip("Placer l'objet là où vous voulez faire spawn les models des Items")]
-    [SerializeField] GameObject objectSpawn;
+    [SerializeField] GameObject[] objectSpawn;
 
     #region Lists
     [SerializeField] List<Items> itemList = new List<Items>();
@@ -23,13 +20,19 @@ public class InventoryManager : MonoBehaviour
     #endregion
 
 
-    public void Spawn( Items item )
+    public void Spawn(Items item)
     {
-        Instantiate(item.model, objectSpawn.transform.position, Quaternion.identity);
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            if (item.name == itemList[i].name)
+            {
+                Instantiate(item.model, objectSpawn[i].transform.position, Quaternion.identity);
+            }
+        }
     }
 
 
-    public void DictionaryToLists() //this is usd to be able to see the dictionary in the inspector
+    public void DictionaryToLists() //this is used to be able to see the dictionary in the inspector
     {
         itemInt.Clear();
         itemList.Clear();
