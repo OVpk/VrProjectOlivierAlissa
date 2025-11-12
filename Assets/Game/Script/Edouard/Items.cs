@@ -6,7 +6,10 @@ public class Items : ScriptableObject
 {
     public string name;
     public int price;
+    [Tooltip("objectIcon for the shop")]
     public Sprite icon;
+    [Tooltip("3D model for spawn")]
+    public GameObject model;
 
     public void UseItem()
     {

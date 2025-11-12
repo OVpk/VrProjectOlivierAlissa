@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Item1
   price: 100
   icon: {fileID: 2061223666325461347, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
+  model: {fileID: 976397189512140724, guid: a50a5b0d390056a43aab974dcb64b0dd, type: 3}

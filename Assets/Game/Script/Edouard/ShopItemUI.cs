@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class ItemUI : MonoBehaviour
+public class ShopItemUI : MonoBehaviour
 {
     [SerializeField] String itemName;
     [SerializeField] TMP_Text itemPrice;
