@@ -6,8 +6,7 @@ public class GameManager : MonoBehaviour
     private GameState currentGameState = GameState.InRound;
     public GameState CurrentGameState
     {
-        get
-        { return currentGameState; }
+        get => currentGameState;
         set
         {
             currentGameState = value;
@@ -17,26 +16,13 @@ public class GameManager : MonoBehaviour
     }
 
     public static GameManager instance;
+    
     private void Awake()
     {
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
-
-        ActionManager.changeGameState += ChangeGameState;
-        
-    }
-
-
-    private void OnDestroy()
-    {
-        ActionManager.changeGameState -= ChangeGameState;
-    }
-    private void ChangeGameState(GameState pGameState)
-    {
-        if (currentGameState == pGameState) return;
-        currentGameState = pGameState;
     }
 
 }
