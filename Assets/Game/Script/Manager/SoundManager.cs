@@ -8,6 +8,11 @@ public class SoundManager : MonoBehaviour
     {
         ActionManager.playSound += PlaySound;
     }
+
+    private void OnDestroy()
+    {
+        ActionManager.playSound -= PlaySound;
+    }
     private void PlaySound(AudioClip audioClip)
     {
         audioSource.clip = audioClip;

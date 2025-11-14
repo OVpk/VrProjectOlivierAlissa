@@ -1,5 +1,7 @@
 using TMPro;
+using Unity.Tutorials.Core.Editor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
@@ -12,6 +14,9 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private Enemy enemy;
     [SerializeField] private CardData enemyCards;
     [SerializeField] private Transform anchorPart2;
+    [SerializeField] private Transform anchorPart1;
+    [SerializeField] private Button buttonNext;
+    [SerializeField] private Button buttonPlay;
 
     private int index = 0;
     private bool repeatAnim = true;
@@ -27,6 +32,15 @@ public class Tutorial : MonoBehaviour
         if (currentImage != null)
             Destroy(currentImage);
 
+        if(index == tutoUI.Length)
+        {
+            buttonNext.gameObject.SetActive(false);
+            buttonPlay.gameObject.SetActive(true);
+            description.text = "Tu est maintenant pret a jouer";
+            title.text = "fin du tutoriel";
+            tutoVisual.transform.position = anchorPart1.position;
+            return;
+        }
         if (tutoUI[index].image != null)
         {
             currentImage = Instantiate(tutoUI[index].image, anchor.transform);
@@ -42,6 +56,11 @@ public class Tutorial : MonoBehaviour
         title.text = tutoUI[index].title;
         description.text = tutoUI[index].description;
         index++;
+    }
+
+    public void OnPlayPressed()
+    {
+        SceneManager.LoadScene("alissa");
     }
 
 

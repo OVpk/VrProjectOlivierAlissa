@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0cd4fa53b0de4041b522a9767a67909, type: 3}
-  m_Name: sequence
+  m_Name: round 1
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
-  <title>k__BackingField: sequence
-  <description>k__BackingField: "ceci est une sequence un round en est compos\xE9
-    de plusieurs"
-  <image>k__BackingField: {fileID: 6417789815290309268, guid: 21b276554e5e2374dbb0c98092e12893, type: 3}
+  <title>k__BackingField: Round
+  <description>k__BackingField: "Une Ui affichant le round saffiche au d\xE9but de
+    chaqu'un d'eux, il est important de les memoriser pour pouvoir predir ce que
+    l'enemi va jouer"
+  <image>k__BackingField: {fileID: 6417789815290309268, guid: 28a2d10b91758cd47b1fc3fabff4754e, type: 3}
   <cardState>k__BackingField: 0
