@@ -6,4 +6,5 @@ public class TutoScriptable : ScriptableObject
     [field:SerializeField] public string title { get; private set; }
     [field:SerializeField] public string description { get; private set;}
     [field:SerializeField] public GameObject image { get; private set; }
+    [field:SerializeField] public CardState cardState { get; private set; }
 }

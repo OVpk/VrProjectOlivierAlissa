@@ -4233,7 +4233,7 @@ PrefabInstance:
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1377386318}
+      objectReference: {fileID: 954688234}
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -13746,7 +13746,7 @@ GameObject:
   - component: {fileID: 622900938}
   - component: {fileID: 622900937}
   m_Layer: 0
-  m_Name: TutoPart1
+  m_Name: Sequence Explication
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23482,6 +23482,7 @@ GameObject:
   - component: {fileID: 954688232}
   - component: {fileID: 954688231}
   - component: {fileID: 954688233}
+  - component: {fileID: 954688234}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -23531,6 +23532,30 @@ MonoBehaviour:
   itemList: []
   itemInt: 
   money: 0
+--- !u!114 &954688234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954688230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ba616556ceb584fbdac9f9a0cc0a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tutorial
+  tutoVisual: {fileID: 622900940}
+  tutoUI:
+  - {fileID: 11400000, guid: df4b2d2b1a1fe1c47a5aa63a4821e609, type: 2}
+  - {fileID: 11400000, guid: ceb9620a88733e445803627672dc25b3, type: 2}
+  - {fileID: 11400000, guid: 1d2e6b3e885d9814981d1eee7e7a6ccd, type: 2}
+  - {fileID: 11400000, guid: f5d58074fbdfc7b4e9d89749bdad9f7c, type: 2}
+  - {fileID: 11400000, guid: 7d4f5f498962a584dac98bd0cf1d5d3b, type: 2}
+  anchor: {fileID: 1762586664}
+  description: {fileID: 371417802}
+  title: {fileID: 827617291}
+  enemy: {fileID: 1125847271}
+  enemyCards: {fileID: 0}
 --- !u!1 &979631673
 GameObject:
   m_ObjectHideFlags: 0
@@ -25922,7 +25947,6 @@ Transform:
   - {fileID: 866518915}
   - {fileID: 1063888444}
   - {fileID: 140641851}
-  - {fileID: 1797130607}
   - {fileID: 622900934}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29630,7 +29654,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1377386316}
   - component: {fileID: 1377386317}
-  - component: {fileID: 1377386318}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -29676,34 +29699,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35d1110ffda85104bab0ab5682f1884e, type: 2}
   - {fileID: 11400000, guid: f620e17e89c191a449d0ae345f1c0b6e, type: 2}
   - {fileID: 11400000, guid: 9881f4fe281a50648b5e538dfcb00d5f, type: 2}
---- !u!114 &1377386318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377386315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15ba616556ceb584fbdac9f9a0cc0a43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tutorial
-  tutoVisual: {fileID: 622900940}
-  tutoUI:
-  - {fileID: 11400000, guid: df4b2d2b1a1fe1c47a5aa63a4821e609, type: 2}
-  - {fileID: 11400000, guid: ceb9620a88733e445803627672dc25b3, type: 2}
-  - {fileID: 11400000, guid: 1d2e6b3e885d9814981d1eee7e7a6ccd, type: 2}
-  - {fileID: 11400000, guid: f5d58074fbdfc7b4e9d89749bdad9f7c, type: 2}
-  - {fileID: 11400000, guid: 7d4f5f498962a584dac98bd0cf1d5d3b, type: 2}
-  - {fileID: 11400000, guid: 6b00b178c8923eb43810dcefb6f08b1c, type: 2}
-  - {fileID: 11400000, guid: 7afea132583c2534d9050b0f4f0d584e, type: 2}
-  - {fileID: 11400000, guid: 9ef70a25613b5a346b273951e8651bcd, type: 2}
-  anchor: {fileID: 1762586664}
-  description: {fileID: 371417802}
-  title: {fileID: 827617291}
-  enemy: {fileID: 1125847271}
-  enemyCards: {fileID: 11400000, guid: 9881f4fe281a50648b5e538dfcb00d5f, type: 2}
-  anchorPart2: {fileID: 1797130607}
 --- !u!1 &1383080402
 GameObject:
   m_ObjectHideFlags: 0
@@ -35770,7 +35765,7 @@ Transform:
   m_GameObject: {fileID: 1762586664}
   serializedVersion: 2
   m_LocalRotation: {x: -0.13052624, y: -0.00033363682, z: 0.000043935775, w: 0.9914448}
-  m_LocalPosition: {x: -46.2, y: 89.5, z: -24}
+  m_LocalPosition: {x: -36, y: 89.5, z: -24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36046,37 +36041,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1797130606
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1797130607}
-  m_Layer: 0
-  m_Name: AnchorPart2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1797130607
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797130606}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.595, y: 0.81, z: 0.666}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1091998459}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1799148835
 GameObject:
   m_ObjectHideFlags: 0

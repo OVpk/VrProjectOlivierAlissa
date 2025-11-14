@@ -198,7 +198,6 @@ public class RoundManager : MonoBehaviour
     private void PlayerPlayed(CardColors pColor)
     {
         ActionManager.setTruePlayer -= PlayerPlayed;
-        Debug.Log(canPlay);
 
         if (!canPlay) 
             return;
