@@ -154,6 +154,7 @@ public class HandController : MonoBehaviour
 
     private void DeactivateCard()
     {
-        cardInHand.SetActive(false);
+        if(cardInHand != null)
+            cardInHand.SetActive(false);
     }
 }
