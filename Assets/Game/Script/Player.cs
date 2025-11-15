@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -86,13 +87,14 @@ public class Player : MonoBehaviour
 
     public void OnPlayAgain()
     {
-        ActionManager.endOfRound.Invoke();
-        chipNum = baseChip;
-        numChip.text = chipNum.ToString();
-        looseCanvas.gameObject.SetActive(false);
-        GameManager.instance.CurrentGameState = GameState.InRound;
-        roundManager.enabled = true;
-        AddStartChip();
+        //ActionManager.endOfRound.Invoke();
+        //chipNum = baseChip;
+        //numChip.text = chipNum.ToString();
+        //looseCanvas.gameObject.SetActive(false);
+        //GameManager.instance.CurrentGameState = GameState.InRound;
+        //roundManager.enabled = true;
+        //AddStartChip();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void WinLife()

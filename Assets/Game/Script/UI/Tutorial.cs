@@ -17,11 +17,17 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private Transform anchorPart1;
     [SerializeField] private Button buttonNext;
     [SerializeField] private Button buttonPlay;
+    [SerializeField] private RoundManager roundManager;
 
     private int index = 0;
     private bool repeatAnim = true;
     private GameObject currentImage;
 
+
+    private void OnEnable()
+    {
+        roundManager.tutorial = true;
+    }
     private void Start()
     {
         OnPressed();
@@ -80,5 +86,10 @@ public class Tutorial : MonoBehaviour
                 enemy.PlaceCard();
                 break;  
         }
+    }
+
+    private void StartTutoRound()
+    {
+        roundManager.timeBetweenNote = 2f;
     }
 }

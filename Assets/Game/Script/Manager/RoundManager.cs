@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class RoundManager : MonoBehaviour
@@ -6,7 +7,6 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private Enemy enemy;
 
     [SerializeField] private int difficultyLevel = 5;
-    [SerializeField] private float timeBetweenNote = 1f;
     [SerializeField] private float minusEveryRound = 0.1f;
     [SerializeField] private float minSpeed = 0.5f;
     [SerializeField] private GlobalCardsUI prediction;
@@ -27,29 +27,41 @@ public class RoundManager : MonoBehaviour
     private float waitMargin = .2f;
     private float waitBetweenRound = 1.5f;
 
+    public float timeBetweenNote = 1f;
+    public bool tutorial;
+
     #region Init
-    
+
     private void OnEnable()
     {
         ActionManager.playerShoot += PlayerShoot;
-        ActionManager.startRound += OnStartRound;
-
-        InitRound();
-        StartCoroutine(StartRound());
+        //ActionManager.startRound += OnStartRound;
+        ActionManager.startRound += InitRound;
     }
 
     private void OnDisable()
     {
         ActionManager.playerShoot -= PlayerShoot;
-        ActionManager.startRound -= OnStartRound;
+        //ActionManager.startRound -= OnStartRound;
+        ActionManager.startRound -= InitRound;
+
+    }
+
+    private void Start()
+    {
+        if (tutorial)
+            return;
+        ResetDifficultyValue();
+        InitRound();
+        //StartCoroutine(StartRound());
     }
 
     private void InitRound()
     {
         ResetAllState();
-        ResetDifficultyValue();
         round = roundGenerator.GenerateRound(difficultyLevel);
         CountShootInRound();
+        StartCoroutine(StartRound());
     }
 
     private void ResetDifficultyValue()
@@ -151,10 +163,17 @@ public class RoundManager : MonoBehaviour
         ActionManager.playSound(beat.playSound);
 
         yield return new WaitForSeconds(waitMargin);
-        canShoot = false;
-        
-        if (!havePlayerShoot)
-            ActionManager.onLoose?.Invoke();
+        if (!tutorial)
+        {
+            canShoot = false;
+
+            if (!havePlayerShoot)
+                ActionManager.onLoose?.Invoke();
+        }
+        else
+        {
+            yield return new WaitUntil(() => havePlayerShoot);
+        }
     }
 
     private IEnumerator PlayBeat(CardDataInstance beat)
@@ -167,13 +186,21 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(waitMargin);
         ActionManager.playSound(beat.playSound);
 
-        yield return new WaitForSeconds(waitMargin);
-        canPlay = false;
-        
-        if (havePlayerPlayed && beat.color == playerUsedColor)
-            ActionManager.onWin?.Invoke();
+        if (!tutorial)
+        {
+            yield return new WaitForSeconds(waitMargin);
+            canPlay = false;
+
+            if (havePlayerPlayed && beat.color == playerUsedColor)
+                ActionManager.onWin?.Invoke();
+            else
+                ActionManager.onLoose?.Invoke();
+        }
         else
-            ActionManager.onLoose?.Invoke();
+        {
+            yield return new WaitUntil(() => havePlayerPlayed);
+            ActionManager.onWin?.Invoke();
+        }
     }
 
     #endregion
