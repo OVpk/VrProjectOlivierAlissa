@@ -11550,6 +11550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 464261618}
+  - component: {fileID: 464261619}
   m_Layer: 0
   m_Name: RoundManager
   m_TagString: Untagged
@@ -11572,6 +11573,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1377386316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &464261619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464261616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebce4a16dfad34ba9a2559a28d936b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoundManager
+  enemy: {fileID: 1125847271}
+  difficultyLevel: 5
+  minusEveryRound: 0.1
+  minSpeed: 0.5
+  prediction: {fileID: 140641852}
+  roundGenerator: {fileID: 1377386317}
+  minBeatToAddForLevelUp: 1
+  maxBeatToAddForLevelUp: 3
+  tutorial: {fileID: 1377386318}
+  timeBetweenNote: 1
+  isTutorial: 0
 --- !u!1 &472489448
 GameObject:
   m_ObjectHideFlags: 0
@@ -29916,7 +29940,7 @@ MonoBehaviour:
   anchorPart1: {fileID: 770026747}
   buttonNext: {fileID: 293253655}
   buttonPlay: {fileID: 2011117691}
-  roundManager: {fileID: 0}
+  roundManager: {fileID: 464261619}
 --- !u!1 &1383080402
 GameObject:
   m_ObjectHideFlags: 0

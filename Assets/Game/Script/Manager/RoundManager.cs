@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
+using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 
 public class RoundManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private RoundGenerator roundGenerator;
     [SerializeField] private int minBeatToAddForLevelUp = 1;
     [SerializeField] private int maxBeatToAddForLevelUp = 3;
+    [SerializeField] private Tutorial tutorial;
 
     private bool haveEnemyPlayed;
     private bool havePlayerPlayed;
@@ -28,32 +30,29 @@ public class RoundManager : MonoBehaviour
     private float waitBetweenRound = 1.5f;
 
     public float timeBetweenNote = 1f;
-    public bool tutorial;
+    public bool isTutorial;
 
     #region Init
 
     private void OnEnable()
     {
         ActionManager.playerShoot += PlayerShoot;
-        //ActionManager.startRound += OnStartRound;
         ActionManager.startRound += InitRound;
     }
 
     private void OnDisable()
     {
         ActionManager.playerShoot -= PlayerShoot;
-        //ActionManager.startRound -= OnStartRound;
         ActionManager.startRound -= InitRound;
 
     }
 
     private void Start()
     {
-        if (tutorial)
+        if (isTutorial)
             return;
         ResetDifficultyValue();
         InitRound();
-        //StartCoroutine(StartRound());
     }
 
     private void InitRound()
@@ -90,8 +89,6 @@ public class RoundManager : MonoBehaviour
     }
 
     #endregion
-
-    private void OnStartRound() => StartCoroutine(StartRound());
     
     private IEnumerator StartRound()
     {
@@ -140,13 +137,18 @@ public class RoundManager : MonoBehaviour
         }
         DifficultyLevelUp();
 
-        ActionManager.endOfRound.Invoke();
+        if(!isTutorial) 
+            ActionManager.endOfRound.Invoke();
+        else
+            tutorial.OnTutorialEnd();
     }
 
     #region BeatReaders
 
     private IEnumerator DeclarationBeat(CardDataInstance beat)
-    {
+    { 
+        if(tutorial)
+            tutorial.OnDeclaration();
         enemy.DeclareCard();
         yield return new WaitForSeconds(timeBetweenNote);
         ActionManager.playSound(beat.declarationSound);
@@ -154,6 +156,8 @@ public class RoundManager : MonoBehaviour
     
     private IEnumerator ShootBeat(CardDataInstance beat)
     {
+        if(tutorial)
+            tutorial.OnShoot();
         havePlayerShoot = false;
         enemy.Shoot();
         yield return new WaitForSeconds(timeBetweenNote - waitMargin);
@@ -163,7 +167,7 @@ public class RoundManager : MonoBehaviour
         ActionManager.playSound(beat.playSound);
 
         yield return new WaitForSeconds(waitMargin);
-        if (!tutorial)
+        if (!isTutorial)
         {
             canShoot = false;
 
@@ -178,6 +182,8 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator PlayBeat(CardDataInstance beat)
     {
+        if(tutorial)
+            tutorial.OnPlay();
         ActionManager.setTruePlayer += PlayerPlayed;
         enemy.PlaceCard();
         yield return new WaitForSeconds(timeBetweenNote - waitMargin);
@@ -186,7 +192,7 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(waitMargin);
         ActionManager.playSound(beat.playSound);
 
-        if (!tutorial)
+        if (!isTutorial)
         {
             yield return new WaitForSeconds(waitMargin);
             canPlay = false;

@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using Unity.Tutorials.Core.Editor;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class Tutorial : MonoBehaviour
 
     private void OnEnable()
     {
-        roundManager.tutorial = true;
+        roundManager.isTutorial = true;
     }
     private void Start()
     {
@@ -38,13 +39,20 @@ public class Tutorial : MonoBehaviour
         if (currentImage != null)
             Destroy(currentImage);
 
-        if(index == tutoUI.Length)
+        if (index == tutoUI.Length)
         {
-            buttonNext.gameObject.SetActive(false);
-            buttonPlay.gameObject.SetActive(true);
+            
             description.text = "Tu est maintenant pret a jouer";
             title.text = "fin du tutoriel";
             tutoVisual.transform.position = anchorPart1.position;
+            index++;
+            return;
+        }
+        else if (index > tutoUI.Length)
+        {
+            buttonNext.gameObject.SetActive(false);
+            tutoVisual.transform.position = anchorPart2.position;
+            StartTutoRound();
             return;
         }
         if (tutoUI[index].image != null)
@@ -62,6 +70,13 @@ public class Tutorial : MonoBehaviour
         title.text = tutoUI[index].title;
         description.text = tutoUI[index].description;
         index++;
+    }
+
+    public void OnTutorialEnd()
+    {
+        description.text = "finit";
+        title.text = "finit";
+        buttonPlay.gameObject.SetActive(true);
     }
 
     public void OnPlayPressed()
@@ -91,5 +106,27 @@ public class Tutorial : MonoBehaviour
     private void StartTutoRound()
     {
         roundManager.timeBetweenNote = 2f;
+        ActionManager.startRound.Invoke();
+        description.text = "Mémorise la séquence";
+        title.text = "Mémorise";
     }
+
+    public void OnDeclaration()
+    {
+        description.text = "Observe l'enemi";
+        title.text = "Prepare toi a jouer!";
+    }
+    public void OnShoot()
+    {
+        description.text = "Tire!";
+        title.text = "Tire";
+    }
+
+    public void OnPlay()
+    {
+        description.text = "Pose ta carte!";
+        title.text = "Joue";
+    }
+
+
 }
