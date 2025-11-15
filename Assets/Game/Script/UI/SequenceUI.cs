@@ -12,6 +12,16 @@ public class SequenceUI : MonoBehaviour
 
     public float Width { get; private set; }
     public float Height { get; private set; }
+    
+    private void Awake()
+    {
+        ActionManager.endOfRound += ClearSequence;
+    }
+
+    private void OnDestroy()
+    {
+        ActionManager.endOfRound -= ClearSequence;
+    }
 
     public void Setup(Sequence sequence)
     {
@@ -72,14 +82,5 @@ public class SequenceUI : MonoBehaviour
     }
 
     private void ClearSequence() => Destroy(this.gameObject);
-
-    private void Awake()
-    {
-        ActionManager.endOfRound += ClearSequence;
-    }
-
-    private void OnDestroy()
-    {
-        ActionManager.endOfRound -= ClearSequence;
-    }
+    
 }

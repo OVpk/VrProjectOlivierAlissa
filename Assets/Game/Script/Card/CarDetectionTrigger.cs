@@ -7,16 +7,9 @@ public class CarDetectionTrigger : MonoBehaviour
         if (other.TryGetComponent(out DroppedCard card))
         {
             if (!card.IsDropped) return;
+            if (!card.isPlayer) return;
 
-            switch (card.isPlayer)
-            {
-                case true:
-                    ActionManager.setTruePlayer?.Invoke(card.cardData.color);
-                    break;
-                case false:
-                    ActionManager.setTrueEnemy?.Invoke();
-                    break;
-            }
+            ActionManager.setTruePlayer?.Invoke(card.cardData.color);
         }
     }
 }

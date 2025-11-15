@@ -14,13 +14,8 @@ public class WinFeedBack : MonoBehaviour
         ActionManager.onWin -= WinFeedBackAnim;
     }
 
-    private void WinFeedBackAnim()
-    {
-        starAnim.SetTrigger("winAnim");
-    }
+    private void WinFeedBackAnim() => starAnim.SetTrigger("winAnim");
 
-    private void FadeAnimStart()
-    {
-        starAnim.SetTrigger("FadeAnim");
-    }
+    private void FadeAnimStart() => starAnim.SetTrigger("FadeAnim");
+    
 }

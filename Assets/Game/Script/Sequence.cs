@@ -3,35 +3,22 @@ using UnityEngine;
 public class Sequence 
 {
     public CardDataInstance[] beats { get; private set; }
-    private int chanceToShoot = 8;
-    private int maxChance = 10;
-    public Sequence(int nbOfBeats, CardData card)
+    
+    public Sequence(int nbOfBeats, CardData card, bool mustContainShoot)
     {
         beats = new CardDataInstance[nbOfBeats];
-        bool shouldShoot = false;
-
-        if(nbOfBeats > 2)
-        {
-            int random = Random.Range(1, maxChance);
-            if(random <= chanceToShoot)
-            {
-                shouldShoot = true;
-            }
-        }
 
         for (int i = 0; i < nbOfBeats-1; i++)
         {
             beats[i] = card.Instance(CardState.Declaration);
         }
-        beats[nbOfBeats - 1] = card.Instance(CardState.Play);
 
-        if (shouldShoot)
+        if (mustContainShoot)
         {
-            int shootIndex = Random.Range(1, nbOfBeats - 1);
-            beats[shootIndex] = card.Instance(CardState.Shoot);
+            int rndBeat = Random.Range(1, nbOfBeats);
+            beats[rndBeat] = card.Instance(CardState.Shoot);
         }
-
+        
+        beats[nbOfBeats - 1] = card.Instance(CardState.Play);
     }
-    
-    
 }

@@ -11281,14 +11281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bebce4a16dfad34ba9a2559a28d936b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoundManager
-  audio1: {fileID: 0}
-  audio2: {fileID: 0}
   enemy: {fileID: 1125847271}
   difficultyLevel: 5
   timeBetweenNote: 1
   minusEveryRound: 0.1
   minSpeed: 0.5
-  shop: {fileID: 866518910}
   prediction: {fileID: 1063888450}
   roundGenerator: {fileID: 1377386317}
   minBeatToAddForLevelUp: 1
@@ -13321,11 +13318,6 @@ MonoBehaviour:
   StartGameButton: {fileID: 0}
   ExitGameButton: {fileID: 0}
   ReturnToMainMenuButton: {fileID: 0}
---- !u!1 &601118162 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7760847889021447132, guid: c2e866c4b3f330243950d72364ca191b, type: 3}
-  m_PrefabInstance: {fileID: 1333851306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &606869514
 GameObject:
   m_ObjectHideFlags: 0
@@ -16950,7 +16942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &866518911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26582,9 +26574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eee2d63bfd80b344ba6ded9e40ee3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  enemyCardDisplay: {fileID: 601118162}
   particleGun: {fileID: 925987829}
   animator: {fileID: 1125847277}
+  card: {fileID: 1333851308}
 --- !u!4 &1125847275
 Transform:
   m_ObjectHideFlags: 0
@@ -29341,6 +29333,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7807518403790821234, guid: c2e866c4b3f330243950d72364ca191b, type: 3}
   m_PrefabInstance: {fileID: 1333851306}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1333851308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3156930570236597194, guid: c2e866c4b3f330243950d72364ca191b, type: 3}
+  m_PrefabInstance: {fileID: 1333851306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce91b8ad20328504494144e247924099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedCard
 --- !u!54 &1333851309 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 9015959261731719663, guid: c2e866c4b3f330243950d72364ca191b, type: 3}
@@ -30103,6 +30106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoundGenerator
   minNumSequence: 2
   maxNumSequence: 4
+  percentOfChanceToShoot: 80
   enemyCards:
   - {fileID: 11400000, guid: 35d1110ffda85104bab0ab5682f1884e, type: 2}
   - {fileID: 11400000, guid: f620e17e89c191a449d0ae345f1c0b6e, type: 2}
@@ -30409,8 +30413,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 92610031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5251498, y: 0}
-  m_AnchorMax: {x: 0.99727815, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
