@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Runtime.CompilerServices;
-using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 
 public class RoundManager : MonoBehaviour
@@ -99,7 +97,7 @@ public class RoundManager : MonoBehaviour
     
     private IEnumerator ShowUI()
     {
-        GameManager.CurrentGameState = GameState.InShop;
+        GameManager.CurrentGameState = GameState.InUI;
         prediction.gameObject.SetActive(true);
         prediction.Setup(round);
         yield return new WaitForSeconds(waitTimeSequenceUI);

@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -32,7 +31,7 @@ public class Tutorial : MonoBehaviour
     private void Start()
     {
         OnPressed();
-        GameManager.CurrentGameState = GameState.InShop;
+        GameManager.CurrentGameState = GameState.InUI;
     }
 
     public void OnPressed()

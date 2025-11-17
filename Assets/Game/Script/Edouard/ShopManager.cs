@@ -27,7 +27,7 @@ public class ShopManager : MonoBehaviour
 
     private void ActiveShop()
     {
-        GameManager.CurrentGameState = GameState.InShop;
+        GameManager.CurrentGameState = GameState.InUI;
         gameObject.SetActive(true);
     }
 

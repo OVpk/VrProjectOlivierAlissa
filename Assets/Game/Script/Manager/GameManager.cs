@@ -10,7 +10,7 @@ public static class GameManager
         set
         {
             currentGameState = value;
-            if (currentGameState == GameState.InShop)
+            if (currentGameState == GameState.InUI)
                 ActionManager.resetCardInHand?.Invoke();
         }
     }

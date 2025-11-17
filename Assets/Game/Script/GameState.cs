@@ -3,6 +3,6 @@ using UnityEngine;
 public enum GameState
 {
     InRound,
-    InShop,
+    InUI    ,
     InMainMenu,
 }

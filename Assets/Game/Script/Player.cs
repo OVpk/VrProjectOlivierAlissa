@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
         if (chipNum <= 0)
         {
             looseCanvas.gameObject.SetActive(true);
-            GameManager.CurrentGameState = GameState.InShop;
+            GameManager.CurrentGameState = GameState.InUI;
             roundManager.StopAllCoroutines();
             roundManager.enabled = false;
         }
@@ -134,5 +134,4 @@ public class Player : MonoBehaviour
         DisplayBullets();
         ActionManager.playerShoot?.Invoke();
     }
-
 }
