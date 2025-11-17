@@ -22,18 +22,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Spawn(Items item, int _itemId)
     {
-        /*Vector2 randomPos = new Vector2(Random.Range(objectSpawn[_itemId].transform.position.z - 0.1f,
-            objectSpawn[_itemId].transform.position.z + 0.1f), 
-            Random.Range(objectSpawn[_itemId].transform.position.y - 0.1f,
-                objectSpawn[_itemId].transform.position.y + 0.1f));*/
-        for (int i = 0; i < itemList.Count; i++)
-        {
-            if (item.name == itemList[i].name)
-            {
-                Instantiate(item.model,objectSpawn[i].transform.position /*randomPos*/, 
-                    Quaternion.identity);
-            }
-        }
+        Instantiate(item.model, objectSpawn[_itemId].transform.position, Quaternion.identity);
     }
 
 
