@@ -18,4 +18,23 @@ public static class ActionManager
     public static Action playerShoot;
     public static Action endOfRound;
     public static Action<int> numShootToGive;
+
+    public static void Reset()
+    {
+        spawnCard=null;
+        removeCard=null;
+        changeCard=null;
+        destroyAllCard=null;
+        setTruePlayer=null;
+        playSound=null;
+        startRound=null;
+        resetCardInHand=null;
+        onWin=null;
+        onLoose=null;
+        GunAppear=null;
+        GunDisapear=null;
+        playerShoot=null;
+        endOfRound=null;
+        numShootToGive=null;
+    }
 }

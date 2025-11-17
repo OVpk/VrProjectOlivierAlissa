@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public static class GameManager
 {
-    private GameState currentGameState = GameState.InRound;
-    public GameState CurrentGameState
+    private static GameState currentGameState = GameState.InRound;
+    public static GameState CurrentGameState
     {
         get => currentGameState;
         set
@@ -14,15 +14,4 @@ public class GameManager : MonoBehaviour
                 ActionManager.resetCardInHand?.Invoke();
         }
     }
-
-    public static GameManager instance;
-    
-    private void Awake()
-    {
-        if (instance == null)
-            instance = this;
-        else
-            Destroy(gameObject);
-    }
-
 }

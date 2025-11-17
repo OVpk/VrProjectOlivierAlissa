@@ -41,13 +41,7 @@ public class HandController : MonoBehaviour
 
     private void OnDestroy()
     {
-        ActionManager.spawnCard -= SpawnCard;
-        ActionManager.removeCard -= ReleaseCard;
-        ActionManager.changeCard -= ChangeCard;
-        ActionManager.resetCardInHand -= DeactivateCard;
-        ActionManager.resetCardInHand -= () => DespawnGun(EnumHand.LeftHand);
-        ActionManager.GunAppear -= SpawnGun;
-        ActionManager.GunDisapear -= DespawnGun;
+        ActionManager.Reset();
     }
 
     private void Start()

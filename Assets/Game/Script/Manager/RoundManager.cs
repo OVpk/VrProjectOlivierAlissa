@@ -93,13 +93,13 @@ public class RoundManager : MonoBehaviour
     private IEnumerator StartRound()
     {
         yield return ShowUI();
-        GameManager.instance.CurrentGameState = GameState.InRound;
+        GameManager.CurrentGameState = GameState.InRound;
         StartCoroutine(ReadSequences());
     }
     
     private IEnumerator ShowUI()
     {
-        GameManager.instance.CurrentGameState = GameState.InShop;
+        GameManager.CurrentGameState = GameState.InShop;
         prediction.gameObject.SetActive(true);
         prediction.Setup(round);
         yield return new WaitForSeconds(waitTimeSequenceUI);

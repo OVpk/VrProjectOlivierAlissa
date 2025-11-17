@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
         if (chipNum <= 0)
         {
             looseCanvas.gameObject.SetActive(true);
-            GameManager.instance.CurrentGameState = GameState.InShop;
+            GameManager.CurrentGameState = GameState.InShop;
             roundManager.StopAllCoroutines();
             roundManager.enabled = false;
         }
@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
         //chipNum = baseChip;
         //numChip.text = chipNum.ToString();
         //looseCanvas.gameObject.SetActive(false);
-        //GameManager.instance.CurrentGameState = GameState.InRound;
+        //GameManager.CurrentGameState = GameState.InRound;
         //roundManager.enabled = true;
         //AddStartChip();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
