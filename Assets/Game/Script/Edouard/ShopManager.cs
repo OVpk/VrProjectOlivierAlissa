@@ -41,7 +41,7 @@ public class ShopManager : MonoBehaviour
                 inventoryManagerReference.itemsDictionary[itemsReference] = 1;
             
             inventoryManagerReference.DictionaryToLists(); //to see the dictionary in inspector
-            inventoryManagerReference.Spawn(itemsReference);
+            inventoryManagerReference.Spawn(itemsReference, _itemId);
         }
         else
         {

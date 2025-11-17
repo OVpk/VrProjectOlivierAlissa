@@ -4,7 +4,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     #region Variables
-    [Tooltip("Placer l'objet là où vous voulez faire spawn les models des Items")]
+    [Tooltip("Placer les objets là où vous voulez faire spawn les models des Items")]
     [SerializeField] GameObject[] objectSpawn;
 
     #region Lists
@@ -20,13 +20,18 @@ public class InventoryManager : MonoBehaviour
     #endregion
 
 
-    public void Spawn(Items item)
+    public void Spawn(Items item, int _itemId)
     {
+        /*Vector2 randomPos = new Vector2(Random.Range(objectSpawn[_itemId].transform.position.z - 0.1f,
+            objectSpawn[_itemId].transform.position.z + 0.1f), 
+            Random.Range(objectSpawn[_itemId].transform.position.y - 0.1f,
+                objectSpawn[_itemId].transform.position.y + 0.1f));*/
         for (int i = 0; i < itemList.Count; i++)
         {
             if (item.name == itemList[i].name)
             {
-                Instantiate(item.model, objectSpawn[i].transform.position, Quaternion.identity);
+                Instantiate(item.model,objectSpawn[i].transform.position /*randomPos*/, 
+                    Quaternion.identity);
             }
         }
     }

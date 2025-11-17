@@ -9,13 +9,13 @@ public class GameMenuManager : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject settingsMenu;
     
-    enum GameState
+    /*enum GameState
     {
         MainMenu,
         InGame 
     };
 
-    GameState gameState;
+    GameState gameState;*/
 
     #region MainMenuButtons
     [Header("MainMenuButtons")]
@@ -44,7 +44,7 @@ public class GameMenuManager : MonoBehaviour
     void StartGame()
     {
         Debug.Log("Starting Game");
-        gameState = GameState.InGame;
+        //gameState = GameState.InGame;
         mainMenu.SetActive(false);
     }
 
@@ -60,7 +60,7 @@ public class GameMenuManager : MonoBehaviour
     void ReturnToMainMenu()
     {
         Debug.Log("Returning to mainMenu");
-        gameState = GameState.MainMenu;
+        //gameState = GameState.MainMenu;
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
     }
@@ -68,14 +68,8 @@ public class GameMenuManager : MonoBehaviour
     void OpenSettings()
     {
         Debug.Log("Opening Settings");
-        gameState = GameState.MainMenu;
+        //gameState = GameState.MainMenu;
         settingsMenu.SetActive(true);
-    }
-
-    void CloseSettings()
-    {
-        Debug.Log("Closing Settings");
-        settingsMenu.SetActive(false);
     }
     #endregion
 }
