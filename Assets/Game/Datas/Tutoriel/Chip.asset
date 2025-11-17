@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Chip
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
   <title>k__BackingField: Argent
-  <description>k__BackingField: Cet image presente sur ton poigner gauche represente
-    ton argent et ta vie, tu en gagne en posant correctement tes carte et en perd
-    dans le cas contraire, attention a 0 tu meurt
+  <description>k__BackingField: "Regarde ton poignet gauche, ce sont tes jetons.
+    Tu en gagne en posant ta carte au bon moment. Mais tu en perd en faisant une
+    mauvaise action. Si tu n'a plus de jeton la partie est termin\xE9e"
   <image>k__BackingField: {fileID: 8950980214238536223, guid: a56491c05c4f9764883ea9360807191e, type: 3}
   <cardState>k__BackingField: 0

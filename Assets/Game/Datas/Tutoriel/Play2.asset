@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Play2
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
   <title>k__BackingField: Carte jouer
-  <description>k__BackingField: ici a l'enemi atteint la fin de sa sequence et pose
-    sa carte, le joueur doit poser la meme carte que l'enemi en meme temps que celui-ci
-    s'il ne souhaite pas perdre de vie
+  <description>k__BackingField: C'est le moment ! Ton adversaire joue sa carte. Pose
+    la en meme temps que lui pour gagner
   <image>k__BackingField: {fileID: 0}
   <cardState>k__BackingField: 1

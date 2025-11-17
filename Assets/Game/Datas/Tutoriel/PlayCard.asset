@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayCard
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
   <title>k__BackingField: Carte jouer
-  <description>k__BackingField: Le check sur la carte signifie que l'enemie va poser
-    sa carte sur la table
+  <description>k__BackingField: ce symbole signifie que l'enemie va poser sa carte
+    sur la table
   <image>k__BackingField: {fileID: 2849057700244011357, guid: 5d8bc89783272bd48a17a0f6b21ff001, type: 3}
+  <cardState>k__BackingField: 0

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: bullet
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
   <title>k__BackingField: Cartouche
-  <description>k__BackingField: Cet image present sur ton pignet droit represente
-    le nombre de cartouche que ton pistoler possede, fait attention tu peux tirer
-    qu'un nombre limiter de fois par round
+  <description>k__BackingField: "Regarde ton poignet droit, c'est ton nombre de balle.
+    Ne les gache pas pour rien car elles te servent \xE0 te d\xE9fendre si ton adversaire
+    choisi d'en finir avec toi"
   <image>k__BackingField: {fileID: 8950980214238536223, guid: 6160399ea54d40b4cbd8b200acf282ee, type: 3}
   <cardState>k__BackingField: 0

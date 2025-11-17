@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: round 1
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
   <title>k__BackingField: Round
-  <description>k__BackingField: "Une Ui affichant le round saffiche au d\xE9but de
-    chaqu'un d'eux, il est important de les memoriser pour pouvoir predir ce que
-    l'enemi va jouer"
+  <description>k__BackingField: "CEPENDANT ! Vous pouvez pr\xE9dire ce que va jouer
+    votre adversaire au d\xE9but de chaque manche. Les symboles sur les cartes vous
+    indique ses actions (d\xE9clarer, tirer, poser))"
   <image>k__BackingField: {fileID: 6417789815290309268, guid: 28a2d10b91758cd47b1fc3fabff4754e, type: 3}
   <cardState>k__BackingField: 0

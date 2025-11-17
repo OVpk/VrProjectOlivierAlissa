@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
   <title>k__BackingField: Couleur
   <description>k__BackingField: "L'arriere de la sequence repr\xE9sente la couleur
-    de la carte a poser"
+    de la carte \xE0 poser"
   <image>k__BackingField: {fileID: 2343775679173579024, guid: ebf47518b4e833849a633d952824b330, type: 3}
+  <cardState>k__BackingField: 0

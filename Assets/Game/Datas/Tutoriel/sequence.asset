@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: sequence
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
   <title>k__BackingField: sequence
-  <description>k__BackingField: "ceci est une sequence un round en est compos\xE9
+  <description>k__BackingField: "ceci est une sequence, une manche en est compos\xE9
     de plusieurs"
   <image>k__BackingField: {fileID: 6417789815290309268, guid: 21b276554e5e2374dbb0c98092e12893, type: 3}
   <cardState>k__BackingField: 0

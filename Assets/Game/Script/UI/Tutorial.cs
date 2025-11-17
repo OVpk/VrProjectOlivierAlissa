@@ -32,6 +32,7 @@ public class Tutorial : MonoBehaviour
     private void Start()
     {
         OnPressed();
+        GameManager.CurrentGameState = GameState.InShop;
     }
 
     public void OnPressed()
@@ -53,6 +54,7 @@ public class Tutorial : MonoBehaviour
             buttonNext.gameObject.SetActive(false);
             tutoVisual.transform.position = anchorPart2.position;
             StartTutoRound();
+            GameManager.CurrentGameState = GameState.InRound;
             return;
         }
         if (tutoUI[index].image != null)

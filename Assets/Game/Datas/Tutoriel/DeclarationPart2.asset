@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: DeclarationPart2
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
   <title>k__BackingField: "D\xE9claration"
-  <description>k__BackingField: "Ici, l'enemi fait son animation de d\xE9claration,
-    durant celle-ci le joueur ne doit pas agir si ce n'est de retenir la couleur
-    de la carte pour quand il devra la jouer"
+  <description>k__BackingField: "Ton adversaire d\xE9clare simplement sa carte. Attend
+    et observe"
   <image>k__BackingField: {fileID: 0}
   <cardState>k__BackingField: 0

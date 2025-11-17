@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: shoot2
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
   <title>k__BackingField: Tire
-  <description>k__BackingField: Ici l'enemi interont sa sequence pour tirer sur le
-    joueur, le joueur doit a son tour sortir son pistolet et tirer en meme temps
-    que l'enemi s'il ne souhaite pas perdre de vie
+  <description>k__BackingField: Ton adversaire te tire dessus ! Tire en meme temps
+    que lui pour l'empecher de te blesser
   <image>k__BackingField: {fileID: 0}
   <cardState>k__BackingField: 2

@@ -217,8 +217,8 @@ public class RoundManager : MonoBehaviour
     {
         ActionManager.setTruePlayer -= PlayerPlayed;
 
-        if (!canPlay) return;
-        if (havePlayerPlayed) return;
+        if (!canPlay && !tutorial) return;
+        if (havePlayerPlayed && !tutorial) return;
         
         havePlayerPlayed = true;
         playerUsedColor = pColor;
@@ -226,7 +226,7 @@ public class RoundManager : MonoBehaviour
 
     private void PlayerShoot()
     {
-        if (!canShoot) return;
+        if (!canShoot && !tutorial) return;
         havePlayerShoot = true;
     }
 

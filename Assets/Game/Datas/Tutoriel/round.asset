@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0cd4fa53b0de4041b522a9767a67909, type: 3}
   m_Name: round
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
-  <title>k__BackingField: Round
-  <description>k__BackingField: "Ceci represente un round, il est constitu\xE9 de
-    sequence (groupe de carte) et chaque sequence est compos\xE9 de beats (cartes)"
+  <title>k__BackingField: Regles du jeu
+  <description>k__BackingField: "Lors d'une partie, ton adversaire joue des cartes
+    de differentes couleurs. Avant de la poser, il peut la d\xE9clarer un certain
+    nombre de fois"
   <image>k__BackingField: {fileID: 6417789815290309268, guid: 28a2d10b91758cd47b1fc3fabff4754e, type: 3}
   <cardState>k__BackingField: 0

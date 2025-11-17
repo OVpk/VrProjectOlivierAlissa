@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: declaration
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
   <title>k__BackingField: "D\xE9claration"
-  <description>k__BackingField: "La croix sur la carte signifie que l'enemi va la
-    d\xE9clarer mais pas la jouer"
+  <description>k__BackingField: "Ce symbole signifie que l'enemi va la d\xE9clarer
+    mais pas la jouer"
   <image>k__BackingField: {fileID: 8469844852291138512, guid: 75c335d33a74d214ea3802dfaf494ad9, type: 3}
+  <cardState>k__BackingField: 0

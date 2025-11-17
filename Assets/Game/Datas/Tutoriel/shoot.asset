@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: shoot
   m_EditorClassIdentifier: Assembly-CSharp::TutoScriptable
   <title>k__BackingField: Pistoler
-  <description>k__BackingField: "si le viseur est affich\xE9 sur la carte cela signifie
-    que l'enemie va sortir son pistoler et tirer "
+  <description>k__BackingField: 'ce symbole signifie que l''enemie va sortir son
+    pistoler et tirer '
   <image>k__BackingField: {fileID: 8950980214238536223, guid: 6c1dce1b8ec0384439af9810b32e8b96, type: 3}
+  <cardState>k__BackingField: 0
