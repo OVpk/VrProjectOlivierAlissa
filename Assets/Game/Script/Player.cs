@@ -87,14 +87,15 @@ public class Player : MonoBehaviour
 
     public void OnPlayAgain()
     {
-        //ActionManager.endOfRound.Invoke();
-        //chipNum = baseChip;
-        //numChip.text = chipNum.ToString();
-        //looseCanvas.gameObject.SetActive(false);
-        //GameManager.CurrentGameState = GameState.InRound;
-        //roundManager.enabled = true;
-        //AddStartChip();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ActionManager.endOfRound.Invoke();
+        chipNum = baseChip;
+        numChip.text = chipNum.ToString();
+        looseCanvas.gameObject.SetActive(false);
+        GameManager.CurrentGameState = GameState.InRound;
+        roundManager.enabled = true;
+        AddStartChip();
+        ActionManager.onGameOver.Invoke();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void WinLife()

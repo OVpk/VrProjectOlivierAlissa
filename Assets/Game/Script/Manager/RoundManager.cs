@@ -36,12 +36,14 @@ public class RoundManager : MonoBehaviour
     {
         ActionManager.playerShoot += PlayerShoot;
         ActionManager.startRound += InitRound;
+        ActionManager.onGameOver += ResetDifficultyValue;
     }
 
     private void OnDisable()
     {
         ActionManager.playerShoot -= PlayerShoot;
         ActionManager.startRound -= InitRound;
+        ActionManager.onGameOver -= ResetDifficultyValue;
 
     }
 
@@ -50,7 +52,6 @@ public class RoundManager : MonoBehaviour
         if (isTutorial)
             return;
         ResetDifficultyValue();
-        InitRound();
     }
 
     private void InitRound()
@@ -135,8 +136,11 @@ public class RoundManager : MonoBehaviour
         }
         DifficultyLevelUp();
 
-        if(!isTutorial) 
+        if (!isTutorial)
+        {
             ActionManager.endOfRound.Invoke();
+            InitRound();
+        }
         else
             tutorial.OnTutorialEnd();
     }
