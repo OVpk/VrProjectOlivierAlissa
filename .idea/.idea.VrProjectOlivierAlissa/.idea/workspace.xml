@@ -6,16 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5925cef1-4240-4bf3-8887-3b0928496060" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/alissa.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/alissa.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Manager/ActionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Manager/ActionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/ParticleScript.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/ParticleScript.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/RoundGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/RoundGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Sequence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Sequence.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/SequenceUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/SequenceUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/WinFeedBack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/WinFeedBack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/AndroidXR/AndroidXRSettingsInitializer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/AndroidXR/AndroidXRSettingsInitializer" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +20,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Script/Challenge/NoHitRoundChallenge.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Script/RoundGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Script/Sequence.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Script/UI/GlobalCardsUi.cs" root0="FORCE_HIGHLIGHTING" />
@@ -130,6 +122,7 @@
       <workItem from="1761822428547" duration="3536000" />
       <workItem from="1762938535740" duration="4235000" />
       <workItem from="1763028233300" duration="7684000" />
+      <workItem from="1763636751422" duration="13096000" />
     </task>
     <servers />
   </component>
