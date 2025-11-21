@@ -106,7 +106,6 @@ public class Tutorial : MonoBehaviour
 
     private void StartTutoRound()
     {
-        roundManager.timeBetweenNote = 2f;
         ActionManager.startRound.Invoke();
         description.text = "Mémorise la séquence";
         title.text = "Mémorise";
