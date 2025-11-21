@@ -60,6 +60,8 @@ public class RoundManager : MonoBehaviour
         ResetAllState();
         round = roundGenerator.GenerateRound(difficultyLevel);
         CountShootInRound();
+        if (GameManager.CurrentGameState != GameState.InRound)
+            GameManager.CurrentGameState = GameState.InRound;
         StartCoroutine(StartRound());
     }
 
@@ -93,13 +95,11 @@ public class RoundManager : MonoBehaviour
     private IEnumerator StartRound()
     {
         yield return ShowUI();
-        GameManager.CurrentGameState = GameState.InRound;
         StartCoroutine(ReadSequences());
     }
     
     private IEnumerator ShowUI()
     {
-        GameManager.CurrentGameState = GameState.InUI;
         prediction.gameObject.SetActive(true);
         prediction.Setup(round);
         yield return new WaitForSeconds(waitTimeSequenceUI);
@@ -139,6 +139,7 @@ public class RoundManager : MonoBehaviour
 
         if (!isTutorial)
         {
+            GameManager.CurrentGameState = GameState.InUI;
             ActionManager.endOfRound.Invoke();
         }
         else

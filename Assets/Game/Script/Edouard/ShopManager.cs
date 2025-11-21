@@ -49,6 +49,7 @@ public class ShopManager : MonoBehaviour
 
         if (!lItem.isUnlock || lItem.bought)
             return;
+
         ItemData itemsReference = items[_itemId].itemData;
 
         if (moneyRef.money >= itemsReference.price)

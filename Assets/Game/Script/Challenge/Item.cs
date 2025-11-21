@@ -35,7 +35,6 @@ public class Item : MonoBehaviour
     }
     private void Unlock()
     {
-        Debug.Log("here should unlock");
         isUnlock = true;
         ActionManager.Unlock.Invoke(id);
         unlockCondition.OnComplete -= Unlock;

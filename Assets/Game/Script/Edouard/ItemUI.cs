@@ -27,11 +27,6 @@ public class ItemUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         itemIcon.sprite = itemsReference.icon;
         buyButton.onClick.AddListener(() => shopManagerReference.Buy(itemID));
     }
-
-    private void Update()
-    {
-        Debug.Log(isLocked);
-    }
     public void Lock()
     {
         lockImage.SetActive(true);
@@ -57,7 +52,7 @@ public class ItemUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(!isLocked) 
+        if (!isLocked)
             return;
         description.SetActive(false);
     }
