@@ -14,11 +14,11 @@ public class Player : MonoBehaviour
     [SerializeField] private RoundManager roundManager;
     [SerializeField] private ParticleSystem particleGun;
 
-    public int chipNum = 5;
     private float margin = .05f;
     private int baseChip = 5;
     private int nbOfShoot;
-    private int money = 0;
+    public int money = 0;
+    public int chipNum = 5;
 
 
     [SerializeField] private GameObject chip;

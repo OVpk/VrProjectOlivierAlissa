@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: test1
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   <itemName>k__BackingField: blaaa
-  <price>k__BackingField: 5
+  <price>k__BackingField: 6
   <icon>k__BackingField: {fileID: 3495086814825567685, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
-  <locked>k__BackingField: 1
+  <DescriptionItem>k__BackingField: "Gagne 6 jetons en une partie pour d\xE9bloquer
+    l'achat"
