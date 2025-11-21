@@ -9,17 +9,18 @@ public class ShopManager : MonoBehaviour
     #region Unity Variables
     [SerializeField] GameObject shopUI;
     [SerializeField] GameObject shopItemUIPrefab;
-    [SerializeField] public List<Items>  shopItems = new List<Items>();
     [SerializeField] InventoryManager inventoryManagerReference;
     [SerializeField] ItemUI ItemUIReference;
     [SerializeField] Player moneyRef;
+    [SerializeField] public List<Item> items = new List<Item>();
     #endregion
 
     void Start()
     {
-        for (int i = 0; i < shopItems.Count; i++)
+        for (int i = 0; i < items.Count; i++)
         {
-            ItemUIReference.itemsReference = shopItems[i]; ItemUIReference.shopManagerReference = this;
+            ItemUIReference.itemsReference = items[i].itemData; 
+            ItemUIReference.shopManagerReference = this;
             ItemUIReference.itemID = i;
             Instantiate(shopItemUIPrefab, shopUI.transform);
         }
@@ -27,18 +28,16 @@ public class ShopManager : MonoBehaviour
 
     public void Buy(int _itemId)
     {
-        Items itemsReference = shopItems[_itemId];
+        Item lItem = items[_itemId];
+        if (!lItem.isUnlock || lItem.bought)
+            return;
+        ItemData itemsReference = items[_itemId].itemData;
 
         if (moneyRef.chipNum >= itemsReference.price)
         {
             moneyRef.chipNum -= itemsReference.price;
-
-            if (inventoryManagerReference.itemsDictionary.ContainsKey(itemsReference))
-                inventoryManagerReference.itemsDictionary[itemsReference] += 1;
-            else
-                inventoryManagerReference.itemsDictionary[itemsReference] = 1;
-            
-            inventoryManagerReference.DictionaryToLists();
+            lItem.bought = true;
+            lItem.gameObject.SetActive(true);
         }
     }
 

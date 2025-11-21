@@ -1,14 +1,16 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class MainMenue : MonoBehaviour
+public class MainMenue : UIFade
 {
     [SerializeField] private CanvasGroup shop;
     [SerializeField] private CanvasGroup playGroup;
+    [SerializeField] private RoundManager roundManager;
+    [SerializeField] private Button playButton;
 
     private string tutorialSceneName = "tuto";
-    private float minusFactor = 0.01f;
 
     private void OnEnable()
     {
@@ -21,36 +23,27 @@ public class MainMenue : MonoBehaviour
     }
     public void OnPlayPressed()
     {
-        StartCoroutine(FadeOut());
+        StartCoroutine(StartGame());
     }
 
-    private IEnumerator FadeOut()
+    private IEnumerator StartGame()
     {
-        while(playGroup.alpha != 0)
-        {
-            playGroup.alpha -= minusFactor;
-            shop.alpha -= minusFactor;
-            yield return null;
-        }
+        playButton.enabled = false;
+        StartCoroutine(FadeOut(shop));
+        yield return FadeOut(playGroup);
+        roundManager.enabled = true;
+        ActionManager.startRound.Invoke();
         shop.gameObject.SetActive(false);
         gameObject.SetActive(false);
-        ActionManager.startRound.Invoke();
     }
 
     private void MenuAppear()
     {
+        playButton.enabled = true;
         shop.gameObject.SetActive(true);
         gameObject.SetActive(true);
-        StartCoroutine(FadeIn());
-    }
-    private IEnumerator FadeIn()
-    {
-        while (playGroup.alpha != 1)
-        {
-            playGroup.alpha += minusFactor;
-            shop.alpha += minusFactor;
-            yield return null;
-        }
+        StartCoroutine(FadeIn(shop));
+        StartCoroutine(FadeIn(playGroup));
     }
 
     public void OnTutoPressed()

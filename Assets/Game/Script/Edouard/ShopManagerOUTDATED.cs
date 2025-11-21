@@ -9,7 +9,7 @@ public class ShopManagerOUTDATED : MonoBehaviour
     #region Unity Variables
     [SerializeField] GameObject shopMenu;
     [SerializeField] InventoryManager inventoryManagerReference;
-    [SerializeField] List<Items>  shopItems = new List<Items>();
+    [SerializeField] List<ItemData>  shopItems = new List<ItemData>();
     [SerializeField] List<TMP_Text> shopButtonText = new List<TMP_Text>();
     [SerializeField] List<Image> shopImages = new List<Image>();
     [SerializeField] List<Button> shopButtons = new List<Button>();
@@ -35,7 +35,7 @@ public class ShopManagerOUTDATED : MonoBehaviour
 
     void Buy(int _itemId)
     {
-        Items item = shopItems[_itemId];
+        ItemData item = shopItems[_itemId];
 
         if (inventoryManagerReference.money >= item.price)
         {

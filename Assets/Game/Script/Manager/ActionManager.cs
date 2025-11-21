@@ -19,6 +19,7 @@ public static class ActionManager
     public static Action endOfRound;
     public static Action<int> numShootToGive;
     public static Action onGameOver;
+    public static Action<int> AddMoney;
 
     public static void Reset()
     {
@@ -38,5 +39,6 @@ public static class ActionManager
         endOfRound=null;
         numShootToGive=null;
         onGameOver=null;
-    }
+        AddMoney =null;
+}
 }

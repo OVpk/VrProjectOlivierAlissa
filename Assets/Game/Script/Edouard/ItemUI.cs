@@ -9,17 +9,17 @@ public class ItemUI : MonoBehaviour
     [SerializeField] TMP_Text itemPrice;
     [SerializeField] Image itemIcon;
     [SerializeField] Button buyButton;
-    
-    public Items itemsReference; 
-    public ShopManager  shopManagerReference; 
+
+    public ItemData itemsReference;
+    public ShopManager shopManagerReference;
     public int itemID;
-    
+
     private void Awake()
     {
-        itemName = itemsReference.name;
+        itemName = itemsReference.itemName;
         itemPrice.text = itemsReference.price.ToString();
         itemIcon.sprite = itemsReference.icon;
-        
-        buyButton.onClick.AddListener(()=>shopManagerReference.Buy(itemID));
+
+        buyButton.onClick.AddListener(() => shopManagerReference.Buy(itemID));
     }
 }

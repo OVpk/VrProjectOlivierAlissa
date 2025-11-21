@@ -13,6 +13,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private int minBeatToAddForLevelUp = 1;
     [SerializeField] private int maxBeatToAddForLevelUp = 3;
     [SerializeField] private Tutorial tutorial;
+    [SerializeField] private GameIntermitant intermitant;
 
     private bool haveEnemyPlayed;
     private bool havePlayerPlayed;
@@ -139,7 +140,6 @@ public class RoundManager : MonoBehaviour
         if (!isTutorial)
         {
             ActionManager.endOfRound.Invoke();
-            InitRound();
         }
         else
             tutorial.OnTutorialEnd();

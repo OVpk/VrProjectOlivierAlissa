@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private float margin = .05f;
     private int baseChip = 5;
     private int nbOfShoot;
+    private int money = 0;
+
 
     [SerializeField] private GameObject chip;
     [SerializeField] private GameObject chipContainer;
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour
         ActionManager.onWin += WinLife;
         ActionManager.onLoose += LooseLife;
         ActionManager.numShootToGive += SetNumShot;
+        ActionManager.AddMoney += UpdateTotalMoney;
     }
 
     private void OnDisable()
@@ -37,6 +40,7 @@ public class Player : MonoBehaviour
         ActionManager.onWin -= WinLife;
         ActionManager.onLoose -= LooseLife;
         ActionManager.numShootToGive -= SetNumShot;
+        ActionManager.AddMoney -= UpdateTotalMoney;
     }
 
     private void Start()
@@ -44,6 +48,11 @@ public class Player : MonoBehaviour
         numChip.text = chipNum.ToString();
 
         AddStartChip();
+    }
+
+    private void UpdateTotalMoney(int pNumToGive)
+    {
+        money += pNumToGive;
     }
 
     private void AddStartChip()
@@ -68,6 +77,7 @@ public class Player : MonoBehaviour
         if (godMod)
             return;
 
+        Debug.Log("loose Life");
         chipNum -= lifeLostByError;
         numChip.text = chipNum.ToString();
         GameObject lChip = activeChip[0];
@@ -78,16 +88,19 @@ public class Player : MonoBehaviour
 
         if (chipNum <= 0)
         {
-            looseCanvas.gameObject.SetActive(true);
-            GameManager.CurrentGameState = GameState.InUI;
-            roundManager.StopAllCoroutines();
-            roundManager.enabled = false;
+            GameOver();
         }
     }
 
+    public void GameOver()
+    {
+        looseCanvas.gameObject.SetActive(true);
+        GameManager.CurrentGameState = GameState.InUI;
+        roundManager.StopAllCoroutines();
+        roundManager.enabled = false;
+    }
     public void OnPlayAgain()
     {
-        ActionManager.endOfRound.Invoke();
         chipNum = baseChip;
         numChip.text = chipNum.ToString();
         looseCanvas.gameObject.SetActive(false);
@@ -95,7 +108,6 @@ public class Player : MonoBehaviour
         roundManager.enabled = true;
         AddStartChip();
         ActionManager.onGameOver.Invoke();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void WinLife()
