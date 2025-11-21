@@ -22,6 +22,7 @@ public class ShopManager : MonoBehaviour
             ItemUIReference.itemsReference = items[i].itemData; 
             ItemUIReference.shopManagerReference = this;
             ItemUIReference.itemID = i;
+            items[i].id = i;
             Instantiate(shopItemUIPrefab, shopUI.transform);
         }
     }

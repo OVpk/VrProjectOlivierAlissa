@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e530536fa05f6714f88293f39b6303e9, type: 3}
   m_Name: test1
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  <itemName>k__BackingField: 
+  <itemName>k__BackingField: blaaa
   <price>k__BackingField: 5
   <icon>k__BackingField: {fileID: 3495086814825567685, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
+  <locked>k__BackingField: 1

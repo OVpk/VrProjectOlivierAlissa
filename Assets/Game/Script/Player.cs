@@ -116,6 +116,7 @@ public class Player : MonoBehaviour
             return;
         chipNum += lifeWin;
         numChip.text = chipNum.ToString();
+        ChallengeManager.Instance.Notify(chipNum, typeof(ChipChallenge));
 
         GameObject lChip;
         if (disactiveChip.Count == 0)

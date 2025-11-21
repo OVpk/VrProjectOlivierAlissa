@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
 
     public bool isUnlock = false;
     public bool bought = false;
+    public int id;
 
     private void OnEnable()
     {
@@ -36,6 +37,7 @@ public class Item : MonoBehaviour
     private void Unlock()
     {
         isUnlock = true;
+        ActionManager.Unlock.Invoke(id);
         unlockCondition.OnComplete -= Unlock;
     }
 }

@@ -20,7 +20,7 @@ public static class ActionManager
     public static Action<int> numShootToGive;
     public static Action onGameOver;
     public static Action<int> AddMoney;
-
+    public static Action<int> Unlock;
     public static void Reset()
     {
         spawnCard=null;

@@ -14,6 +14,7 @@ public class MainMenue : UIFade
 
     private void OnEnable()
     {
+        GameManager.CurrentGameState = GameState.InUI;
         ActionManager.onGameOver += MenuAppear;
     }
 
