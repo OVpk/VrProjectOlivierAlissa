@@ -77,7 +77,6 @@ public class Player : MonoBehaviour
         if (godMod)
             return;
 
-        Debug.Log("loose Life");
         chipNum -= lifeLostByError;
         numChip.text = chipNum.ToString();
         GameObject lChip = activeChip[0];

@@ -30,6 +30,6 @@ public class ItemUI : MonoBehaviour
     private void Unlock(int pID)
     {
         if (pID == itemID)
-            lockImage.SetActive(true);
+            lockImage.SetActive(false);
     }
 }

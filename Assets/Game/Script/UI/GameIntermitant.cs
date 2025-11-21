@@ -29,7 +29,6 @@ public class GameIntermitant : UIFade
 
     private void OnRoundEnd()
     {
-        Debug.Log("appearing");
         gameObject.SetActive(true);
         StartCoroutine(FadeIn(group));
     }

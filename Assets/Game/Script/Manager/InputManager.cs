@@ -17,7 +17,9 @@ public class InputManager : MonoBehaviour
                 return;
             }
             else if(GameManager.CurrentGameState == GameState.InRound)
+            {
                 ActionManager.changeCard?.Invoke(EnumHand.RightHand);
+            }
         }
         else if (ctx.canceled)
         {

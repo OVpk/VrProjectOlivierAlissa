@@ -28,7 +28,7 @@ public class HandController : MonoBehaviour
     private float rotateCard = 90f;
     private float tweenDuration = .2f;
 
-    private void OnEnable()
+    private void Awake()
     {
         ActionManager.spawnCard += SpawnCard;
         ActionManager.removeCard += ReleaseCard;
@@ -37,6 +37,9 @@ public class HandController : MonoBehaviour
         ActionManager.resetCardInHand += () => DespawnGun(EnumHand.LeftHand);
         ActionManager.GunDisapear += DespawnGun;
         ActionManager.GunAppear += SpawnGun;
+
+        Debug.Log("HandController enabled: " + currentHand);
+
     }
 
     private void OnDestroy()
@@ -113,7 +116,6 @@ public class HandController : MonoBehaviour
     {
         if (currentHand != pHand || !cardInHand.activeInHierarchy || cardDropped.IsDropped)
             return;
-
         cardIndex = (cardIndex + 1) % cards.Length;
         SpawnCard(pHand);
     }
@@ -148,7 +150,7 @@ public class HandController : MonoBehaviour
 
     private void DeactivateCard()
     {
-        if(cardInHand != null)
+        if (cardInHand != null)
             cardInHand.SetActive(false);
     }
 }

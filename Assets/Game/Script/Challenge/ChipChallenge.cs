@@ -7,7 +7,11 @@ public class ChipChallenge : Challenge
 
     public override void CheckCondition<T>(T value)
     {
+        Debug.Log(value + " " + requiredChips);
         if (value is int chips && chips >= requiredChips)
+        {
+            Debug.Log("should unlock");
             OnComplete?.Invoke();
+        }
     }
 }

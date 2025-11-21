@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Items")]
 public class Item : MonoBehaviour
 {
     [SerializeField] private Challenge unlockCondition;
@@ -22,7 +21,7 @@ public class Item : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         if (unlockCondition)
         {
@@ -36,6 +35,7 @@ public class Item : MonoBehaviour
     }
     private void Unlock()
     {
+        Debug.Log("here should unlock");
         isUnlock = true;
         ActionManager.Unlock.Invoke(id);
         unlockCondition.OnComplete -= Unlock;

@@ -153,7 +153,7 @@ public class RoundManager : MonoBehaviour
             tutorial.OnDeclaration();
         enemy.DeclareCard();
         yield return new WaitForSeconds(timeBetweenNote);
-        ActionManager.playSound(beat.declarationSound);
+        ActionManager.playSound?.Invoke(beat.declarationSound);
     }
     
     private IEnumerator ShootBeat(CardDataInstance beat)
@@ -174,7 +174,7 @@ public class RoundManager : MonoBehaviour
             canShoot = false;
 
             if (!havePlayerShoot)
-                ActionManager.onLoose?.Invoke();
+                ActionManager.onLoose.Invoke();
         }
         else
         {

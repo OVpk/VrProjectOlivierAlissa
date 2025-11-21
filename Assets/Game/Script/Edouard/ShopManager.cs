@@ -30,6 +30,8 @@ public class ShopManager : MonoBehaviour
     public void Buy(int _itemId)
     {
         Item lItem = items[_itemId];
+
+        Debug.Log("is item unlocked :" + lItem.isUnlock);
         if (!lItem.isUnlock || lItem.bought)
             return;
         ItemData itemsReference = items[_itemId].itemData;
