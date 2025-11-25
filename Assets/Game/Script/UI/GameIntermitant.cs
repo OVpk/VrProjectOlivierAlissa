@@ -35,6 +35,7 @@ public class GameIntermitant : UIFade
 
     public void OnStopPressed()
     {
+        Debug.Log("pd");
         ActionManager.AddMoney(money);
         StartCoroutine(RemoveUi(false));
     }
@@ -50,6 +51,7 @@ public class GameIntermitant : UIFade
 
     public void OnContinue()
     {
+        Debug.Log("pd");
         GameManager.CurrentGameState = GameState.InUI;
         StartCoroutine(RemoveUi(true));
     }

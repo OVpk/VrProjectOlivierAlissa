@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5925cef1-4240-4bf3-8887-3b0928496060" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/AndroidXR/AndroidXRSettingsInitializer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/AndroidXR/AndroidXRSettingsInitializer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Manager/RoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Manager/RoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/Tutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/Tutorial.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +124,7 @@
       <workItem from="1762938535740" duration="4235000" />
       <workItem from="1763028233300" duration="7684000" />
       <workItem from="1763636751422" duration="13096000" />
+      <workItem from="1763729911142" duration="7529000" />
     </task>
     <servers />
   </component>

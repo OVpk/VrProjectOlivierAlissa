@@ -8,6 +8,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private int difficultyLevel = 5;
     [SerializeField] private float minusEveryRound = 0.1f;
     [SerializeField] private float minSpeed = 0.5f;
+    [SerializeField] private float minMargin = 0.1f;
     [SerializeField] private GlobalCardsUI prediction;
     [SerializeField] private RoundGenerator roundGenerator;
     [SerializeField] private int minBeatToAddForLevelUp = 1;
@@ -15,7 +16,6 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private Tutorial tutorial;
     [SerializeField] private GameIntermitant intermitant;
 
-    private bool haveEnemyPlayed;
     private bool havePlayerPlayed;
     private bool havePlayerShoot;
     private Sequence[] round;
@@ -25,10 +25,10 @@ public class RoundManager : MonoBehaviour
     private bool canShoot = false;
 
     private float waitTimeSequenceUI = 3f;
-    private float waitMargin = .2f;
-    private float waitBetweenRound = 1.5f;
-
-    public float timeBetweenNote = 2.5f;
+    
+    private float waitTimeBetweenSequence = 1.5f;
+    private float timeBetweenNote = 1.5f;
+    private float waitMargin = 0.4f;
     public bool isTutorial;
 
     #region Init
@@ -68,8 +68,9 @@ public class RoundManager : MonoBehaviour
     private void ResetDifficultyValue()
     {
         difficultyLevel = 5;
-        timeBetweenNote = 1f;
+        timeBetweenNote = 1.5f;
         waitTimeSequenceUI = 3f;
+        waitMargin = timeBetweenNote / 5f;
     }
     
     private void CountShootInRound()
@@ -87,7 +88,6 @@ public class RoundManager : MonoBehaviour
         ActionManager.destroyAllCard?.Invoke();
 
         havePlayerPlayed = false;
-        haveEnemyPlayed = false;
     }
 
     #endregion
@@ -132,7 +132,7 @@ public class RoundManager : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(waitBetweenRound);
+            yield return new WaitForSeconds(waitTimeBetweenSequence);
             ResetAllState();
         }
         DifficultyLevelUp();
@@ -242,5 +242,10 @@ public class RoundManager : MonoBehaviour
         waitTimeSequenceUI += 0.5f;
         if (!(timeBetweenNote <= minSpeed))
             timeBetweenNote -= minusEveryRound;
+        
+        if (!(waitTimeBetweenSequence <= 0)) 
+            waitTimeBetweenSequence -= 0.1f;
+        if (!(waitMargin <= minMargin))
+            waitMargin =  timeBetweenNote / 5f;
     }
 }
