@@ -25,11 +25,12 @@ public class RoundManager : MonoBehaviour
     private bool canShoot = false;
 
     private float waitTimeSequenceUI = 3f;
-    
     private float waitTimeBetweenSequence = 1.5f;
     private float timeBetweenNote = 1.5f;
     private float waitMargin = 0.4f;
+    private float diviseur = 5f;
     public bool isTutorial;
+    private int roundCount = 0; 
 
     #region Init
 
@@ -70,7 +71,8 @@ public class RoundManager : MonoBehaviour
         difficultyLevel = 5;
         timeBetweenNote = 1.5f;
         waitTimeSequenceUI = 3f;
-        waitMargin = timeBetweenNote / 5f;
+        roundCount = 0;
+        waitMargin = timeBetweenNote / diviseur;
     }
     
     private void CountShootInRound()
@@ -108,6 +110,8 @@ public class RoundManager : MonoBehaviour
     
     private IEnumerator ReadSequences()
     {
+        roundCount += 1;
+
         for (int y = 0; y < round.Length; y++)
         {
             CardDataInstance[] sequence = round[y].beats;
@@ -246,6 +250,6 @@ public class RoundManager : MonoBehaviour
         if (!(waitTimeBetweenSequence <= 0)) 
             waitTimeBetweenSequence -= 0.1f;
         if (!(waitMargin <= minMargin))
-            waitMargin =  timeBetweenNote / 5f;
+            waitMargin =  timeBetweenNote / diviseur;
     }
 }

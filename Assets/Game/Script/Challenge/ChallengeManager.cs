@@ -10,7 +10,7 @@ public class ChallengeManager : MonoBehaviour
     private void Awake()
     {
         if (Instance)
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         else
             Instance = this;
     }

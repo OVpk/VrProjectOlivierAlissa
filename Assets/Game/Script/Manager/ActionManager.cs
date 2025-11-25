@@ -40,5 +40,6 @@ public static class ActionManager
         numShootToGive=null;
         onGameOver=null;
         AddMoney =null;
+        Unlock=null;
 }
 }
