@@ -28,7 +28,7 @@ public class RoundManager : MonoBehaviour
     private float waitMargin = .2f;
     private float waitBetweenRound = 1.5f;
 
-    public float timeBetweenNote = 1f;
+    public float timeBetweenNote = 2.5f;
     public bool isTutorial;
 
     #region Init

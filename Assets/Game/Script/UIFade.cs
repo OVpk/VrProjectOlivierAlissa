@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class UIFade : MonoBehaviour
 {
-    private float minusFactor = 0.01f;
+    private float minusFactor = 0.05f;
     protected IEnumerator FadeOut(CanvasGroup pGroup)
     {
         while (pGroup.alpha != 0)

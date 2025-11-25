@@ -44,7 +44,6 @@ public class ItemUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log(isLocked);
         if (!isLocked)
             return;
         description.SetActive(true);

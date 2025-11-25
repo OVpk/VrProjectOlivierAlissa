@@ -37,7 +37,6 @@ public class GameIntermitant : UIFade
     {
         ActionManager.AddMoney(money);
         StartCoroutine(RemoveUi(false));
-        
     }
     private IEnumerator RemoveUi(bool pContinue)
     {
