@@ -26,9 +26,12 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < items.Count; i++)
         {
+            Debug.Log(shopItemUIPrefab);
+            Debug.Log(shopUI.transform);
             GameObject newItemUI = Instantiate(shopItemUIPrefab, shopUI.transform);
+            Debug.Log(newItemUI);
             ItemUI ui = newItemUI.GetComponent<ItemUI>();
-
+            Debug.Log(ui);
             ui.itemsReference = items[i].itemData;
             ui.shopManagerReference = this;
             ui.itemID = i;

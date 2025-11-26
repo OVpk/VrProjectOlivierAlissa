@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba8696938e831248b0c7910d2b705eb, type: 3}
-  m_Name: chipchallengeTest
-  m_EditorClassIdentifier: Assembly-CSharp::ChipChallenge
-  requiredChips: 6
+  m_Script: {fileID: 11500000, guid: d695c130c8c10034ab411e9c2ba173dc, type: 3}
+  m_Name: GuirlandeChallenge
+  m_EditorClassIdentifier: Assembly-CSharp::NoHitRoundChallenge
+  requiredNoHitRounds: 3

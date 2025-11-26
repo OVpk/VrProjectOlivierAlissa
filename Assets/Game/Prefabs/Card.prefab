@@ -272,5 +272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce91b8ad20328504494144e247924099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DroppedCard
+  rb: {fileID: 0}
   spriteDisplayer: {fileID: 2499542291183926577}
   isPlayer: 0

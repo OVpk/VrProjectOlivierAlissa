@@ -21,11 +21,14 @@ public class ItemUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private void Awake()
     {
         ActionManager.unlock += Unlock;
+        buyButton.onClick.AddListener(() => shopManagerReference.Buy(itemID));
+    }
 
+    private void Start()
+    {
         itemName = itemsReference.itemName;
         itemPrice.text = itemsReference.price.ToString();
         itemIcon.sprite = itemsReference.icon;
-        buyButton.onClick.AddListener(() => shopManagerReference.Buy(itemID));
     }
     public void Lock()
     {
