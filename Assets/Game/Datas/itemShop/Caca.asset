@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e530536fa05f6714f88293f39b6303e9, type: 3}
   m_Name: Caca
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  <itemName>k__BackingField: 
-  <price>k__BackingField: 0
-  <icon>k__BackingField: {fileID: 0}
+  <itemName>k__BackingField: caca
+  <price>k__BackingField: 7
+  <icon>k__BackingField: {fileID: 21300000, guid: 9e0ef6e5531a6d64096513bc787bc8ba, type: 3}
   <DescriptionItem>k__BackingField: 
