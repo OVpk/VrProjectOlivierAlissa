@@ -33,10 +33,10 @@ public class HandController : MonoBehaviour
         ActionManager.spawnCard += SpawnCard;
         ActionManager.removeCard += ReleaseCard;
         ActionManager.changeCard += ChangeCard;
-        ActionManager.resetCardInHand += DeactivateCard;
-        ActionManager.resetCardInHand += () => DespawnGun(EnumHand.LeftHand);
-        ActionManager.GunDisapear += DespawnGun;
-        ActionManager.GunAppear += SpawnGun;
+        ActionManager.onUiState += DeactivateCard;
+        //ActionManager.onUiState += () => DespawnGun(EnumHand.LeftHand);
+        //ActionManager.GunDisapear += DespawnGun;
+        //ActionManager.GunAppear += SpawnGun;
 
         Debug.Log("HandController enabled: " + currentHand);
 
@@ -93,23 +93,23 @@ public class HandController : MonoBehaviour
         cardDropped.spriteDisplayer.sprite = cards[cardIndex].visual;
     }
 
-    private void SpawnGun(EnumHand pHand)
-    {
-        if (currentHand != pHand)
-            return;
+    //private void SpawnGun(EnumHand pHand)
+    //{
+    //    if (currentHand != pHand)
+    //        return;
 
-        if (!gun.activeInHierarchy)
-            gun.SetActive(true);
-    }
+    //    if (!gun.activeInHierarchy)
+    //        gun.SetActive(true);
+    //}
 
-    private void DespawnGun(EnumHand pHand)
-    {
-        if (currentHand != pHand)
-            return;
+    //private void DespawnGun(EnumHand pHand)
+    //{
+    //    if (currentHand != pHand)
+    //        return;
 
-        if (gun.activeInHierarchy)
-            gun.SetActive(false);
-    }
+    //    if (gun.activeInHierarchy)
+    //        gun.SetActive(false);
+    //}
 
 
     private void ChangeCard(EnumHand pHand)

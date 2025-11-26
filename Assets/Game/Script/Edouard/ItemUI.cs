@@ -20,7 +20,7 @@ public class ItemUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void Awake()
     {
-        ActionManager.Unlock += Unlock;
+        ActionManager.unlock += Unlock;
 
         itemName = itemsReference.itemName;
         itemPrice.text = itemsReference.price.ToString();

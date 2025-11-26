@@ -110,7 +110,6 @@ public class RoundManager : MonoBehaviour
     
     private IEnumerator ReadSequences()
     {
-        roundCount += 1;
 
         for (int y = 0; y < round.Length; y++)
         {
@@ -251,5 +250,9 @@ public class RoundManager : MonoBehaviour
             waitTimeBetweenSequence -= 0.1f;
         if (!(waitMargin <= minMargin))
             waitMargin =  timeBetweenNote / diviseur;
+
+        roundCount += 1;
+        if(roundCount%5 == 0)
+            ActionManager.updateMoneyLoss.Invoke();
     }
 }

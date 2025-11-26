@@ -27,7 +27,6 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             GameObject newItemUI = Instantiate(shopItemUIPrefab, shopUI.transform);
-
             ItemUI ui = newItemUI.GetComponent<ItemUI>();
 
             ui.itemsReference = items[i].itemData;
@@ -35,13 +34,12 @@ public class ShopManager : MonoBehaviour
             ui.itemID = i;
 
             items[i].id = i;
+            items[i].InitChallenge();
 
             if (!items[i].isUnlock)
                 ui.Lock();
         }
     }
-
-
 
     public void Buy(int _itemId)
     {

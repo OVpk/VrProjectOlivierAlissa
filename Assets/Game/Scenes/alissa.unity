@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186db5733fb05224fb8d705210f59a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  unlockCondition: {fileID: 11400000, guid: a8b574263666d314aaa988d45ed508b8, type: 2}
+  unlockCondition: {fileID: 11400000, guid: 5b8c465288118ca42990f5383922286f, type: 2}
   itemData: {fileID: 11400000, guid: e328330d4dceb4b4d952afdbec27174c, type: 2}
   isUnlock: 0
   bought: 0
@@ -3195,6 +3195,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &210115927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6321357567400303544, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
+  m_PrefabInstance: {fileID: 5420378162722213117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &210115929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210115927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1670e0089959fc4bbba8bf4d116fe67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gun
 --- !u!1 &212654842
 GameObject:
   m_ObjectHideFlags: 0
@@ -25656,7 +25673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChallengeManager
   challenges:
-  - {fileID: 11400000, guid: a8b574263666d314aaa988d45ed508b8, type: 2}
+  - {fileID: 11400000, guid: 5b8c465288118ca42990f5383922286f, type: 2}
 --- !u!1 &1383080402
 GameObject:
   m_ObjectHideFlags: 0
@@ -35338,7 +35355,7 @@ MonoBehaviour:
   roundManager: {fileID: 464261617}
   particleGun: {fileID: 436709948}
   money: 0
-  chipNum: 5
+  chipNum: 1
   chip: {fileID: 8199666512880111270, guid: c66f6d8365258044aaf0dcda99955b84, type: 3}
   chipContainer: {fileID: 1356470894}
 --- !u!1 &2022570357
@@ -38035,6 +38052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Vr
       objectReference: {fileID: 0}
+    - target: {fileID: 6321357567400303544, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8180541928009085040, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -38060,7 +38081,10 @@ PrefabInstance:
     - {fileID: 2318843862366550306, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
     - {fileID: 6786679307537919079, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6321357567400303544, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 210115929}
   m_SourcePrefab: {fileID: 100100000, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
 --- !u!4 &5560497250224459777
 Transform:

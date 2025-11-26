@@ -1,9 +1,11 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ChallengeManager : MonoBehaviour
 {
-    [SerializeField] private Challenge[] challenges;
+    public List<Challenge> challenges;
     
     public static ChallengeManager Instance { get; private set; }
 

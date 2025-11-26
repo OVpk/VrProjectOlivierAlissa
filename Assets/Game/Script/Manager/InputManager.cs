@@ -11,23 +11,13 @@ public class InputManager : MonoBehaviour
     {
         if (ctx.started)
         {
-            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.CurrentGameState == GameState.InRound)
-            {
-                ActionManager.GunAppear?.Invoke(EnumHand.LeftHand);
-                return;
-            }
-            else if(GameManager.CurrentGameState == GameState.InRound)
+            if(GameManager.CurrentGameState == GameState.InRound)
             {
                 ActionManager.changeCard?.Invoke(EnumHand.RightHand);
             }
         }
         else if (ctx.canceled)
         {
-            if (ctx.control.device.usages.Contains(CommonUsages.LeftHand) && GameManager.CurrentGameState == GameState.InRound)
-            {
-                ActionManager.GunDisapear?.Invoke(EnumHand.LeftHand);
-                return;
-            }
         }
     }
 

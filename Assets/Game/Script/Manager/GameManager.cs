@@ -11,7 +11,9 @@ public static class GameManager
         {
             currentGameState = value;
             if (currentGameState == GameState.InUI)
-                ActionManager.resetCardInHand?.Invoke();
+                ActionManager.onUiState?.Invoke();
+            else if(currentGameState == GameState.InRound)
+                ActionManager.onRoundState?.Invoke();
         }
     }
 }

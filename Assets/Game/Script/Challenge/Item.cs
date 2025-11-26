@@ -29,6 +29,13 @@ public class Item : MonoBehaviour
         }
     }
 
+    public void InitChallenge()
+    {
+        if(unlockCondition != null)
+        {
+            ChallengeManager.Instance.challenges.Add(unlockCondition);
+        }
+    }
     private void Start()
     {
         gameObject.SetActive(false);
@@ -36,7 +43,7 @@ public class Item : MonoBehaviour
     private void Unlock()
     {
         isUnlock = true;
-        ActionManager.Unlock.Invoke(id);
+        ActionManager.unlock.Invoke(id);
         unlockCondition.OnComplete -= Unlock;
     }
 }

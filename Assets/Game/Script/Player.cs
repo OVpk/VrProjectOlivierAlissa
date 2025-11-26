@@ -32,8 +32,8 @@ public class Player : MonoBehaviour
         ActionManager.onWin += WinLife;
         ActionManager.onLoose += LooseLife;
         ActionManager.numShootToGive += SetNumShot;
-        ActionManager.AddMoney += UpdateTotalMoney;
-        ActionManager.endOfRound += UpdateChipWin;
+        ActionManager.addMoney += UpdateTotalMoney;
+        ActionManager.updateMoneyLoss += UpdateChipWin;
     }
 
     private void OnDisable()
@@ -41,8 +41,8 @@ public class Player : MonoBehaviour
         ActionManager.onWin -= WinLife;
         ActionManager.onLoose -= LooseLife;
         ActionManager.numShootToGive -= SetNumShot;
-        ActionManager.AddMoney -= UpdateTotalMoney;
-        ActionManager.endOfRound -= UpdateChipWin;
+        ActionManager.addMoney -= UpdateTotalMoney;
+        ActionManager.updateMoneyLoss -= UpdateChipWin;
     }
 
     private void Start()
@@ -95,7 +95,6 @@ public class Player : MonoBehaviour
 
     private void UpdateChipWin()
     {
-        lifeWin += 1;
         lifeLostByError += 1;
     }
     public void GameOver()
