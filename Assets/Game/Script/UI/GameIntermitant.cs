@@ -43,7 +43,7 @@ public class GameIntermitant : UIFade
     {
         yield return FadeOut(group);
         if (pContinue)
-            ActionManager.startRound.Invoke();
+            ActionManager.startRound.Invoke(null);
         else
             Player.OnPlayAgain();
         gameObject.SetActive(false);

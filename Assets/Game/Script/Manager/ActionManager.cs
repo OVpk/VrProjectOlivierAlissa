@@ -9,7 +9,7 @@ public static class ActionManager
     public static Action destroyAllCard;
     public static Action<CardColors> setTruePlayer;
     public static Action<AudioClip> playSound;
-    public static Action startRound;
+    public static Action<Sequence[]> startRound;
     public static Action resetCardInHand;
     public static Action onWin;
     public static Action onLoose;
