@@ -27,10 +27,10 @@ public class SequenceUI : MonoBehaviour
 
     public void Setup(Sequence sequence)
     {
-        if (sequence == null || sequence.beats == null || sequence.beats.Length == 0)
+        if (sequence.beats == null || sequence.beats.Length == 0)
             return;
 
-        switch (sequence.beats[0].color)
+        switch (sequence.beats[0].card.color)
         {
             case CardColors.Red: background.color = new Color(1f, 0.5f, 0.5f, 0.5f); break;
             case CardColors.Green: background.color = new Color(0.5f, 1f, 0.5f, 0.5f); break;
@@ -68,9 +68,9 @@ public class SequenceUI : MonoBehaviour
         float startX = -totalCardsWidth / 2f + (cardWidth / 2f);
         for (int i = 0; i < cardCount; i++)
         {
-            var cardInstance = sequence.beats[i];
+            Beat beat = sequence.beats[i];
             CardUI cardUI = Instantiate(cardUIPrefab, transform);
-            cardUI.Setup(cardInstance);
+            cardUI.Setup(beat);
 
             RectTransform rect = cardUI.transform as RectTransform;
             rect.anchorMin = new Vector2(0.5f, 0.5f);

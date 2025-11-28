@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f660ad8edec3362498a6943038cb7f29, type: 3}
+  m_Name: T2
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
+  <title>k__BackingField: "Pr\xE9diction"
+  <description>k__BackingField: "CEPENDANT ! Vous pouvez pr\xE9dire ce que va jouer
+    votre adversaire au d\xE9but de chaque manche. Les symboles sur les cartes vous
+    indique ses actions (d\xE9clarer, tirer, poser)"
+  <imagePrefab>k__BackingField: {fileID: 6417789815290309268, guid: 28a2d10b91758cd47b1fc3fabff4754e, type: 3}

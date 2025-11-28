@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private DroppedCard card;
 
-    public void SetDisplay(CardDataInstance cardToDisplay, float timeBetweenBeats)
+    public void SetDisplay(CardData cardToDisplay, float timeBetweenBeats)
     {
         card.spriteDisplayer.sprite = cardToDisplay.visual;
         animator.speed = 1/timeBetweenBeats;
