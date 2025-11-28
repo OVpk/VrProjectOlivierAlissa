@@ -17,7 +17,7 @@ public struct Sequence
         if (mustContainShoot)
         {
             int rndBeat = Random.Range(1, nbOfBeats);
-            beats[rndBeat] = new Beat(null, CardState.Shoot);
+            beats[rndBeat] = new Beat(card, CardState.Shoot);
         }
         
         beats[nbOfBeats - 1] = new Beat(card, CardState.Play);

@@ -16,5 +16,5 @@ MonoBehaviour:
     lui pour l'emp\xEAcher de te blesser"
   <customRound>k__BackingField:
   - <beats>k__BackingField:
-    - card: {fileID: 0}
+    - card: {fileID: 11400000, guid: 35d1110ffda85104bab0ab5682f1884e, type: 2}
       state: 2
