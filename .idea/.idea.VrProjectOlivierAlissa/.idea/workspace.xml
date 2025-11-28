@@ -5,21 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5925cef1-4240-4bf3-8887-3b0928496060" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Datas/NewTuto/Part1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Datas/NewTuto/Part1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Datas/NewTuto/Part2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Datas/NewTuto/Part2.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/tuto.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/tuto.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/GameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/GameState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Manager/ActionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Manager/ActionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Manager/RoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Manager/RoundManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Sequence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Sequence.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/TutoScriptable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/TutoScriptable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/CardUi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/CardUi.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/GameIntermitant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/GameIntermitant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/MainMenue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/MainMenue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/SequenceUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/SequenceUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/ShopUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/ShopUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/Tutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/Tutorial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/AndroidXR/AndroidXRSettingsInitializer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/AndroidXR/AndroidXRSettingsInitializer" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

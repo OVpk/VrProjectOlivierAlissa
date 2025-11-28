@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f660ad8edec3362498a6943038cb7f29, type: 3}
+  m_Name: T5
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
+  <title>k__BackingField: "D\xE9clarer"
+  <description>k__BackingField: "Ce symbole signifie que l'ennemi va la d\xE9clarer
+    mais pas la jouer"
+  <imagePrefab>k__BackingField: {fileID: 8469844852291138512, guid: 75c335d33a74d214ea3802dfaf494ad9, type: 3}

@@ -29182,8 +29182,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tutorial
   tuto:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 5bc6a85e606a615458b3bf169fff6514, type: 2}
+  - {fileID: 11400000, guid: d88307a5520da1c408384b01c84accfa, type: 2}
+  - {fileID: 11400000, guid: a42117f62825af947a27a3a526e0737a, type: 2}
+  - {fileID: 11400000, guid: 902ee09b15abbbb40a2f393c427fdb84, type: 2}
+  - {fileID: 11400000, guid: 1dc7cdd05da2fd44aa6856dff7f52f0a, type: 2}
+  - {fileID: 11400000, guid: 9be271b1daae233408a1c33b33fd96ec, type: 2}
+  - {fileID: 11400000, guid: 8296d5e3a78026f42897e6518e7c16ae, type: 2}
+  - {fileID: 11400000, guid: 9683c5e57bc12ca4b966817562c6201d, type: 2}
+  - {fileID: 11400000, guid: 7979438a093ea1940953146877c5580b, type: 2}
+  - {fileID: 11400000, guid: b8018bac5c9133a458586083e71a458b, type: 2}
+  - {fileID: 11400000, guid: 07ea3b3a5ce5cfb4fb1219a6a85e29ca, type: 2}
   tutoWindow: {fileID: 9025239506936918931}
 --- !u!1 &1383080402
 GameObject:

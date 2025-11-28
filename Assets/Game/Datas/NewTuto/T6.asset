@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f660ad8edec3362498a6943038cb7f29, type: 3}
+  m_Name: T6
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
+  <title>k__BackingField: Tirer
+  <description>k__BackingField: Ce symbole signifie que l'ennemie va sortir son pistoler
+    et tirer
+  <imagePrefab>k__BackingField: {fileID: 8950980214238536223, guid: 6c1dce1b8ec0384439af9810b32e8b96, type: 3}

@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e845cc8e73be9b84c966eea99c2c5844, type: 3}
-  m_Name: Part2
+  m_Name: T10
   m_EditorClassIdentifier: Assembly-CSharp::TutorialSequenceData
-  <text>k__BackingField: "Alors r\xE9ussi \xE7a imb\xE9cile "
+  <text>k__BackingField: "Ton adversaire te tire dessus ! Tire en m\xEAme temps que
+    lui pour l'emp\xEAcher de te blesser"
   <customRound>k__BackingField:
   - <beats>k__BackingField:
     - card: {fileID: 0}
-      state: 0
-    - card: {fileID: 0}
-      state: 0
-  - <beats>k__BackingField: []
+      state: 2

@@ -13,6 +13,8 @@ public class Tutorial : MonoBehaviour
     private void Start()
     {
         ActionManager.onWin += CanContinue;
+
+        StartCoroutine(ReadTutorial());
     }
 
     private IEnumerator ReadTutorial()
