@@ -14,7 +14,6 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private int minBeatToAddForLevelUp = 1;
     [SerializeField] private int maxBeatToAddForLevelUp = 3;
     [SerializeField] private AudioClip shootSong;
-
     [SerializeField] private bool blockLevel = false;
 
     private bool havePlayerPlayed;
@@ -197,9 +196,7 @@ public class RoundManager : MonoBehaviour
     {
         ActionManager.setTruePlayer -= PlayerPlayed;
 
-        Debug.Log(canPlay);
         if (!canPlay) return;
-        Debug.Log(havePlayerPlayed);
         if (havePlayerPlayed) return;
         
         havePlayerPlayed = true;
@@ -216,7 +213,9 @@ public class RoundManager : MonoBehaviour
 
     private void DifficultyLevelUp()
     {
+        Debug.Log("here");
         if (!blockLevel) return;
+        Debug.Log("here1");
 
         int rndLevelToAdd = Random.Range(minBeatToAddForLevelUp, maxBeatToAddForLevelUp + 1);
         difficultyLevel += rndLevelToAdd;

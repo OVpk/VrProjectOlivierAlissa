@@ -1,7 +1,9 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -13,16 +15,17 @@ public class Player : MonoBehaviour
     [SerializeField] private Canvas looseCanvas;
     [SerializeField] private RoundManager roundManager;
     [SerializeField] private ParticleSystem particleGun;
+    [SerializeField] private GameObject chip;
+    [SerializeField] private GameObject chipContainer;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private AudioClip gunSound;
+    [SerializeField] private Image damageOverlay;  
 
     private float margin = .05f;
     private int baseChip = 5;
     private int nbOfShoot;
     public int money = 0;
     public int chipNum = 5;
-
-
-    [SerializeField] private GameObject chip;
-    [SerializeField] private GameObject chipContainer;
 
     private List<GameObject> activeChip = new List<GameObject>();
     private List<GameObject> disactiveChip = new List<GameObject>();
@@ -79,6 +82,11 @@ public class Player : MonoBehaviour
         if (godMod)
             return;
 
+        damageOverlay.DOFade(1f, 0.3f).OnComplete(() =>
+        {
+            damageOverlay.DOFade(0f, 0.3f);
+        });
+       
         chipNum -= lifeLostByError;
         numChip.text = chipNum.ToString();
         GameObject lChip = activeChip[0];
@@ -152,5 +160,12 @@ public class Player : MonoBehaviour
         nbOfShoot--;
         DisplayBullets();
         ActionManager.playerShoot?.Invoke();
+        ActionManager.playSound(gunSound);
+        Vector3 lCurrentPos = transform.position;
+
+        transform.DOShakePosition(0.25f, .05f ,30, 90).OnComplete(() =>
+        {
+            transform.position = lCurrentPos;
+        }); 
     }
 }
