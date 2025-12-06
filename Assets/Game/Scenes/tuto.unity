@@ -23383,6 +23383,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f823f2338701e3247852122d7327c6f5, type: 2}
   - {fileID: 11400000, guid: c7b88eaea6334c848b94d9c8e8f1ee1c, type: 2}
   - {fileID: 11400000, guid: 7d70d7c99d7a4f44aace92e1090308b1, type: 2}
+  - {fileID: 11400000, guid: 02ff58c004d780e4490b80ee20658866, type: 2}
   tutoWindow: {fileID: 1745588093}
 --- !u!1 &1383080402
 GameObject:

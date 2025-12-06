@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Tutorial : MonoBehaviour
                 yield return new WaitUntil(() => canContinue);
             }
         }
+        SceneManager.LoadScene("Game");
     }
 
     public void ContinueButtonPressed() => canContinue = true;
