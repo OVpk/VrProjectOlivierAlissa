@@ -213,9 +213,7 @@ public class RoundManager : MonoBehaviour
 
     private void DifficultyLevelUp()
     {
-        Debug.Log("here");
-        if (!blockLevel) return;
-        Debug.Log("here1");
+        if (blockLevel) return;
 
         int rndLevelToAdd = Random.Range(minBeatToAddForLevelUp, maxBeatToAddForLevelUp + 1);
         difficultyLevel += rndLevelToAdd;

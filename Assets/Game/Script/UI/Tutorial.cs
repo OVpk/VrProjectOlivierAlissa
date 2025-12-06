@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -12,8 +13,6 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        ActionManager.onWin += CanContinue;
-
         StartCoroutine(ReadTutorial());
     }
 
@@ -21,11 +20,17 @@ public class Tutorial : MonoBehaviour
     {
         foreach (TutorialPartData tutoPart in tuto)
         {
-            canContinue = false;
             tutoPart.Apply(tutoWindow);
-            yield return new WaitUntil(() => canContinue);
+            yield return new WaitUntil(() => tutoPart.isFinish);
+
+            if (tutoPart is TutorialWindowData)
+            {
+                canContinue = false;
+                yield return new WaitUntil(() => canContinue);
+            }
         }
+        SceneManager.LoadScene("Game");
     }
 
-    public void CanContinue() => canContinue = true;
+    public void ContinueButtonPressed() => canContinue = true;
 }

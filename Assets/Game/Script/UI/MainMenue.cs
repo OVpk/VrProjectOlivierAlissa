@@ -10,7 +10,7 @@ public class MainMenue : UIFade
     [SerializeField] private RoundManager roundManager;
     [SerializeField] private Button playButton;
 
-    private string tutorialSceneName = "tuto";
+    private string tutorialSceneName = "Tuto";
 
     private void OnEnable()
     {

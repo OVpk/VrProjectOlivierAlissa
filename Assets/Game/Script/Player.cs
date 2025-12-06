@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
     
     public void TryShoot()
     {
-        if (nbOfShoot == 0) return;
+        if (nbOfShoot == 0 && !godMod) return;
         particleGun.Play();
         nbOfShoot--;
         DisplayBullets();

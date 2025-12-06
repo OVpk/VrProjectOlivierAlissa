@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f660ad8edec3362498a6943038cb7f29, type: 3}
-  m_Name: T8
+  m_Name: T7 1
   m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
-  <title>k__BackingField: Jetons
-  <description>k__BackingField: Regarde ton poignet gauche, ce sont tes jetons. Tu
-    en gagne en posant ta carte au bon moment. Mais tu en perd en faisant une mauvaise
-    action
-  <imagePrefab>k__BackingField: {fileID: 8950980214238536223, guid: a56491c05c4f9764883ea9360807191e, type: 3}
+  <title>k__BackingField: "F\xE9licitation"
+  <description>k__BackingField: "Le tutoriel est termin\xE9 ! Profitez du jeu !"
+  <imagePrefab>k__BackingField: {fileID: 0}
