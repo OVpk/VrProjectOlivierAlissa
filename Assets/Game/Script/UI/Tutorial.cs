@@ -21,9 +21,12 @@ public class Tutorial : MonoBehaviour
         {
             tutoPart.Apply(tutoWindow);
             yield return new WaitUntil(() => tutoPart.isFinish);
-            
-            canContinue = false;
-            yield return new WaitUntil(() => canContinue);
+
+            if (tutoPart is TutorialWindowData)
+            {
+                canContinue = false;
+                yield return new WaitUntil(() => canContinue);
+            }
         }
     }
 
