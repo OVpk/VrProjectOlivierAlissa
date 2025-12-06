@@ -8,7 +8,7 @@ public class DroppedCard : MonoBehaviour
     [SerializeField] private Rigidbody rb;
 
     public Image spriteDisplayer;
-    public CardDataInstance cardData;
+    public CardData cardData;
 
     public bool isPlayer;
     private float timer;

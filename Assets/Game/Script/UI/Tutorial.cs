@@ -12,8 +12,6 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        ActionManager.onWin += CanContinue;
-
         StartCoroutine(ReadTutorial());
     }
 
@@ -21,11 +19,13 @@ public class Tutorial : MonoBehaviour
     {
         foreach (TutorialPartData tutoPart in tuto)
         {
-            canContinue = false;
             tutoPart.Apply(tutoWindow);
+            yield return new WaitUntil(() => tutoPart.isFinish);
+            
+            canContinue = false;
             yield return new WaitUntil(() => canContinue);
         }
     }
 
-    public void CanContinue() => canContinue = true;
+    public void ContinueButtonPressed() => canContinue = true;
 }

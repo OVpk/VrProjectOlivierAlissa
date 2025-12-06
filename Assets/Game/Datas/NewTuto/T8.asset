@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: T8
   m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
   <title>k__BackingField: Jetons
-  <description>k__BackingField: "Regarde ton poignet gauche, ce sont tes jetons.
-    Tu en gagne en posant ta carte au bon moment. Mais tu en perd en faisant une
-    mauvaise action. Si tu n'a plus de jeton la partie est termin\xE9e"
+  <description>k__BackingField: Regarde ton poignet gauche, ce sont tes jetons. Tu
+    en gagne en posant ta carte au bon moment. Mais tu en perd en faisant une mauvaise
+    action
   <imagePrefab>k__BackingField: {fileID: 8950980214238536223, guid: a56491c05c4f9764883ea9360807191e, type: 3}

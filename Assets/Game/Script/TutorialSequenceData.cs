@@ -6,19 +6,38 @@ public class TutorialSequenceData : TutorialPartData
     [field:SerializeField] public string text { get; private set; }
     [field:SerializeField] public Sequence[] customRound { get; private set; }
 
+    private bool mustTryAgain = false;
+
     public override void Apply(TutoWindow window)
     {
         window.Setup(this);
         GameManager.CurrentGameState = GameState.InRound;
         StartTutoRound();
-        ActionManager.endOfRound += StartTutoRound;
-        ActionManager.onWin += StopTutoRound;
+
+        ActionManager.endOfRound += TryRestartRound;
+        ActionManager.onLoose += MustRetry;
+    }
+    
+    private void StartTutoRound()
+    {
+        mustTryAgain = false;
+        ActionManager.startRound.Invoke(customRound);
     }
 
-    private void StartTutoRound() => ActionManager.startRound.Invoke(customRound);
-
-    private void StopTutoRound(){
-        ActionManager.endOfRound -= StartTutoRound;
-        ActionManager.onWin -= StopTutoRound;
+    private void TryRestartRound()
+    {
+        if (mustTryAgain)
+        {
+            StartTutoRound();
+        }
+        else
+        {
+            ActionManager.endOfRound -= TryRestartRound;
+            ActionManager.onLoose -= MustRetry;
+            isFinish = true;
+        }
     }
+
+    private void MustRetry() => mustTryAgain = true;
+
 }

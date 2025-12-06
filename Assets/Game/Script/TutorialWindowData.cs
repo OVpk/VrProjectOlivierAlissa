@@ -11,6 +11,7 @@ public class TutorialWindowData : TutorialPartData
     {
         window.Setup(this);
         GameManager.CurrentGameState = GameState.InUI;
+        isFinish = true;
     }
     
 }

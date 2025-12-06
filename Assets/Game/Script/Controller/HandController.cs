@@ -145,7 +145,7 @@ public class HandController : MonoBehaviour
         cardRB.DORotate(new Vector3(rotateCard, cardRB.transform.rotation.eulerAngles.y, cardRB.transform.rotation.eulerAngles.z), tweenDuration);
 
         cardDropped.IsDropped = true;
-        cardDropped.cardData = cards[cardIndex].Instance(CardState.Play);
+        cardDropped.cardData = cards[cardIndex];
     }
 
     private void DeactivateCard()

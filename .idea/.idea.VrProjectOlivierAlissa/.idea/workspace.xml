@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5925cef1-4240-4bf3-8887-3b0928496060" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Datas/NewTuto/Part1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Datas/NewTuto/Part1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Datas/NewTuto/Part2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Datas/NewTuto/Part2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VrProjectOlivierAlissa/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/tuto/TutoWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/tuto/TutoWindow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/alissa 1.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/alissa 1.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/tuto.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/tuto.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/tuto.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/tuto.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Card/CardData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Card/CardData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Card/DroppedCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Card/DroppedCard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/Controller/HandController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/Controller/HandController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/TutorialPartData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/TutorialPartData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/TutorialSequenceData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/TutorialSequenceData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Script/TutorialWindowData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/TutorialWindowData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Script/UI/Tutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Script/UI/Tutorial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/AndroidXR/AndroidXRSettingsInitializer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/AndroidXR/AndroidXRSettingsInitializer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/Resources/XRSimulationPreferences.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/Resources/XRSimulationPreferences.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/SimulationEnvironmentAssetsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/SimulationEnvironmentAssetsManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +144,7 @@
       <workItem from="1764152505497" duration="15638000" />
       <workItem from="1764271613558" duration="1541000" />
       <workItem from="1764347190436" duration="1837000" />
+      <workItem from="1765028310184" duration="8891000" />
     </task>
     <servers />
   </component>
