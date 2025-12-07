@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class TableTop : MonoBehaviour
+public class TableFeedback : MonoBehaviour
 {
     [SerializeField] private Material originMat;
     [SerializeField] private Material redMat;

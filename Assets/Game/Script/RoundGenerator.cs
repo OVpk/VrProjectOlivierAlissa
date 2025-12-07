@@ -18,7 +18,7 @@ public class RoundGenerator : MonoBehaviour
         {
             round[i] = new Sequence(sequencesSizes[i],
                 enemyCards[Random.Range(0, enemyCards.Length)], 
-                Random.Range(0,100) < percentOfChanceToShoot);
+                Random.Range(0,100) <= percentOfChanceToShoot);
         }
         return round;
     }

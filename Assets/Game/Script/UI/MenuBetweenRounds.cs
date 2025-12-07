@@ -2,7 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class GameIntermitant : UIFade
+public class MenuBetweenRounds : UIFade
 {
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private CanvasGroup group;
@@ -11,15 +11,14 @@ public class GameIntermitant : UIFade
     private int money;
     private void OnEnable()
     {
-
-        ActionManager.endOfRound += OnRoundEnd;
+        ActionManager.endOfRound += DisplayWindow;
         money = Player.chipNum;
         text.text = money.ToString();
     }
 
     private void OnDestroy()
     {
-        ActionManager.endOfRound -= OnRoundEnd;
+        ActionManager.endOfRound -= DisplayWindow;
     }
 
     private void Start()
@@ -27,18 +26,24 @@ public class GameIntermitant : UIFade
         gameObject.SetActive(false);
     }
 
-    private void OnRoundEnd()
+    private void DisplayWindow()
     {
         gameObject.SetActive(true);
         StartCoroutine(FadeIn(group));
     }
-
+    
+    public void OnContinue()
+    {
+        GameManager.CurrentGameState = GameState.InUI;
+        StartCoroutine(RemoveWindow(true));
+    }
+    
     public void OnStopPressed()
     {
         ActionManager.addMoney(money);
-        StartCoroutine(RemoveUi(false));
+        StartCoroutine(RemoveWindow(false));
     }
-    private IEnumerator RemoveUi(bool pContinue)
+    private IEnumerator RemoveWindow(bool pContinue)
     {
         yield return FadeOut(group);
         if (pContinue)
@@ -48,9 +53,4 @@ public class GameIntermitant : UIFade
         gameObject.SetActive(false);
     }
 
-    public void OnContinue()
-    {
-        GameManager.CurrentGameState = GameState.InUI;
-        StartCoroutine(RemoveUi(true));
-    }
 }
