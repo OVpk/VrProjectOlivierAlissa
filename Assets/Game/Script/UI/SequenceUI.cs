@@ -16,13 +16,13 @@ public class SequenceUI : MonoBehaviour
     private void Awake()
     {
         ActionManager.endOfRound += ClearSequence;
-        ActionManager.onGameOver += ClearSequence;
+        ActionManager.returnToHub += ClearSequence;
     }
 
     private void OnDestroy()
     {
         ActionManager.endOfRound -= ClearSequence;
-        ActionManager.onGameOver -= ClearSequence;
+        ActionManager.returnToHub -= ClearSequence;
     }
 
     public void Setup(Sequence sequence)

@@ -15,12 +15,12 @@ public class MainMenue : UIFade
     private void OnEnable()
     {
         GameManager.CurrentGameState = GameState.InUI;
-        ActionManager.onGameOver += MenuAppear;
+        ActionManager.returnToHub += MenuAppear;
     }
 
     private void OnDestroy()
     {
-        ActionManager.onGameOver -= MenuAppear;
+        ActionManager.returnToHub -= MenuAppear;
     }
     public void OnPlayPressed()
     {

@@ -505,7 +505,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   text: {fileID: 1228699246}
   group: {fileID: 19856539}
-  Player: {fileID: 2012434993}
 --- !u!225 &19856539
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -18864,18 +18863,18 @@ PrefabInstance:
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2012434993}
+      objectReference: {fileID: 1309689515}
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPlayAgain
+      value: ReturnToHub
       objectReference: {fileID: 0}
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Player, Assembly-CSharp
+      value: GameOverScreen, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -23676,6 +23675,7 @@ GameObject:
   - component: {fileID: 1309689512}
   - component: {fileID: 1309689511}
   - component: {fileID: 1309689510}
+  - component: {fileID: 1309689515}
   m_Layer: 0
   m_Name: GameOver
   m_TagString: Untagged
@@ -23799,6 +23799,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &1309689515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309689508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba46cec28f6f0ed4892403c5e83a6c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOverScreen
 --- !u!1 &1309724461
 GameObject:
   m_ObjectHideFlags: 0
@@ -24197,8 +24209,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1401885097}
   m_HandleRect: {fileID: 1401885096}
   m_Direction: 0
-  m_Value: 0.99484277
-  m_Size: 0.4721284
+  m_Value: 0.9948417
+  m_Size: 0.47212833
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -25679,8 +25691,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 19856538}
-        m_TargetAssemblyTypeName: GameIntermitant, Assembly-CSharp
-        m_MethodName: OnContinue
+        m_TargetAssemblyTypeName: MenuBetweenRounds, Assembly-CSharp
+        m_MethodName: OnContinuePressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31318,17 +31330,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1715944634 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6716095566779475787, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
-  m_PrefabInstance: {fileID: 5420378162722213117}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1719587517
 GameObject:
   m_ObjectHideFlags: 0
@@ -35207,12 +35208,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   numChip: {fileID: 818944049}
-  UiGun: {fileID: 1715944634}
+  uiGun: {fileID: 0}
   lifeLostByError: 1
   lifeWin: 1
   godMod: 0
   looseCanvas: {fileID: 1309689514}
-  roundManager: {fileID: 464261617}
   particleGun: {fileID: 436709948}
   chip: {fileID: 8199666512880111270, guid: c66f6d8365258044aaf0dcda99955b84, type: 3}
   chipContainer: {fileID: 1356470894}
@@ -37066,6 +37066,18 @@ MonoBehaviour:
       - m_Target: {fileID: 19856538}
         m_TargetAssemblyTypeName: GameIntermitant, Assembly-CSharp
         m_MethodName: OnStopPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2012434993}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: CashOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

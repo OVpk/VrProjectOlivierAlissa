@@ -3,11 +3,13 @@ using UnityEngine.UI;
 
 public class TutoWindow : MonoBehaviour
 {
+    [Header("Explanatory window")]
     [SerializeField] private GameObject explanatoryWindow;
     [SerializeField] private Text title;
     [SerializeField] private Text description;
     [SerializeField] private GameObject imageAnchor;
     
+    [Header("Dialogue window")]
     [SerializeField] private GameObject dialogueWindow;
     [SerializeField] private Text dialogue;
 

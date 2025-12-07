@@ -20,9 +20,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Game/Script/Challenge/NoHitRoundChallenge.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Script/GameOverScreen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Script/RoundGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Script/Sequence.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Script/TutoSequence.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Script/TutorialPartData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Script/TutorialSequenceData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Script/TutorialWindowData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -59,6 +59,11 @@
     ]
   }
 }</component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="roundManager.enabled" />
+    </option>
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.2f1\Editor\Unity.exe" />
@@ -126,6 +131,7 @@
       <workItem from="1765028310184" duration="11816000" />
       <workItem from="1765058330412" duration="812000" />
       <workItem from="1765059586342" duration="5293000" />
+      <workItem from="1765135510629" duration="10395000" />
     </task>
     <servers />
   </component>

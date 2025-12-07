@@ -2,18 +2,15 @@ using DG.Tweening;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI numChip;
-    [SerializeField] private TextMeshProUGUI UiGun;
+    [SerializeField] private TextMeshProUGUI uiGun;
     [SerializeField] private int lifeLostByError = 1;
     [SerializeField] private int lifeWin = 1;
     [SerializeField] private bool godMod;
-    [SerializeField] private Canvas looseCanvas;
-    [SerializeField] private RoundManager roundManager;
     [SerializeField] private ParticleSystem particleGun;
     [SerializeField] private GameObject chip;
     [SerializeField] private GameObject chipContainer;
@@ -34,18 +31,22 @@ public class Player : MonoBehaviour
     {
         ActionManager.onWin += WinLife;
         ActionManager.onLoose += LooseLife;
+        ActionManager.onLoose += TakeDamageFeedback;
         ActionManager.numShootToGive += SetNumShot;
-        ActionManager.addMoney += UpdateTotalMoney;
         ActionManager.updateMoneyLoss += UpdateChipWin;
+        ActionManager.playerShoot += ShootFeedback;
+        ActionManager.returnToHub += ResetPlayer;
     }
 
     private void OnDisable()
     {
         ActionManager.onWin -= WinLife;
         ActionManager.onLoose -= LooseLife;
+        ActionManager.onLoose -= TakeDamageFeedback;
         ActionManager.numShootToGive -= SetNumShot;
-        ActionManager.addMoney -= UpdateTotalMoney;
         ActionManager.updateMoneyLoss -= UpdateChipWin;
+        ActionManager.playerShoot -= ShootFeedback;
+        ActionManager.returnToHub -= ResetPlayer;
     }
 
     private void Start()
@@ -55,9 +56,9 @@ public class Player : MonoBehaviour
         AddStartChip();
     }
 
-    private void UpdateTotalMoney(int pNumToGive)
+    public void CashOut()
     {
-        money += pNumToGive;
+        money += chipNum;
     }
 
     private void AddStartChip()
@@ -77,15 +78,17 @@ public class Player : MonoBehaviour
         return new Vector3(lRandomX, lPosStart.y, lRandomZ);
     }
 
-    private void LooseLife()
+    private void TakeDamageFeedback()
     {
-        if (godMod)
-            return;
-
         damageOverlay.DOFade(1f, 0.3f).OnComplete(() =>
         {
             damageOverlay.DOFade(0f, 0.3f);
         });
+    }
+
+    private void LooseLife()
+    {
+        if (godMod) return;
        
         chipNum -= lifeLostByError;
         numChip.text = chipNum.ToString();
@@ -96,31 +99,19 @@ public class Player : MonoBehaviour
         activeChip.Remove(lChip);
 
         if (chipNum <= 0)
-        {
-            GameOver();
-        }
+            ActionManager.gameOver.Invoke();
     }
 
     private void UpdateChipWin()
     {
         lifeLostByError += 1;
     }
-    public void GameOver()
-    {
-        looseCanvas.gameObject.SetActive(true);
-        GameManager.CurrentGameState = GameState.InUI;
-        roundManager.StopAllCoroutines();
-        roundManager.enabled = false;
-    }
-    public void OnPlayAgain()
+
+    private void ResetPlayer()
     {
         chipNum = baseChip;
         numChip.text = chipNum.ToString();
-        looseCanvas.gameObject.SetActive(false);
-        GameManager.CurrentGameState = GameState.InRound;
-        roundManager.enabled = true;
         AddStartChip();
-        ActionManager.onGameOver.Invoke();
     }
 
     private void WinLife()
@@ -150,8 +141,10 @@ public class Player : MonoBehaviour
         nbOfShoot = pNum;
         DisplayBullets();
     }
+    
+    
 
-    private void DisplayBullets() => UiGun.text = nbOfShoot.ToString();
+    private void DisplayBullets() => uiGun.text = nbOfShoot.ToString();
     
     public void TryShoot()
     {
@@ -160,6 +153,10 @@ public class Player : MonoBehaviour
         nbOfShoot--;
         DisplayBullets();
         ActionManager.playerShoot?.Invoke();
+    }
+
+    private void ShootFeedback()
+    {
         ActionManager.playSound(gunSound);
         Vector3 lCurrentPos = transform.position;
 

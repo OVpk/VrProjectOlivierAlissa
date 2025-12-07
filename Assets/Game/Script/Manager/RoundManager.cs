@@ -38,14 +38,16 @@ public class RoundManager : MonoBehaviour
     {
         ActionManager.playerShoot += PlayerShoot;
         ActionManager.startRound += InitRound;
-        ActionManager.onGameOver += ResetDifficultyValue;
+        ActionManager.returnToHub += ResetDifficultyValue;
+        ActionManager.returnToHub += StopAllCoroutines;
     }
 
     private void OnDisable()
     {
         ActionManager.playerShoot -= PlayerShoot;
         ActionManager.startRound -= InitRound;
-        ActionManager.onGameOver -= ResetDifficultyValue;
+        ActionManager.returnToHub -= ResetDifficultyValue;
+        ActionManager.returnToHub -= StopAllCoroutines;
     }
 
     private void Start()
