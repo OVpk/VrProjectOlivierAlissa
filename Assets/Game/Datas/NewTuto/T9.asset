@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: T9
   m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
   <title>k__BackingField: Munitions
-  <description>k__BackingField: "Regarde ton poignet droit, c'est ton nombre de munitions.
-    Ne les g\xE2che pas pour rien car elles te servent \xE0 te d\xE9fendre si ton
-    adversaire choisi d'en finir avec toi"
+  <description>k__BackingField: "Regarde ton poignet gauche, c'est ton nombre de
+    munitions. Ne les g\xE2che pas pour rien car elles te servent \xE0 te d\xE9fendre
+    si ton adversaire choisi d'en finir avec toi"
   <imagePrefab>k__BackingField: {fileID: 8950980214238536223, guid: 6160399ea54d40b4cbd8b200acf282ee, type: 3}

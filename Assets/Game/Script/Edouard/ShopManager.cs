@@ -56,6 +56,7 @@ public class ShopManager : MonoBehaviour
         if (moneyRef.money >= itemsReference.price)
         {
             moneyRef.money -= itemsReference.price;
+            textMoney.text = moneyRef.money.ToString();
             lItem.bought = true;
             lItem.gameObject.SetActive(true);
         }
