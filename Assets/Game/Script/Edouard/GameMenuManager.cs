@@ -1,32 +1,31 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameMenuManager : MonoBehaviour
 {
     #region Unity Variables
+    [Header("Dependencies")]
+    public RoundGenerator roundGeneratorReference;
+    public AudioSource ambienceAudioSourceReference;
+    
+    
     [Header("MenuUi")]
-    [SerializeField] GameObject gameMenu;
+    [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject settingsMenu;
-
-    /*enum GameState
-    {
-        MainMenu,
-        InGame 
-    };*/
-
-    GameState gameState;
-
+    
     #region MainMenuButtons
     [Header("MainMenuButtons")]
-    [SerializeField] Button StartGameButton;
-    [SerializeField] Button ExitGameButton;
+    [SerializeField] Button startGameButton;
+    [SerializeField] Button openSettingsButton;
+    [SerializeField] Button exitGameButton;
     #endregion
     
     #region SettingsMenuButtons
     [Header("SettingsMenuButtons")]
-    [SerializeField] Button ReturnToMainMenuButton;
+    [SerializeField] Button returnToMainMenuButton;
+    [SerializeField] Slider ambiantSoundSlider;
     #endregion
     
     #endregion
@@ -34,28 +33,33 @@ public class GameMenuManager : MonoBehaviour
     
     void Awake()
     {
-        StartGameButton.onClick.AddListener(StartGame);
-        ExitGameButton.onClick.AddListener(ExitGame);
-        ReturnToMainMenuButton.onClick.AddListener(ReturnToMenu);
+        openSettingsButton.onClick.AddListener(OpenSettings);
+        returnToMainMenuButton.onClick.AddListener(ReturnToMainMenu);
     }
 
-    #region MainMenuFunctions
-    void StartGame()
+    private void Update()
     {
-        //gameState = GameState.InGame;
+        ChangeAmbienceVolume();
     }
 
-    void ExitGame()
-    {
-        Application.Quit();
-    }
-    #endregion
-    
     #region SettingsFunctions
 
-    void ReturnToMenu()
+    void ReturnToMainMenu()
     {
-        //gameState = GameState.MainMenu;
+        Debug.Log("Returning to mainMenu");
+        mainMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+    }
+
+    void OpenSettings()
+    {
+        Debug.Log("Opening Settings");
+        settingsMenu.SetActive(true);
+    }
+
+    void ChangeAmbienceVolume()  
+    {
+        ambienceAudioSourceReference.volume = ambiantSoundSlider.value;
     }
     #endregion
 }
