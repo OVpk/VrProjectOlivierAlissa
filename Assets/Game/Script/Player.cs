@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     private int baseChip = 2;
     private int nbOfShoot;
     public int money = 0;
-    private int chipNum;
+    public int chipNum { get; private set; }
 
     private List<GameObject> activeChip = new List<GameObject>();
     private List<GameObject> disactiveChip = new List<GameObject>();

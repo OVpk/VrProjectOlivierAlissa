@@ -6,6 +6,8 @@ public class MenuBetweenRounds : UIFade
 {
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private CanvasGroup group;
+    
+    [SerializeField] private Player player;
 
     private void OnEnable()
     {
@@ -25,6 +27,7 @@ public class MenuBetweenRounds : UIFade
     private void DisplayWindow()
     {
         gameObject.SetActive(true);
+        text.text = player.chipNum.ToString();
         StartCoroutine(FadeIn(group));
     }
     
