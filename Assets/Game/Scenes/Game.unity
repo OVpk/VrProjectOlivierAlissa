@@ -6173,7 +6173,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464261616}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bebce4a16dfad34ba9a2559a28d936b, type: 3}
   m_Name: 
@@ -23674,7 +23674,6 @@ GameObject:
   - component: {fileID: 1309689513}
   - component: {fileID: 1309689512}
   - component: {fileID: 1309689511}
-  - component: {fileID: 1309689510}
   - component: {fileID: 1309689515}
   m_Layer: 0
   m_Name: GameOver
@@ -23682,7 +23681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1309689509
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23705,18 +23704,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.041719437, y: 0.41968012}
   m_SizeDelta: {x: 400, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1309689510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309689508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36c19eebc4d36e4ca7e6c41e3915e75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShopUI
 --- !u!114 &1309689511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24209,8 +24196,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1401885097}
   m_HandleRect: {fileID: 1401885096}
   m_Direction: 0
-  m_Value: 0.9948417
-  m_Size: 0.47212833
+  m_Value: 0.99484277
+  m_Size: 0.4721284
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -34803,6 +34790,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1987763386 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6716095566779475787, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
+  m_PrefabInstance: {fileID: 5420378162722213117}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1994860710
 GameObject:
   m_ObjectHideFlags: 0
@@ -35208,11 +35206,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   numChip: {fileID: 818944049}
-  uiGun: {fileID: 0}
+  uiGun: {fileID: 1987763386}
   lifeLostByError: 1
   lifeWin: 1
   godMod: 0
-  looseCanvas: {fileID: 1309689514}
   particleGun: {fileID: 436709948}
   chip: {fileID: 8199666512880111270, guid: c66f6d8365258044aaf0dcda99955b84, type: 3}
   chipContainer: {fileID: 1356470894}

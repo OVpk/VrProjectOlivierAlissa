@@ -6,6 +6,7 @@ public class GameOverScreen : MonoBehaviour
     private void Start()
     {
         ActionManager.gameOver += GameOver;
+        gameObject.SetActive(false);
     }
 
     private void OnDestroy()

@@ -11202,6 +11202,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!20 &880321731 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7758919286609274143, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
+  m_PrefabInstance: {fileID: 5420378162722213117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &893411293
 GameObject:
   m_ObjectHideFlags: 0
@@ -32067,17 +32072,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Life
   numChip: {fileID: 818944049}
-  UiGun: {fileID: 1715944634}
+  uiGun: {fileID: 1715944634}
   lifeLostByError: 1
   lifeWin: 1
   godMod: 1
-  looseCanvas: {fileID: 1309689514}
-  roundManager: {fileID: 464261617}
   particleGun: {fileID: 436709948}
   chip: {fileID: 8199666512880111270, guid: c66f6d8365258044aaf0dcda99955b84, type: 3}
   chipContainer: {fileID: 1356470894}
-  mainCamera: {fileID: 0}
-  gunSound: {fileID: 0}
+  mainCamera: {fileID: 880321731}
+  gunSound: {fileID: 8300000, guid: e6bc41752fafb5142bb78bca83d9987e, type: 3}
   damageOverlay: {fileID: 0}
   money: 0
   chipNum: 1
