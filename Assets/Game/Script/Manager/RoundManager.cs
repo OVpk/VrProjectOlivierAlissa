@@ -6,7 +6,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private Enemy enemy;
 
     [SerializeField] private int difficultyLevel = 5;
-    [SerializeField] private float minusEveryRound = 0.1f;
+    [SerializeField] private float minusEveryRound = 0.2f;
     [SerializeField] private float minSpeed = 0.5f;
     [SerializeField] private float minMargin = 0.1f;
     [SerializeField] private GlobalCardsUI prediction;
@@ -174,7 +174,6 @@ public class RoundManager : MonoBehaviour
         enemy.PlaceCard();
         yield return new WaitForSeconds(timeBetweenNote - waitMargin);
         canPlay = true;
-        Debug.Log("wait margin: " + waitMargin);
         yield return new WaitForSeconds(waitMargin);
         ActionManager.playSound(beat.card.playSound);
 

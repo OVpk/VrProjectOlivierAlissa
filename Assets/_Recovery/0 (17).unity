@@ -6181,7 +6181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoundManager
   enemy: {fileID: 1125847271}
   difficultyLevel: 5
-  minusEveryRound: 0.25
+  minusEveryRound: 0.1
   minSpeed: 0.5
   minMargin: 0.1
   prediction: {fileID: 1063888450}
@@ -6189,7 +6189,7 @@ MonoBehaviour:
   minBeatToAddForLevelUp: 1
   maxBeatToAddForLevelUp: 3
   shootSong: {fileID: 8300000, guid: e6bc41752fafb5142bb78bca83d9987e, type: 3}
-  blockLevel: 0
+  blockLevel: 1
 --- !u!4 &464261618
 Transform:
   m_ObjectHideFlags: 0
