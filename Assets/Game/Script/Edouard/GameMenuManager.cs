@@ -7,7 +7,6 @@ public class GameMenuManager : MonoBehaviour
 {
     #region Unity Variables
     [Header("Dependencies")]
-    public RoundGenerator roundGeneratorReference;
     public AudioSource ambienceAudioSourceReference;
     
     
@@ -17,7 +16,6 @@ public class GameMenuManager : MonoBehaviour
     
     #region MainMenuButtons
     [Header("MainMenuButtons")]
-    [SerializeField] Button startGameButton;
     [SerializeField] Button openSettingsButton;
     [SerializeField] Button exitGameButton;
     #endregion
