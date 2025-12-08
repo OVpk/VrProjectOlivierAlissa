@@ -10,11 +10,11 @@ public class GameMenuManager : MonoBehaviour
     [SerializeField] GameObject gameMenu;
     [SerializeField] GameObject settingsMenu;
 
-    enum GameState
+    /*enum GameState
     {
         MainMenu,
         InGame 
-    };
+    };*/
 
     GameState gameState;
 
@@ -42,7 +42,7 @@ public class GameMenuManager : MonoBehaviour
     #region MainMenuFunctions
     void StartGame()
     {
-        gameState = GameState.InGame;
+        //gameState = GameState.InGame;
     }
 
     void ExitGame()
@@ -55,7 +55,7 @@ public class GameMenuManager : MonoBehaviour
 
     void ReturnToMenu()
     {
-        gameState = GameState.MainMenu;
+        //gameState = GameState.MainMenu;
     }
     #endregion
 }
