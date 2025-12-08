@@ -6180,7 +6180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoundManager
   enemy: {fileID: 1125847271}
   difficultyLevel: 5
-  minusEveryRound: 0.25
+  minusEveryRound: 0.15
   minSpeed: 0.5
   minMargin: 0.1
   prediction: {fileID: 1063888450}

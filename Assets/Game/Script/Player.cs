@@ -19,10 +19,10 @@ public class Player : MonoBehaviour
     [SerializeField] private Image damageOverlay;  
 
     private float margin = .05f;
-    private int baseChip = 5;
+    private int baseChip = 2;
     private int nbOfShoot;
     public int money = 0;
-    public int chipNum = 5;
+    private int chipNum;
 
     private List<GameObject> activeChip = new List<GameObject>();
     private List<GameObject> disactiveChip = new List<GameObject>();
@@ -51,9 +51,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        numChip.text = chipNum.ToString();
-
-        AddStartChip();
+        ResetPlayer();
     }
 
     public void CashOut()
@@ -63,7 +61,8 @@ public class Player : MonoBehaviour
 
     private void AddStartChip()
     {
-        for (int i = 0; i < chipNum; i++)
+        numChip.text = chipNum.ToString();
+        for (int i = 0; i < baseChip; i++)
         {
             GameObject lChip = Instantiate(chip, GetRandomPosition(), Quaternion.identity, chipContainer.transform);
             activeChip.Add(lChip);
@@ -92,16 +91,27 @@ public class Player : MonoBehaviour
        
         chipNum -= lifeLostByError;
         numChip.text = chipNum.ToString();
-        GameObject lChip = activeChip[0];
-        lChip.SetActive(false);
-
-        disactiveChip.Add(lChip);
-        activeChip.Remove(lChip);
-
-        if (chipNum <= 0)
-            ActionManager.gameOver.Invoke();
+        for (int i = 0; i < lifeLostByError; i++)
+        {
+            GameObject lChip = activeChip[0];
+            lChip.SetActive(false);
+            disactiveChip.Add(lChip);
+            activeChip.Remove(lChip);
+            if (chipNum <= 0)
+                ActionManager.gameOver.Invoke();
+        }
     }
 
+    private void ResetChipVisual()
+    {
+        Debug.Log(activeChip.Count);
+        for(int i = activeChip.Count-1; i >=0; i--)
+        {
+            Debug.Log("chip");
+            activeChip[i].SetActive(false);
+            activeChip.Remove(activeChip[i]);
+        }
+    }
     private void UpdateChipWin()
     {
         lifeLostByError += 1;
@@ -110,7 +120,9 @@ public class Player : MonoBehaviour
     private void ResetPlayer()
     {
         chipNum = baseChip;
+        lifeLostByError = 1;
         numChip.text = chipNum.ToString();
+        ResetChipVisual();
         AddStartChip();
     }
 
@@ -142,8 +154,6 @@ public class Player : MonoBehaviour
         DisplayBullets();
     }
     
-    
-
     private void DisplayBullets() => uiGun.text = nbOfShoot.ToString();
     
     public void TryShoot()
