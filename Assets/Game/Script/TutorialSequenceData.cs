@@ -8,9 +8,9 @@ public class TutorialSequenceData : TutorialPartData
 
     private bool mustTryAgain = false;
 
-    public override void Apply(TutoWindow window)
+    public override void Apply(TutoWindow pWindow)
     {
-        window.Setup(this);
+        pWindow.Setup(this);
         GameManager.CurrentGameState = GameState.InRound;
         StartTutoRound();
 

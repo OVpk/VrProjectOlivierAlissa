@@ -7,8 +7,8 @@ public class GameMenuManager : MonoBehaviour
 {
     #region Unity Variables
     [Header("MenuUi")]
-    [SerializeField] GameObject gameMenu;
-    [SerializeField] GameObject settingsMenu;
+    [SerializeField] private GameObject gameMenu;
+    [SerializeField] private GameObject settingsMenu;
 
     enum GameState
     {
@@ -20,13 +20,13 @@ public class GameMenuManager : MonoBehaviour
 
     #region MainMenuButtons
     [Header("MainMenuButtons")]
-    [SerializeField] Button StartGameButton;
-    [SerializeField] Button ExitGameButton;
+    [SerializeField] private Button StartGameButton;
+    [SerializeField] private Button ExitGameButton;
     #endregion
     
     #region SettingsMenuButtons
     [Header("SettingsMenuButtons")]
-    [SerializeField] Button ReturnToMainMenuButton;
+    [SerializeField] private Button ReturnToMainMenuButton;
     #endregion
     
     #endregion

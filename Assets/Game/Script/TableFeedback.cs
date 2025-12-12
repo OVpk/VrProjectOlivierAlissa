@@ -11,6 +11,9 @@ public class TableFeedback : MonoBehaviour
     [SerializeField] private VolumeProfile globalVolume;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
+    private float bloomValue = 12f;
+    private float bloomTime = .5f;
+
     private void OnEnable()
     {
         ActionManager.onWin += OnWin;
@@ -27,12 +30,12 @@ public class TableFeedback : MonoBehaviour
     private void OnLoose() => DoEffect(redMat);
     private void DoEffect(Material pMat)
     {
-        Bloom bloom;
-        if (globalVolume.TryGet(out bloom))
+        Bloom lBloom;
+        if (globalVolume.TryGet(out lBloom))
         {
             spriteRenderer.material = pMat;
-            DOTween.To(idk => bloom.intensity.value = idk, 0f, 12f, 0.5f);
-            DOTween.To(idk => bloom.intensity.value = idk, 12f, 0f, 0.5f).OnComplete(() => spriteRenderer.material = originMat);
+            DOTween.To(idk => lBloom.intensity.value = idk, 0f, bloomValue, bloomTime);
+            DOTween.To(idk => lBloom.intensity.value = idk, bloomValue, 0f, bloomTime).OnComplete(() => spriteRenderer.material = originMat);
         }
     }
 } 

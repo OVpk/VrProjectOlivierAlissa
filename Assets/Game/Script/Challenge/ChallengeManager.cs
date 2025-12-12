@@ -17,13 +17,13 @@ public class ChallengeManager : MonoBehaviour
             Instance = this;
     }
 
-    public void Notify<T>(T value, Type targetType)
+    public void Notify<T>(T pValue, Type pTargetType)
     {
-        foreach (Challenge challenge in challenges)
+        foreach (Challenge lChallenge in challenges)
         {
-            if (challenge.GetType() == targetType)
+            if (lChallenge.GetType() == pTargetType)
             {
-                challenge.CheckCondition(value);
+                lChallenge.CheckCondition(pValue);
             }
         }
     }

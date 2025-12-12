@@ -34,12 +34,6 @@ public class HandController : MonoBehaviour
         ActionManager.removeCard += ReleaseCard;
         ActionManager.changeCard += ChangeCard;
         ActionManager.onUiState += DeactivateCard;
-        //ActionManager.onUiState += () => DespawnGun(EnumHand.LeftHand);
-        //ActionManager.GunDisapear += DespawnGun;
-        //ActionManager.GunAppear += SpawnGun;
-
-        Debug.Log("HandController enabled: " + currentHand);
-
     }
 
     private void OnDestroy()
@@ -63,9 +57,9 @@ public class HandController : MonoBehaviour
         if (!cardInHand.activeInHierarchy || cardDropped.IsDropped)
             return;
 
-        Vector3 currentPos = anchor.transform.position;
-        anchorVelocity = (currentPos - lastAnchorPos) / Time.deltaTime;
-        lastAnchorPos = currentPos;
+        Vector3 lCurrentPos = anchor.transform.position;
+        anchorVelocity = (lCurrentPos - lastAnchorPos) / Time.deltaTime;
+        lastAnchorPos = lCurrentPos;
 
     }
 
@@ -93,25 +87,6 @@ public class HandController : MonoBehaviour
         cardDropped.spriteDisplayer.sprite = cards[cardIndex].visual;
     }
 
-    //private void SpawnGun(EnumHand pHand)
-    //{
-    //    if (currentHand != pHand)
-    //        return;
-
-    //    if (!gun.activeInHierarchy)
-    //        gun.SetActive(true);
-    //}
-
-    //private void DespawnGun(EnumHand pHand)
-    //{
-    //    if (currentHand != pHand)
-    //        return;
-
-    //    if (gun.activeInHierarchy)
-    //        gun.SetActive(false);
-    //}
-
-
     private void ChangeCard(EnumHand pHand)
     {
         if (currentHand != pHand || !cardInHand.activeInHierarchy || cardDropped.IsDropped)
@@ -131,15 +106,15 @@ public class HandController : MonoBehaviour
         cardRB.isKinematic = false;
         cardCollider.enabled = true;
 
-        float handSpeed = anchorVelocity.magnitude;
+        float lHandSpeed = anchorVelocity.magnitude;
 
 
-        if (handSpeed > minToVelocity)
+        if (lHandSpeed > minToVelocity)
         {
-            Vector3 toTable = (tableTarget.position - anchor.transform.position).normalized;
-            Vector3 handDir = anchorVelocity.normalized;
-            Vector3 finalDir = Vector3.Slerp(toTable, handDir, throwInfluence).normalized;
-            cardRB.AddForce(finalDir * throwForce, ForceMode.VelocityChange);
+            Vector3 lToTable = (tableTarget.position - anchor.transform.position).normalized;
+            Vector3 lHandDir = anchorVelocity.normalized;
+            Vector3 lFinalDir = Vector3.Slerp(lToTable, lHandDir, throwInfluence).normalized;
+            cardRB.AddForce(lFinalDir * throwForce, ForceMode.VelocityChange);
         }
 
         cardRB.DORotate(new Vector3(rotateCard, cardRB.transform.rotation.eulerAngles.y, cardRB.transform.rotation.eulerAngles.z), tweenDuration);

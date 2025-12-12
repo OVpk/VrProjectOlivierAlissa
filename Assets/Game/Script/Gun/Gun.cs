@@ -19,13 +19,11 @@ public class Gun : MonoBehaviour
 
     private void EnableGun()
     {
-        Debug.Log("enable");
         gameObject.SetActive(true);
     }
 
     private void DisableGun()
     {
-        Debug.Log("disable");
         gameObject.SetActive(false);
     }
 

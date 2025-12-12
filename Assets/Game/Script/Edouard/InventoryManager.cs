@@ -23,10 +23,10 @@ public class InventoryManager : MonoBehaviour
     {
         itemInt.Clear();
         itemList.Clear();
-        foreach (KeyValuePair<ItemData, int> item in itemsDictionary)
+        foreach (KeyValuePair<ItemData, int> lItem in itemsDictionary)
         {
-            itemList.Add(item.Key);
-            itemInt.Add(item.Value);
+            itemList.Add(lItem.Key);
+            itemInt.Add(lItem.Value);
         }
     }
 }

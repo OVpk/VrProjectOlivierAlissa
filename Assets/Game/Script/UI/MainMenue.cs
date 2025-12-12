@@ -32,6 +32,7 @@ public class MainMenue : UIFade
         playButton.enabled = false;
         StartCoroutine(FadeOut(shop));
         yield return FadeOut(playGroup);
+
         roundManager.enabled = true;
         ActionManager.startRound.Invoke(null);
         shop.gameObject.SetActive(false);
@@ -43,6 +44,7 @@ public class MainMenue : UIFade
         playButton.enabled = true;
         shop.gameObject.SetActive(true);
         gameObject.SetActive(true);
+
         StartCoroutine(FadeIn(shop));
         StartCoroutine(FadeIn(playGroup));
     }

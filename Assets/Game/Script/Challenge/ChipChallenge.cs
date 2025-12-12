@@ -7,7 +7,7 @@ public class ChipChallenge : Challenge
 
     public override void CheckCondition<T>(T value)
     {
-        if (value is int chips && chips >= requiredChips)
+        if (value is int lChips && lChips >= requiredChips)
         {
             OnComplete?.Invoke();
         }

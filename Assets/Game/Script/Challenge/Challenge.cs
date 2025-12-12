@@ -5,5 +5,5 @@ public abstract class Challenge : ScriptableObject
 {
     public Action OnComplete;
     
-    public abstract void CheckCondition<T>(T value);
+    public abstract void CheckCondition<T>(T pValue);
 }

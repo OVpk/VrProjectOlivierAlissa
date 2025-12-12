@@ -5,22 +5,22 @@ public struct Sequence
 {
     [field:SerializeField] public Beat[] beats { get; private set; }
     
-    public Sequence(int nbOfBeats, CardData card, bool mustContainShoot)
+    public Sequence(int pNbOfBeats, CardData pCard, bool pMustContainShoot)
     {
-        beats = new Beat[nbOfBeats];
+        beats = new Beat[pNbOfBeats];
 
-        for (int i = 0; i < nbOfBeats-1; i++)
+        for (int i = 0; i < pNbOfBeats-1; i++)
         {
-            beats[i] = new Beat(card, CardState.Declaration);
+            beats[i] = new Beat(pCard, CardState.Declaration);
         }
 
-        if (mustContainShoot)
+        if (pMustContainShoot)
         {
-            int rndBeat = Random.Range(1, nbOfBeats);
-            beats[rndBeat] = new Beat(card, CardState.Shoot);
+            int lRndBeat = Random.Range(1, pNbOfBeats);
+            beats[lRndBeat] = new Beat(pCard, CardState.Shoot);
         }
         
-        beats[nbOfBeats - 1] = new Beat(card, CardState.Play);
+        beats[pNbOfBeats - 1] = new Beat(pCard, CardState.Play);
     }
 }
 

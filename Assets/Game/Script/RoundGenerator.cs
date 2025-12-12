@@ -10,35 +10,35 @@ public class RoundGenerator : MonoBehaviour
     
     [SerializeField] private CardData[] enemyCards;
     
-    public Sequence[] GenerateRound(int nbTotalOfBeats)
+    public Sequence[] GenerateRound(int pNbTotalOfBeats)
     {
-        List<int> sequencesSizes = DecomposeNumber(nbTotalOfBeats, minNumSequence, maxNumSequence);
-        Sequence[] round = new Sequence[sequencesSizes.Count];
-        for (int i = 0; i < sequencesSizes.Count; i++)
+        List<int> lSequencesSizes = DecomposeNumber(pNbTotalOfBeats, minNumSequence, maxNumSequence);
+        Sequence[] lRound = new Sequence[lSequencesSizes.Count];
+        for (int i = 0; i < lSequencesSizes.Count; i++)
         {
-            round[i] = new Sequence(sequencesSizes[i],
+            lRound[i] = new Sequence(lSequencesSizes[i],
                 enemyCards[Random.Range(0, enemyCards.Length)], 
                 Random.Range(0,100) <= percentOfChanceToShoot);
         }
-        return round;
+        return lRound;
     }
     
-    private List<int> DecomposeNumber(int number, int min, int max)
+    private List<int> DecomposeNumber(int pNumber, int pMin, int pMax)
     {
-        List<int> parts = new List<int>();
+        List<int> lParts = new List<int>();
 
-        while (number > 0)
+        while (pNumber > 0)
         {
-            if (number <= max && number >= min)
+            if (pNumber <= pMax && pNumber >= pMin)
             {
-                parts.Add(number);
+                lParts.Add(pNumber);
                 break;
             }
 
-            int next = Random.Range(min, Mathf.Min(max, number - min) + 1);
-            parts.Add(next);
-            number -= next;
+            int lNext = Random.Range(pMin, Mathf.Min(pMax, pNumber - pMin) + 1);
+            lParts.Add(lNext);
+            pNumber -= lNext;
         }
-        return parts;
+        return lParts;
     }
 }

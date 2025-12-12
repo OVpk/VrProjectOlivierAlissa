@@ -47,7 +47,7 @@ public class DroppedCard : MonoBehaviour
         timer += Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision pCollision)
     {
         if (!isDropped || !isPlayer)
             return;

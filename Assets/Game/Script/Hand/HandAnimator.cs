@@ -9,6 +9,9 @@ public class HandAnimator : MonoBehaviour
 
     private Animator animator;
 
+    private const string triggerAnimHand = "Trigger";
+    private const string gripAnimHand = "Grip";
+
     private void Awake()
     {
         animator = GetComponent<Animator>();   
@@ -19,11 +22,11 @@ public class HandAnimator : MonoBehaviour
     {
         if(triggerActionReference != null && gripActionReference != null)
         {
-            triggerActionReference.action.performed += ctx => UpdateHandAnimation("Trigger", ctx.ReadValue<float>());
-            triggerActionReference.action.canceled += ctx => UpdateHandAnimation("Trigger", 0);
+            triggerActionReference.action.performed += ctx => UpdateHandAnimation(triggerAnimHand, ctx.ReadValue<float>());
+            triggerActionReference.action.canceled += ctx => UpdateHandAnimation(triggerAnimHand, 0);
 
-            gripActionReference.action.performed += ctx => UpdateHandAnimation("Grip", ctx.ReadValue<float>());
-            gripActionReference.action.canceled += ctx => UpdateHandAnimation("Grip", 0);
+            gripActionReference.action.performed += ctx => UpdateHandAnimation(gripAnimHand, ctx.ReadValue<float>());
+            gripActionReference.action.canceled += ctx => UpdateHandAnimation(gripAnimHand, 0);
         }
     }
 

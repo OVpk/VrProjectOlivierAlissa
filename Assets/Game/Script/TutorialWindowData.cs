@@ -7,9 +7,9 @@ public class TutorialWindowData : TutorialPartData
     [field:SerializeField] public string description { get; private set;}
     [field:SerializeField] public GameObject imagePrefab { get; private set; }
 
-    public override void Apply(TutoWindow window)
+    public override void Apply(TutoWindow pWindow)
     {
-        window.Setup(this);
+        pWindow.Setup(this);
         GameManager.CurrentGameState = GameState.InUI;
         isFinish = true;
     }

@@ -26,36 +26,32 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < items.Count; i++)
         {
-            Debug.Log(shopItemUIPrefab);
-            Debug.Log(shopUI.transform);
-            GameObject newItemUI = Instantiate(shopItemUIPrefab, shopUI.transform);
-            Debug.Log(newItemUI);
-            ItemUI ui = newItemUI.GetComponent<ItemUI>();
-            Debug.Log(ui);
-            ui.itemsReference = items[i].itemData;
-            ui.shopManagerReference = this;
-            ui.itemID = i;
+            GameObject lNewItemUI = Instantiate(shopItemUIPrefab, shopUI.transform);
+            ItemUI lUi = lNewItemUI.GetComponent<ItemUI>();
+            lUi.itemsReference = items[i].itemData;
+            lUi.shopManagerReference = this;
+            lUi.itemID = i;
 
             items[i].id = i;
             items[i].InitChallenge();
 
             if (!items[i].isUnlock)
-                ui.Lock();
+                lUi.Lock();
         }
     }
 
-    public void Buy(int _itemId)
+    public void Buy(int pItemId)
     {
-        Item lItem = items[_itemId];
+        Item lItem = items[pItemId];
 
         if (!lItem.isUnlock || lItem.bought)
             return;
 
-        ItemData itemsReference = items[_itemId].itemData;
+        ItemData lItemsReference = items[pItemId].itemData;
 
-        if (moneyRef.money >= itemsReference.price)
+        if (moneyRef.money >= lItemsReference.price)
         {
-            moneyRef.money -= itemsReference.price;
+            moneyRef.money -= lItemsReference.price;
             textMoney.text = moneyRef.money.ToString();
             lItem.bought = true;
             lItem.gameObject.SetActive(true);

@@ -10,6 +10,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private TutoWindow tutoWindow;
 
     private bool canContinue = false;
+    private const string GameScene = "Game";
 
     private void Start()
     {
@@ -18,18 +19,18 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator ReadTutorial()
     {
-        foreach (TutorialPartData tutoPart in tuto)
+        foreach (TutorialPartData lTutoPart in tuto)
         {
-            tutoPart.Apply(tutoWindow);
-            yield return new WaitUntil(() => tutoPart.isFinish);
+            lTutoPart.Apply(tutoWindow);
+            yield return new WaitUntil(() => lTutoPart.isFinish);
 
-            if (tutoPart is TutorialWindowData)
+            if (lTutoPart is TutorialWindowData)
             {
                 canContinue = false;
                 yield return new WaitUntil(() => canContinue);
             }
         }
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(GameScene);
     }
 
     public void ContinueButtonPressed() => canContinue = true;

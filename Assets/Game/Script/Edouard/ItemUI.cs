@@ -45,14 +45,14 @@ public class ItemUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData pEventData)
     {
         if (!isLocked)
             return;
         description.SetActive(true);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void OnPointerExit(PointerEventData pEventData)
     {
         if (!isLocked)
             return;

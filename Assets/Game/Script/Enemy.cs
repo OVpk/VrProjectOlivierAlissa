@@ -6,18 +6,21 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private DroppedCard card;
 
-    public void SetDisplay(CardData cardToDisplay, float timeBetweenBeats)
+    private const string triggerPlayCard = "PlayCard";
+    private const string DeclareTrigger = "DeclareCard";
+    private const string shootTrigger = "Shoot";
+    public void SetDisplay(CardData pCardToDisplay, float pTimeBetweenBeats)
     {
-        card.spriteDisplayer.sprite = cardToDisplay.visual;
-        animator.speed = 1/timeBetweenBeats;
+        card.spriteDisplayer.sprite = pCardToDisplay.visual;
+        animator.speed = 1/pTimeBetweenBeats;
     }
 
-    public void PlaceCard() => animator.SetTrigger("PlayCard");
+    public void PlaceCard() => animator.SetTrigger(triggerPlayCard);
 
-    public void DeclareCard() => animator.SetTrigger("DeclareCard");
+    public void DeclareCard() => animator.SetTrigger(DeclareTrigger);
 
-    public void Shoot() => animator.SetTrigger("Shoot");
+    public void Shoot() => animator.SetTrigger(shootTrigger);
 
-    private void PlayParticle() => particleGun.Play();
+    public void PlayParticle() => particleGun.Play();
 
 }
