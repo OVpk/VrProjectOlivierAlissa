@@ -8,10 +8,10 @@ public class CardUI : MonoBehaviour
     [SerializeField] private GameObject checkIcon;
     [SerializeField] private GameObject croixIcon;
 
-    public void Setup(Beat pBeatToDisplay)
+    public void Setup(Beat beatToDisplay)
     {
-        cardImage.sprite = pBeatToDisplay.card.visual;
-        switch (pBeatToDisplay.state)
+        cardImage.sprite = beatToDisplay.card.visual;
+        switch (beatToDisplay.state)
         {
             case CardState.Shoot : gunIcon.SetActive(true); break;
             case CardState.Play : checkIcon.SetActive(true); break;

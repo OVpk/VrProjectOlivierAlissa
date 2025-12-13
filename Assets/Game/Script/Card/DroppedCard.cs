@@ -1,5 +1,3 @@
-using NUnit.Framework;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,23 +9,9 @@ public class DroppedCard : MonoBehaviour
     public CardData cardData;
 
     public bool isPlayer;
-    private float timer;
-    private float timeMaxBefore = 1f;
 
     private bool isDropped;
-    public bool IsDropped
-    {
-        get
-        {
-            return this.isDropped;
-        }
-        set
-        {
-            if (value)
-                timer = 0;
-            isDropped = value;
-        }
-    }
+    public bool IsDropped;
 
     private void OnEnable()
     {
@@ -38,22 +22,6 @@ public class DroppedCard : MonoBehaviour
     {
         if (!isPlayer)
             rb.useGravity = false;
-    }
-    private void Update()
-    {
-        if (!isDropped || !isPlayer)
-            return;
-
-        timer += Time.deltaTime;
-    }
-
-    private void OnCollisionEnter(Collision pCollision)
-    {
-        if (!isDropped || !isPlayer)
-            return;
-
-        if (timer > timeMaxBefore)
-            return;
     }
 
     private void OnDisable()

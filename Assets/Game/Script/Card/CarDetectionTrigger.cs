@@ -4,12 +4,12 @@ public class CarDetectionTrigger : MonoBehaviour
 {
     private void OnTriggerStay(Collider other)
     {
-        if (other.TryGetComponent(out DroppedCard lCard))
+        if (other.TryGetComponent(out DroppedCard card))
         {
-            if (!lCard.IsDropped) return;
-            if (!lCard.isPlayer) return;
+            if (!card.IsDropped) return;
+            if (!card.isPlayer) return;
 
-            ActionManager.setTruePlayer?.Invoke(lCard.cardData.color);
+            ActionManager.setTruePlayer?.Invoke(card.cardData.color);
         }
     }
 }

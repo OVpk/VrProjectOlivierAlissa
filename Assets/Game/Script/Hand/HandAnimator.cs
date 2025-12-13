@@ -1,4 +1,3 @@
-using System.Globalization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,11 +29,11 @@ public class HandAnimator : MonoBehaviour
         }
     }
 
-    private void UpdateHandAnimation(string pName, float pValue)
+    private void UpdateHandAnimation(string animName, float value)
     {
         if(animator != null)
         {
-            animator.SetFloat(pName, pValue);
+            animator.SetFloat(animName, value);
         }
     }
 

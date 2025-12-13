@@ -104,10 +104,8 @@ public class Player : MonoBehaviour
 
     private void ResetChipVisual()
     {
-        Debug.Log(activeChip.Count);
         for(int i = activeChip.Count-1; i >=0; i--)
         {
-            Debug.Log("chip");
             activeChip[i].SetActive(false);
             activeChip.Remove(activeChip[i]);
         }

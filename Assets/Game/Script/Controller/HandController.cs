@@ -1,9 +1,5 @@
 using DG.Tweening;
-using System.ComponentModel.Design;
-using System.Linq.Expressions;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 
 public class HandController : MonoBehaviour
 {
@@ -25,8 +21,8 @@ public class HandController : MonoBehaviour
     private int cardIndex = 0;
     private Vector3 lastAnchorPos;
     private Vector3 anchorVelocity;
-    private float rotateCard = 90f;
-    private float tweenDuration = .2f;
+    private readonly float rotateCard = 90f;
+    private readonly float tweenDuration = .2f;
 
     private void Awake()
     {
@@ -34,6 +30,7 @@ public class HandController : MonoBehaviour
         ActionManager.removeCard += ReleaseCard;
         ActionManager.changeCard += ChangeCard;
         ActionManager.onUiState += DeactivateCard;
+
     }
 
     private void OnDestroy()
@@ -57,9 +54,9 @@ public class HandController : MonoBehaviour
         if (!cardInHand.activeInHierarchy || cardDropped.IsDropped)
             return;
 
-        Vector3 lCurrentPos = anchor.transform.position;
-        anchorVelocity = (lCurrentPos - lastAnchorPos) / Time.deltaTime;
-        lastAnchorPos = lCurrentPos;
+        Vector3 currentPos = anchor.transform.position;
+        anchorVelocity = (currentPos - lastAnchorPos) / Time.deltaTime;
+        lastAnchorPos = currentPos;
 
     }
 
@@ -76,9 +73,9 @@ public class HandController : MonoBehaviour
 
     }
 
-    private void SpawnCard(EnumHand pHand)
+    private void SpawnCard(EnumHand hand)
     {
-        if (currentHand != pHand)
+        if (currentHand != hand)
             return;
 
         ResetCardPosition();
@@ -87,17 +84,19 @@ public class HandController : MonoBehaviour
         cardDropped.spriteDisplayer.sprite = cards[cardIndex].visual;
     }
 
-    private void ChangeCard(EnumHand pHand)
+
+
+    private void ChangeCard(EnumHand hand)
     {
-        if (currentHand != pHand || !cardInHand.activeInHierarchy || cardDropped.IsDropped)
+        if (currentHand != hand || !cardInHand.activeInHierarchy || cardDropped.IsDropped)
             return;
         cardIndex = (cardIndex + 1) % cards.Length;
-        SpawnCard(pHand);
+        SpawnCard(hand);
     }
 
-    private void ReleaseCard(EnumHand pHand)
+    private void ReleaseCard(EnumHand hand)
     {
-        if (currentHand != pHand || !cardInHand.activeInHierarchy)
+        if (currentHand != hand || !cardInHand.activeInHierarchy)
             return;
 
         cardInHand.transform.parent = null;
@@ -106,15 +105,15 @@ public class HandController : MonoBehaviour
         cardRB.isKinematic = false;
         cardCollider.enabled = true;
 
-        float lHandSpeed = anchorVelocity.magnitude;
+        float handSpeed = anchorVelocity.magnitude;
 
 
-        if (lHandSpeed > minToVelocity)
+        if (handSpeed > minToVelocity)
         {
-            Vector3 lToTable = (tableTarget.position - anchor.transform.position).normalized;
-            Vector3 lHandDir = anchorVelocity.normalized;
-            Vector3 lFinalDir = Vector3.Slerp(lToTable, lHandDir, throwInfluence).normalized;
-            cardRB.AddForce(lFinalDir * throwForce, ForceMode.VelocityChange);
+            Vector3 toTable = (tableTarget.position - anchor.transform.position).normalized;
+            Vector3 handDir = anchorVelocity.normalized;
+            Vector3 finalDir = Vector3.Slerp(toTable, handDir, throwInfluence).normalized;
+            cardRB.AddForce(finalDir * throwForce, ForceMode.VelocityChange);
         }
 
         cardRB.DORotate(new Vector3(rotateCard, cardRB.transform.rotation.eulerAngles.y, cardRB.transform.rotation.eulerAngles.z), tweenDuration);

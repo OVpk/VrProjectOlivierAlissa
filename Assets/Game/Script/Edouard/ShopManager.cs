@@ -9,7 +9,6 @@ public class ShopManager : MonoBehaviour
     #region Unity Variables
     [SerializeField] GameObject shopUI;
     [SerializeField] GameObject shopItemUIPrefab;
-    [SerializeField] InventoryManager inventoryManagerReference;
     [SerializeField] ItemUI ItemUIReference;
     [SerializeField] Player moneyRef;
     [SerializeField] private TextMeshProUGUI textMoney;
@@ -26,32 +25,32 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < items.Count; i++)
         {
-            GameObject lNewItemUI = Instantiate(shopItemUIPrefab, shopUI.transform);
-            ItemUI lUi = lNewItemUI.GetComponent<ItemUI>();
-            lUi.itemsReference = items[i].itemData;
-            lUi.shopManagerReference = this;
-            lUi.itemID = i;
+            GameObject newItemUI = Instantiate(shopItemUIPrefab, shopUI.transform);
+            ItemUI ui = newItemUI.GetComponent<ItemUI>();
+            ui.itemsReference = items[i].itemData;
+            ui.shopManagerReference = this;
+            ui.itemID = i;
 
             items[i].id = i;
             items[i].InitChallenge();
 
             if (!items[i].isUnlock)
-                lUi.Lock();
+                ui.Lock();
         }
     }
 
-    public void Buy(int pItemId)
+    public void Buy(int _itemId)
     {
-        Item lItem = items[pItemId];
+        Item lItem = items[_itemId];
 
         if (!lItem.isUnlock || lItem.bought)
             return;
 
-        ItemData lItemsReference = items[pItemId].itemData;
+        ItemData itemsReference = items[_itemId].itemData;
 
-        if (moneyRef.money >= lItemsReference.price)
+        if (moneyRef.money >= itemsReference.price)
         {
-            moneyRef.money -= lItemsReference.price;
+            moneyRef.money -= itemsReference.price;
             textMoney.text = moneyRef.money.ToString();
             lItem.bought = true;
             lItem.gameObject.SetActive(true);

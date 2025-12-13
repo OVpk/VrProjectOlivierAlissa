@@ -6,17 +6,17 @@ public class GlobalCardsUI : MonoBehaviour
 
     [SerializeField] private float sequenceSpacing = 15f;
 
-    public void Setup(Sequence[] pSequences)
+    public void Setup(Sequence[] sequences)
     {
-        if (pSequences == null || pSequences.Length == 0) return;
+        if (sequences == null || sequences.Length == 0) return;
 
-        int n = pSequences.Length;
+        int n = sequences.Length;
         SequenceUI[] instances = new SequenceUI[n];
 
         for (int i = 0; i < n; i++)
         {
             SequenceUI inst = Instantiate(sequenceUIPrefab, transform);
-            inst.Setup(pSequences[i]);
+            inst.Setup(sequences[i]);
             instances[i] = inst;
         }
 

@@ -5,21 +5,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] private ParticleSystem particleGun;
     [SerializeField] private Animator animator;
     [SerializeField] private DroppedCard card;
+    
+    private readonly int triggerPlayCard = Animator.StringToHash("PlayCard");
+    private readonly int triggerDeclareCard = Animator.StringToHash("DeclareCard");
+    private readonly int triggerShoot = Animator.StringToHash("Shoot");
 
-    private const string triggerPlayCard = "PlayCard";
-    private const string DeclareTrigger = "DeclareCard";
-    private const string shootTrigger = "Shoot";
-    public void SetDisplay(CardData pCardToDisplay, float pTimeBetweenBeats)
+    public void SetDisplay(CardData cardToDisplay, float timeBetweenBeats)
     {
-        card.spriteDisplayer.sprite = pCardToDisplay.visual;
-        animator.speed = 1/pTimeBetweenBeats;
+        card.spriteDisplayer.sprite = cardToDisplay.visual;
+        animator.speed = 1/timeBetweenBeats;
     }
 
     public void PlaceCard() => animator.SetTrigger(triggerPlayCard);
 
-    public void DeclareCard() => animator.SetTrigger(DeclareTrigger);
+    public void DeclareCard() => animator.SetTrigger(triggerDeclareCard);
 
-    public void Shoot() => animator.SetTrigger(shootTrigger);
+    public void Shoot() => animator.SetTrigger(triggerShoot);
 
     public void PlayParticle() => particleGun.Play();
 

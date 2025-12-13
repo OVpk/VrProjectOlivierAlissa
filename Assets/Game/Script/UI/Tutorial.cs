@@ -19,12 +19,12 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator ReadTutorial()
     {
-        foreach (TutorialPartData lTutoPart in tuto)
+        foreach (TutorialPartData tutoPart in tuto)
         {
-            lTutoPart.Apply(tutoWindow);
-            yield return new WaitUntil(() => lTutoPart.isFinish);
+            tutoPart.Apply(tutoWindow);
+            yield return new WaitUntil(() => tutoPart.isFinish);
 
-            if (lTutoPart is TutorialWindowData)
+            if (tutoPart is TutorialWindowData)
             {
                 canContinue = false;
                 yield return new WaitUntil(() => canContinue);

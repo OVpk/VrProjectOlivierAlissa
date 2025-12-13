@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,13 +16,13 @@ public class ChallengeManager : MonoBehaviour
             Instance = this;
     }
 
-    public void Notify<T>(T pValue, Type pTargetType)
+    public void Notify<T>(T value, Type targetType)
     {
-        foreach (Challenge lChallenge in challenges)
+        foreach (Challenge challenge in challenges)
         {
-            if (lChallenge.GetType() == pTargetType)
+            if (challenge.GetType() == targetType)
             {
-                lChallenge.CheckCondition(pValue);
+                challenge.CheckCondition(value);
             }
         }
     }

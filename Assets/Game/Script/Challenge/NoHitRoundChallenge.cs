@@ -29,7 +29,7 @@ public class NoHitRoundChallenge : Challenge
 
     public override void CheckCondition<T>(T value)
     {
-        if (value is int lNoHitRounds && lNoHitRounds >= requiredNoHitRounds)
+        if (value is int noHitRounds && noHitRounds >= requiredNoHitRounds)
             OnComplete?.Invoke();
     }
 }

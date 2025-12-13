@@ -6,7 +6,6 @@ public class MenuBetweenRounds : UIFade
 {
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private CanvasGroup group;
-    
     [SerializeField] private Player player;
 
     private void OnEnable()
@@ -42,10 +41,10 @@ public class MenuBetweenRounds : UIFade
         StartCoroutine(RemoveWindow(false));
     }
     
-    private IEnumerator RemoveWindow(bool pContinue)
+    private IEnumerator RemoveWindow(bool wantContinue)
     {
         yield return FadeOut(group);
-        if (pContinue)
+        if (wantContinue)
             ActionManager.startRound.Invoke(null);
         else
             ActionManager.returnToHub.Invoke();
