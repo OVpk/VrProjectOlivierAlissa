@@ -25,6 +25,7 @@ public class SequenceUI : MonoBehaviour
         ActionManager.returnToHub -= ClearSequence;
     }
 
+    // y'a beaucoup trop de choses dans cette méthode, splittez tout
     public void Setup(Sequence sequence)
     {
         if (sequence.beats == null || sequence.beats.Length == 0)
@@ -83,6 +84,7 @@ public class SequenceUI : MonoBehaviour
         }
     }
 
+    // vraiment besoin de destroy? impossible de le réutiliser ?
     private void ClearSequence() => Destroy(this.gameObject);
     
 }

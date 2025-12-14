@@ -130,6 +130,7 @@ public class Player : MonoBehaviour
             return;
         chipNum += lifeWin;
         numChip.text = chipNum.ToString();
+        // en vrai j'suis dubitatif pour le type of, on pouvait pas trigger un enum à la place ?
         ChallengeManager.Instance.Notify(chipNum, typeof(ChipChallenge));
 
         GameObject lChip;
@@ -154,6 +155,7 @@ public class Player : MonoBehaviour
     
     private void DisplayBullets() => uiGun.text = nbOfShoot.ToString();
     
+    // naming approuvé
     public void TryShoot()
     {
         if (nbOfShoot == 0 && !godMod) return;

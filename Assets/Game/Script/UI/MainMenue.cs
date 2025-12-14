@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// c'est mignon, c'est un menu femelle
 public class MainMenue : UIFade
 {
     [SerializeField] private CanvasGroup shop;

@@ -219,6 +219,7 @@ public class RoundManager : MonoBehaviour
     {
         if (blockLevel) return;
 
+        // c'est un peu tassé, hésitez pas à aérer un peu, j'fais de l'asthme là
         int rndLevelToAdd = Random.Range(minBeatToAddForLevelUp, maxBeatToAddForLevelUp + 1);
         currentDifficultyLevel += rndLevelToAdd;
         currentWaitTimeSequenceUI += timeAddedBetweenUi;

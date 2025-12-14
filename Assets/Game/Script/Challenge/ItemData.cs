@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// hésitez pas à sécuriser vos wrappers, là si quelqu'un bricole en runtime vous perdez vos datas
+
 [CreateAssetMenu(menuName = "Scriptable Objects/ItemData", fileName = "ItemData")]
 public class ItemData : ScriptableObject
 {

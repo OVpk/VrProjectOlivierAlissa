@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private DroppedCard card;
     
+    // bon reflexe
     private readonly int triggerPlayCard = Animator.StringToHash("PlayCard");
     private readonly int triggerDeclareCard = Animator.StringToHash("DeclareCard");
     private readonly int triggerShoot = Animator.StringToHash("Shoot");

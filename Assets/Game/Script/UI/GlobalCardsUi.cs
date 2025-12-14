@@ -6,10 +6,13 @@ public class GlobalCardsUI : MonoBehaviour
 
     [SerializeField] private float sequenceSpacing = 15f;
 
+    // hésitez pas à splitter un peu en différentes méthodes, là on a du mal à savoir qui fait quoi, et si y'a un bug,
+    // on va galérer à déterminer d'oû ca vient dedans
     public void Setup(Sequence[] sequences)
     {
         if (sequences == null || sequences.Length == 0) return;
 
+        // pas un grand fan des variables giga courtes pas claires, sequencesCount ca marche aussi bien
         int n = sequences.Length;
         SequenceUI[] instances = new SequenceUI[n];
 
@@ -28,7 +31,7 @@ public class GlobalCardsUI : MonoBehaviour
             totalWidth += widths[i];
         }
         totalWidth += (n - 1) * sequenceSpacing;
-
+// là, une méthode ou un petit commentaire ca aiderait bien, j'ai aucune idée de ce que ca fait le code qui suit
         float cursorX = -totalWidth / 2f;
         for (int i = 0; i < n; i++)
         {

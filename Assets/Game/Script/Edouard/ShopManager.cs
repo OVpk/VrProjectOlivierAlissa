@@ -6,7 +6,7 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    #region Unity Variables
+    #region Unity Variables // -> on s'en doute chef
     [SerializeField] GameObject shopUI;
     [SerializeField] GameObject shopItemUIPrefab;
     [SerializeField] ItemUI ItemUIReference;

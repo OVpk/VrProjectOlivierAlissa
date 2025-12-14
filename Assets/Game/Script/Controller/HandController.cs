@@ -49,6 +49,7 @@ public class HandController : MonoBehaviour
         cardInHand.SetActive(false);
     }
 
+    // hésitez pas à déplacer le code hors de l'update, dans une fonction, là sinon on sait pas en lisant en diago ce que fait ce code
     private void Update()
     {
         if (!cardInHand.activeInHierarchy || cardDropped.IsDropped)
@@ -73,6 +74,7 @@ public class HandController : MonoBehaviour
 
     }
 
+    // ca me fait tres plaisir de la réutilisation au lieu de masse instanciation 
     private void SpawnCard(EnumHand hand)
     {
         if (currentHand != hand)
