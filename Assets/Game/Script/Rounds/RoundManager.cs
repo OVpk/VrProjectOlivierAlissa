@@ -16,6 +16,9 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private int maxBeatToAddForLevelUp = 3;
     [SerializeField] private AudioClip shootSong;
     [SerializeField] private bool blockLevel = false;
+    [SerializeField] private Transform anchorGun;
+    [SerializeField] private LayerMask gunZoneLayer;
+
 
     private bool havePlayerPlayed;
     private bool havePlayerShoot;
@@ -168,7 +171,8 @@ public class RoundManager : MonoBehaviour
 
         yield return new WaitForSeconds(errorMargin);
         canShoot = false;
-        if (havePlayerShoot)
+        RaycastHit hit;
+        if (havePlayerShoot && Physics.Raycast(anchorGun.position, anchorGun.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, gunZoneLayer))
             ActionManager.onWin.Invoke();
         else
             ActionManager.onLoose?.Invoke();
