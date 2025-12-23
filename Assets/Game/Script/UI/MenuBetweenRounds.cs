@@ -27,7 +27,7 @@ public class MenuBetweenRounds : UIFade
     {
         gameObject.SetActive(true);
         text.text = player.chipNum.ToString();
-        StartCoroutine(FadeIn(group));
+        StartCoroutine(FadeIn(group.gameObject));
     }
     
     public void OnContinuePressed()
@@ -43,7 +43,8 @@ public class MenuBetweenRounds : UIFade
     
     private IEnumerator RemoveWindow(bool wantContinue)
     {
-        yield return FadeOut(group);
+        yield return FadeOut(group.gameObject);
+        group.gameObject.SetActive(false);
         if (wantContinue)
             ActionManager.startRound.Invoke(null);
         else

@@ -30,12 +30,16 @@ public class MainMenue : UIFade
     private IEnumerator StartGame()
     {
         playButton.enabled = false;
-        StartCoroutine(FadeOut(shop));
-        yield return FadeOut(playGroup);
+
+        yield return StartCoroutine(FadeOut(shop.gameObject));
+        yield return StartCoroutine(FadeOut(playGroup.gameObject));
 
         roundManager.enabled = true;
         ActionManager.startRound.Invoke(null);
+        shop.gameObject.SetActive(false);
+        playGroup.gameObject.SetActive(false);
     }
+
 
     private void MenuAppear()
     {
@@ -43,8 +47,8 @@ public class MainMenue : UIFade
         shop.gameObject.SetActive(true);
         gameObject.SetActive(true);
 
-        StartCoroutine(FadeIn(shop));
-        StartCoroutine(FadeIn(playGroup));
+        StartCoroutine(FadeIn(shop.gameObject));
+        StartCoroutine(FadeIn(playGroup.gameObject));
     }
 
     public void OnTutoPressed()

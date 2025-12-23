@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
-public class ShopManager : MonoBehaviour
+public class ShopManager : UIFade
 {
     #region Unity Variables
     [SerializeField] GameObject shopUI;
@@ -54,8 +55,15 @@ public class ShopManager : MonoBehaviour
             textMoney.text = moneyRef.money.ToString();
             lItem.bought = true;
             lItem.gameObject.SetActive(true);
-            Destroy(pGameObject);
+            StartCoroutine(BuyAnim(pGameObject));
         }
     }
+
+    private IEnumerator BuyAnim(GameObject pGameObject)
+    {
+        yield return StartCoroutine(FadeOut(pGameObject));
+        Destroy(pGameObject);
+    }
+
 
 }

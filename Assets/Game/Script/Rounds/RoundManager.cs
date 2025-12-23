@@ -19,7 +19,6 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private Transform anchorGun;
     [SerializeField] private LayerMask gunZoneLayer;
 
-
     private bool havePlayerPlayed;
     private bool havePlayerShoot;
     private Sequence[] round;
@@ -226,8 +225,10 @@ public class RoundManager : MonoBehaviour
         int rndLevelToAdd = Random.Range(minBeatToAddForLevelUp, maxBeatToAddForLevelUp + 1);
         currentDifficultyLevel += rndLevelToAdd;
         currentWaitTimeSequenceUI += timeAddedBetweenUi;
+
         if (!(currentTimeBetweenNote <= minSpeed))
-            currentTimeBetweenNote -= minusEveryRound;
+            currentTimeBetweenNote = Mathf.Lerp(0.5f, 1.5f, 1f / Mathf.Sqrt(roundCount + 1f));
+        Debug.Log(currentTimeBetweenNote);
 
         if (!(waitTimeBetweenSequence <= 0))
             waitTimeBetweenSequence -= timeBetweenSequenceMinus;
