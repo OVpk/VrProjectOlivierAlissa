@@ -39,7 +39,7 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void Buy(int _itemId)
+    public void Buy(int _itemId, GameObject pGameObject)
     {
         Item lItem = items[_itemId];
 
@@ -54,6 +54,7 @@ public class ShopManager : MonoBehaviour
             textMoney.text = moneyRef.money.ToString();
             lItem.bought = true;
             lItem.gameObject.SetActive(true);
+            Destroy(pGameObject);
         }
     }
 

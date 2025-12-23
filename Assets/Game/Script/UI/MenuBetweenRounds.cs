@@ -48,6 +48,5 @@ public class MenuBetweenRounds : UIFade
             ActionManager.startRound.Invoke(null);
         else
             ActionManager.returnToHub.Invoke();
-        gameObject.SetActive(false);
     }
 }

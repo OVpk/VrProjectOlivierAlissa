@@ -35,8 +35,6 @@ public class MainMenue : UIFade
 
         roundManager.enabled = true;
         ActionManager.startRound.Invoke(null);
-        shop.gameObject.SetActive(false);
-        gameObject.SetActive(false);
     }
 
     private void MenuAppear()
