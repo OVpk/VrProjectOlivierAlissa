@@ -18,6 +18,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private bool blockLevel = false;
     [SerializeField] private Transform anchorGun;
     [SerializeField] private LayerMask gunZoneLayer;
+    [SerializeField] private float timeToLooseWhenError = .05f;
 
     private bool havePlayerPlayed;
     private bool havePlayerShoot;
@@ -36,6 +37,7 @@ public class RoundManager : MonoBehaviour
     private float errorMargin = 0.4f;
     private float errorMarginRatio = 5f;
     private int roundCount = 0;
+    private int roundWinCount = 0;
     private float UpMoneyRoundCount = 5f;
 
 
@@ -77,6 +79,7 @@ public class RoundManager : MonoBehaviour
         currentTimeBetweenNote = baseTimeBetweenNote;
         currentWaitTimeSequenceUI = baseWaitTimeBetweenUi;
         roundCount = 0;
+        roundWinCount = 0;
         errorMargin = currentTimeBetweenNote / errorMarginRatio;
     }
 
@@ -172,9 +175,15 @@ public class RoundManager : MonoBehaviour
         canShoot = false;
         RaycastHit hit;
         if (havePlayerShoot && Physics.Raycast(anchorGun.position, anchorGun.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, gunZoneLayer))
+        {
             ActionManager.onWin.Invoke();
+            roundWinCount++;
+        }
         else
+        {
             ActionManager.onLoose?.Invoke();
+            roundWinCount = 0;
+        }
     }
 
     private IEnumerator PlayBeat(Beat beat)
@@ -190,9 +199,15 @@ public class RoundManager : MonoBehaviour
         canPlay = false;
 
         if (havePlayerPlayed && beat.card.color == playerUsedColor)
+        {
             ActionManager.onWin?.Invoke();
+            roundWinCount++;
+        }
         else
+        {
             ActionManager.onLoose?.Invoke();
+            roundWinCount = 0;
+        }
     }
 
     #endregion
@@ -226,10 +241,12 @@ public class RoundManager : MonoBehaviour
         currentDifficultyLevel += rndLevelToAdd;
         currentWaitTimeSequenceUI += timeAddedBetweenUi;
 
-        if (!(currentTimeBetweenNote <= minSpeed))
+        if (!(currentTimeBetweenNote <= minSpeed) && roundWinCount != 0)
             currentTimeBetweenNote = Mathf.Lerp(0.5f, 1.5f, 1f / Mathf.Sqrt(roundCount + 1f));
-        Debug.Log(currentTimeBetweenNote);
-
+        else if(currentTimeBetweenNote <= baseTimeBetweenNote - timeToLooseWhenError)
+        {
+            currentTimeBetweenNote -= timeToLooseWhenError;
+        }
         if (!(waitTimeBetweenSequence <= 0))
             waitTimeBetweenSequence -= timeBetweenSequenceMinus;
         if (!(errorMargin <= minMargin))
