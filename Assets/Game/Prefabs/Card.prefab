@@ -274,4 +274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DroppedCard
   rb: {fileID: 0}
   spriteDisplayer: {fileID: 2499542291183926577}
+  cardData: {fileID: 0}
   isPlayer: 0
+  IsDropped: 0

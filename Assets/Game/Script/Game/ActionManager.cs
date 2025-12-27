@@ -21,6 +21,7 @@ public static class ActionManager
     public static Action<int> unlock;
     public static Action updateMoneyLoss;
     public static Action gameOver;
+    public static Action<float> beatStart;
     
     public static void Reset()
     {
@@ -41,5 +42,6 @@ public static class ActionManager
         unlock=null;
         updateMoneyLoss = null;
         gameOver = null;
+        beatStart=null;
     }
 }

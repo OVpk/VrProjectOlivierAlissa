@@ -17326,6 +17326,7 @@ MonoBehaviour:
   textMoney: {fileID: 1315281012}
   items:
   - {fileID: 2096707094}
+  - {fileID: 1394451153}
   - {fileID: 1402545567}
   - {fileID: 1391525539}
 --- !u!225 &866518918
@@ -31056,8 +31057,10 @@ GameObject:
   - component: {fileID: 1394451151}
   - component: {fileID: 1394451150}
   - component: {fileID: 1394451152}
+  - component: {fileID: 1394451154}
+  - component: {fileID: 1394451153}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: sablier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31129,30 +31132,65 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394451148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.16220662, z: 0, w: 0.98675686}
-  m_LocalPosition: {x: -0.061, y: 2.092, z: -3.262}
+  m_LocalRotation: {x: -0, y: 0.16220662, z: -0, w: 0.98675686}
+  m_LocalPosition: {x: 0.59633, y: 0.12465, z: -0.10318017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1683179440}
   m_LocalEulerAnglesHint: {x: 0, y: 18.67, z: 0}
---- !u!111 &1394451152
-Animation:
+--- !u!95 &1394451152
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394451148}
   m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: bf9528f0d668ac7488e5a78215d81509, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 6e6b3e8993e19cd4595787ded6703776, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07c6f9f67685d434e83ee02bece0a7f7, type: 2}
+  m_CullingMode: 0
   m_UpdateMode: 0
-  m_CullingType: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1394451153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394451148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186db5733fb05224fb8d705210f59a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  unlockCondition: {fileID: 0}
+  itemData: {fileID: 11400000, guid: e87add588f11a8f49a85e16a95ebbe4e, type: 2}
+  isUnlock: 0
+  bought: 0
+  id: 0
+--- !u!114 &1394451154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394451148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626e9686337db2d4bb132e575bba6745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sablier
+  animator: {fileID: 1394451152}
 --- !u!1 &1401885095
 GameObject:
   m_ObjectHideFlags: 0
@@ -45442,6 +45480,7 @@ Transform:
   - {fileID: 1402545566}
   - {fileID: 1391525538}
   - {fileID: 2096707093}
+  - {fileID: 1394451151}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1684780033
@@ -55145,7 +55184,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1304239441}
   gunSound: {fileID: 8300000, guid: e6bc41752fafb5142bb78bca83d9987e, type: 3}
   damageOverlay: {fileID: 1269398186}
-  money: 15
+  money: 20
 --- !u!1 &2022570357
 GameObject:
   m_ObjectHideFlags: 0
@@ -58654,4 +58693,3 @@ SceneRoots:
   - {fileID: 1576410706}
   - {fileID: 1796189051}
   - {fileID: 1036648010}
-  - {fileID: 1394451151}

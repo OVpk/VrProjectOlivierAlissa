@@ -27,6 +27,8 @@ public class RoundManager : MonoBehaviour
 
     private bool canPlay = false;
     private bool canShoot = false;
+    private bool errorInRound = false;
+
 
     private float baseWaitTimeBetweenUi = 3f;
     private float currentWaitTimeSequenceUI;
@@ -37,7 +39,6 @@ public class RoundManager : MonoBehaviour
     private float errorMargin = 0.4f;
     private float errorMarginRatio = 5f;
     private int roundCount = 0;
-    private int roundWinCount = 0;
     private float UpMoneyRoundCount = 5f;
 
 
@@ -79,7 +80,7 @@ public class RoundManager : MonoBehaviour
         currentTimeBetweenNote = baseTimeBetweenNote;
         currentWaitTimeSequenceUI = baseWaitTimeBetweenUi;
         roundCount = 0;
-        roundWinCount = 0;
+        errorInRound = false;
         errorMargin = currentTimeBetweenNote / errorMarginRatio;
     }
 
@@ -127,6 +128,7 @@ public class RoundManager : MonoBehaviour
 
             for (int i = 0; i < beats.Length; i++)
             {
+                ActionManager.beatStart.Invoke(currentTimeBetweenNote);
                 switch (beats[i].state)
                 {
                     case CardState.Declaration:
@@ -177,12 +179,11 @@ public class RoundManager : MonoBehaviour
         if (havePlayerShoot && Physics.Raycast(anchorGun.position, anchorGun.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, gunZoneLayer))
         {
             ActionManager.onWin.Invoke();
-            roundWinCount++;
         }
         else
         {
             ActionManager.onLoose?.Invoke();
-            roundWinCount = 0;
+            errorInRound = true;
         }
     }
 
@@ -201,12 +202,11 @@ public class RoundManager : MonoBehaviour
         if (havePlayerPlayed && beat.card.color == playerUsedColor)
         {
             ActionManager.onWin?.Invoke();
-            roundWinCount++;
         }
         else
         {
             ActionManager.onLoose?.Invoke();
-            roundWinCount = 0;
+            errorInRound = true;
         }
     }
 
@@ -241,10 +241,11 @@ public class RoundManager : MonoBehaviour
         currentDifficultyLevel += rndLevelToAdd;
         currentWaitTimeSequenceUI += timeAddedBetweenUi;
 
-        if (!(currentTimeBetweenNote <= minSpeed) && roundWinCount != 0)
+        if (!(currentTimeBetweenNote <= minSpeed) && !errorInRound)
             currentTimeBetweenNote = Mathf.Lerp(0.5f, 1.5f, 1f / Mathf.Sqrt(roundCount + 1f));
         else if(currentTimeBetweenNote <= baseTimeBetweenNote - timeToLooseWhenError)
         {
+            errorInRound = false;
             currentTimeBetweenNote -= timeToLooseWhenError;
         }
         if (!(waitTimeBetweenSequence <= 0))
