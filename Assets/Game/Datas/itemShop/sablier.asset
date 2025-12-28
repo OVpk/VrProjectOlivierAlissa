@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e530536fa05f6714f88293f39b6303e9, type: 3}
   m_Name: sablier
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  <itemName>k__BackingField: 
+  <itemName>k__BackingField: sablier
   <price>k__BackingField: 20
   <icon>k__BackingField: {fileID: 21300000, guid: d82917275e3d7be458dada0508eae62c, type: 3}
   <DescriptionItem>k__BackingField: 
