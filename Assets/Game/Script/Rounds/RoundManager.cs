@@ -175,6 +175,7 @@ public class RoundManager : MonoBehaviour
 
         yield return new WaitForSeconds(errorMargin);
         canShoot = false;
+        enemy.isShooting = false;
         RaycastHit hit;
         if (havePlayerShoot && Physics.Raycast(anchorGun.position, anchorGun.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, gunZoneLayer))
         {

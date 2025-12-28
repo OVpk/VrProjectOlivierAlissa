@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class Player : MonoBehaviour
 {
@@ -158,6 +159,8 @@ public class Player : MonoBehaviour
     {
         if (nbOfShoot == 0 && !godMod) return;
         particleGun.Play();
+        InputDevice leftController = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
+        leftController.SendHapticImpulse(0, .9f, .2f);
         nbOfShoot--;
         DisplayBullets();
         ActionManager.playerShoot?.Invoke();
