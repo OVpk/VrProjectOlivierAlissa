@@ -128,7 +128,7 @@ public class RoundManager : MonoBehaviour
 
             for (int i = 0; i < beats.Length; i++)
             {
-                ActionManager.beatStart.Invoke(currentTimeBetweenNote);
+                ActionManager.beatStart?.Invoke(currentTimeBetweenNote);
                 switch (beats[i].state)
                 {
                     case CardState.Declaration:

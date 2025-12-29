@@ -5672,7 +5672,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoundManager
   enemy: {fileID: 1125847271}
-  difficultyLevel: 5
+  baseTimeBetweenNote: 1.5
+  baseDifficultyLevel: 5
+  currentDifficultyLevel: 0
   minusEveryRound: 0.1
   minSpeed: 0.5
   minMargin: 0.1
@@ -5682,6 +5684,11 @@ MonoBehaviour:
   maxBeatToAddForLevelUp: 3
   shootSong: {fileID: 8300000, guid: bd1d77f92854d6449b1ec1139b563e65, type: 3}
   blockLevel: 1
+  anchorGun: {fileID: 0}
+  gunZoneLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  timeToLooseWhenError: 0.05
 --- !u!4 &464261618
 Transform:
   m_ObjectHideFlags: 0
@@ -5897,6 +5904,11 @@ Transform:
   - {fileID: 156835572}
   m_Father: {fileID: 1344089379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &491831185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3208510881177881184, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
+  m_PrefabInstance: {fileID: 1745588091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &496374556
 GameObject:
   m_ObjectHideFlags: 0
@@ -7067,6 +7079,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &553797385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5658246040789253799, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
+  m_PrefabInstance: {fileID: 1745588091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &556330462
 GameObject:
   m_ObjectHideFlags: 0
@@ -7655,11 +7672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ea496ee62d75704e94ab91dff063ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  gameMenu: {fileID: 0}
-  settingsMenu: {fileID: 0}
-  StartGameButton: {fileID: 0}
-  ExitGameButton: {fileID: 0}
-  ReturnToMainMenuButton: {fileID: 0}
 --- !u!1 &606869514
 GameObject:
   m_ObjectHideFlags: 0
@@ -16955,9 +16967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7e3dedf54d59a41a263c35ccc893e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  itemList: []
-  itemInt: 
-  money: 0
 --- !u!1 &979631673
 GameObject:
   m_ObjectHideFlags: 0
@@ -20015,6 +20024,7 @@ MonoBehaviour:
   particleGun: {fileID: 925987829}
   animator: {fileID: 1125847277}
   card: {fileID: 1333851308}
+  isShooting: 0
 --- !u!4 &1125847275
 Transform:
   m_ObjectHideFlags: 0
@@ -20112,6 +20122,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1135294435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1989970894142657343, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
+  m_PrefabInstance: {fileID: 1745588091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1149070295
 GameObject:
   m_ObjectHideFlags: 0
@@ -20562,6 +20577,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1213869024 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7666807581379827427, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
+  m_PrefabInstance: {fileID: 1745588091}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1215708064
 GameObject:
   m_ObjectHideFlags: 0
@@ -21822,6 +21848,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1297642122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4250057130395457900, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
+  m_PrefabInstance: {fileID: 1745588091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1303148451
 GameObject:
   m_ObjectHideFlags: 0
@@ -23373,23 +23404,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tutorial
   tuto:
-  - {fileID: 11400000, guid: 5bc6a85e606a615458b3bf169fff6514, type: 2}
-  - {fileID: 11400000, guid: d88307a5520da1c408384b01c84accfa, type: 2}
-  - {fileID: 11400000, guid: a42117f62825af947a27a3a526e0737a, type: 2}
-  - {fileID: 11400000, guid: 902ee09b15abbbb40a2f393c427fdb84, type: 2}
-  - {fileID: 11400000, guid: 1dc7cdd05da2fd44aa6856dff7f52f0a, type: 2}
-  - {fileID: 11400000, guid: 9be271b1daae233408a1c33b33fd96ec, type: 2}
-  - {fileID: 11400000, guid: 8296d5e3a78026f42897e6518e7c16ae, type: 2}
-  - {fileID: 11400000, guid: 9683c5e57bc12ca4b966817562c6201d, type: 2}
-  - {fileID: 11400000, guid: 7979438a093ea1940953146877c5580b, type: 2}
-  - {fileID: 11400000, guid: 3d61225c714853548b491729fb0d9af4, type: 2}
-  - {fileID: 11400000, guid: 07ea3b3a5ce5cfb4fb1219a6a85e29ca, type: 2}
-  - {fileID: 11400000, guid: b8018bac5c9133a458586083e71a458b, type: 2}
-  - {fileID: 11400000, guid: f823f2338701e3247852122d7327c6f5, type: 2}
-  - {fileID: 11400000, guid: c7b88eaea6334c848b94d9c8e8f1ee1c, type: 2}
-  - {fileID: 11400000, guid: 7d70d7c99d7a4f44aace92e1090308b1, type: 2}
-  - {fileID: 11400000, guid: 02ff58c004d780e4490b80ee20658866, type: 2}
-  tutoWindow: {fileID: 1745588093}
+  - {fileID: 11400000, guid: ea7a1e86e9c10014e9aaef1eb7e7736b, type: 2}
+  tutoWindow: {fileID: 1745588098}
 --- !u!1 &1383080402
 GameObject:
   m_ObjectHideFlags: 0
@@ -25238,7 +25254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6957ef560cae84080431d1a6fc9482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WinFeedBack
-  starAnim: {fileID: 1501057410}
 --- !u!1 &1506855805
 GameObject:
   m_ObjectHideFlags: 0
@@ -28715,27 +28730,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutoWindow
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6939021975655889788, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5658246040789253799, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1745588098}
   m_SourcePrefab: {fileID: 100100000, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
 --- !u!224 &1745588092 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5107056425952301800, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
   m_PrefabInstance: {fileID: 1745588091}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1745588093 stripped
+--- !u!114 &1745588098
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6939021975655889788, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
-  m_PrefabInstance: {fileID: 1745588091}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 553797385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d365196e092bc4989fc13cde157b6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 58d522d83bdba11429cc56a88d4215f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutoWindow
+  explanatoryWindow: {fileID: 1135294435}
+  title: {fileID: 1213869024}
+  description: {fileID: 1957677532}
+  imageAnchor: {fileID: 1297642122}
+  dialogueWindow: {fileID: 491831185}
+  dialogue: {fileID: 1961637450}
 --- !u!1 &1755989785
 GameObject:
   m_ObjectHideFlags: 0
@@ -29949,7 +29975,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopManager
   shopUI: {fileID: 0}
   shopItemUIPrefab: {fileID: 6628819693650267203, guid: cbf4a9a0b388ffd48b48d42ef6859749, type: 3}
-  inventoryManagerReference: {fileID: 2029786012}
   ItemUIReference: {fileID: 8923113943931926930, guid: cbf4a9a0b388ffd48b48d42ef6859749, type: 3}
   moneyRef: {fileID: 0}
   textMoney: {fileID: 0}
@@ -30944,6 +30969,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1957677532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5547733857932025116, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
+  m_PrefabInstance: {fileID: 1745588091}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1961637450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3830001370250577834, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
+  m_PrefabInstance: {fileID: 1745588091}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1965069967
 GameObject:
   m_ObjectHideFlags: 0
@@ -32083,7 +32130,6 @@ MonoBehaviour:
   gunSound: {fileID: 8300000, guid: e6bc41752fafb5142bb78bca83d9987e, type: 3}
   damageOverlay: {fileID: 0}
   money: 0
-  chipNum: 1
 --- !u!1 &2022570357
 GameObject:
   m_ObjectHideFlags: 0
@@ -32315,9 +32361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7e3dedf54d59a41a263c35ccc893e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  itemList: []
-  itemInt: 
-  money: 10000
 --- !u!1 &2031052619
 GameObject:
   m_ObjectHideFlags: 0
