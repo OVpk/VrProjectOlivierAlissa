@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef974563c6f53b44b47a80283aea169, type: 3}
-  m_Name: TutorialWindowData
+  m_Name: 5
   m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
-  <title>k__BackingField: 
-  <description>k__BackingField: "Tu es pr\xEAt \xE0 jouer !"
-  <imagePrefab>k__BackingField: {fileID: 0}
+  <title>k__BackingField: Declaration
+  <description>k__BackingField: "Ce symbole signifie que l'ennemi va la d\xE9clarer
+    mais pas la jouer."
+  <imagePrefab>k__BackingField: {fileID: 8469844852291138512, guid: 75c335d33a74d214ea3802dfaf494ad9, type: 3}

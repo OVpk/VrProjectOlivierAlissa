@@ -43,7 +43,6 @@ public class Enemy : MonoBehaviour
         while (true)
         {
             int randEye = Random.Range(5, 10);
-            Debug.Log(randEye);
             yield return new WaitForSeconds(randEye);
             if (!isShooting)
                 animator.SetTrigger(triggerEye);

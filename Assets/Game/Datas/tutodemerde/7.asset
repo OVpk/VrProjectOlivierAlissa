@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef974563c6f53b44b47a80283aea169, type: 3}
-  m_Name: TutorialWindowData
+  m_Name: 7
   m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
-  <title>k__BackingField: 
-  <description>k__BackingField: "Tu es pr\xEAt \xE0 jouer !"
-  <imagePrefab>k__BackingField: {fileID: 0}
+  <title>k__BackingField: pose de carte
+  <description>k__BackingField: Ce symbole signifie que l'ennemi va poser sa carte
+    sur la table.
+  <imagePrefab>k__BackingField: {fileID: 2849057700244011357, guid: 5d8bc89783272bd48a17a0f6b21ff001, type: 3}

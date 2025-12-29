@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef974563c6f53b44b47a80283aea169, type: 3}
-  m_Name: TutorialWindowData
+  m_Name: 16
   m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
-  <title>k__BackingField: 
-  <description>k__BackingField: "Tu es pr\xEAt \xE0 jouer !"
+  <title>k__BackingField: Sequence
+  <description>k__BackingField: "Maintenant essaie avec diff\xE9rentes couleurs de
+    carte, clique sur la g\xE2chette du c\xF4t\xE9 de ta manette droite pour changer
+    de carte."
   <imagePrefab>k__BackingField: {fileID: 0}

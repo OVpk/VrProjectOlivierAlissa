@@ -20164,7 +20164,7 @@ Transform:
   m_GameObject: {fileID: 1125847270}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.41, y: 2.483, z: -1.6718999}
+  m_LocalPosition: {x: -0.41, y: 2.415, z: -1.828}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -28886,10 +28886,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ContinueButtonPressed
       objectReference: {fileID: 0}
-    - target: {fileID: 3115559394024068805, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
-      propertyPath: m_SortingOrder
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 5107056425952301800, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -28977,6 +28973,10 @@ PrefabInstance:
     - target: {fileID: 5658246040789253799, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
       propertyPath: m_Name
       value: TutoWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471251824805728853, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6939021975655889788, guid: 7217327772426944aa2bf5109f99e5c0, type: 3}

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef974563c6f53b44b47a80283aea169, type: 3}
-  m_Name: TutorialWindowData
+  m_Name: 4
   m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
-  <title>k__BackingField: 
-  <description>k__BackingField: "Tu es pr\xEAt \xE0 jouer !"
-  <imagePrefab>k__BackingField: {fileID: 0}
+  <title>k__BackingField: couleur
+  <description>k__BackingField: "L'arri\xE8re de la s\xE9quence repr\xE9sente la
+    couleur de la carte \xE0 poser."
+  <imagePrefab>k__BackingField: {fileID: 2343775679173579024, guid: ebf47518b4e833849a633d952824b330, type: 3}

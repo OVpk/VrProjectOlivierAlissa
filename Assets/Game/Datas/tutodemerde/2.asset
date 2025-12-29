@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef974563c6f53b44b47a80283aea169, type: 3}
-  m_Name: TutorialWindowData
+  m_Name: 2
   m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
-  <title>k__BackingField: 
-  <description>k__BackingField: "Tu es pr\xEAt \xE0 jouer !"
-  <imagePrefab>k__BackingField: {fileID: 0}
+  <title>k__BackingField: Round
+  <description>k__BackingField: "CEPENDANT ! Vous pouvez pr\xE9dire ce que va jouer
+    votre adversaire au d\xE9but de chaque manche. Les symboles sur les cartes vous
+    indiquent ses actions (d\xE9clarer, tirer, poser)."
+  <imagePrefab>k__BackingField: {fileID: 6417789815290309268, guid: 28a2d10b91758cd47b1fc3fabff4754e, type: 3}

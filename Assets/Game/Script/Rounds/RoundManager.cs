@@ -156,6 +156,10 @@ public class RoundManager : MonoBehaviour
 
     #region BeatReaders
 
+    private void Update()
+    {
+        Debug.DrawRay(anchorGun.position, anchorGun.TransformDirection(Vector3.forward) *10, Color.yellow);
+    }
     private IEnumerator DeclarationBeat(Beat beat)
     {
         enemy.DeclareCard();
@@ -177,6 +181,9 @@ public class RoundManager : MonoBehaviour
         canShoot = false;
         enemy.isShooting = false;
         RaycastHit hit;
+        Debug.Log(havePlayerShoot);
+        Debug.Log(Physics.Raycast(anchorGun.position, anchorGun.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, gunZoneLayer));
+
         if (havePlayerShoot && Physics.Raycast(anchorGun.position, anchorGun.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, gunZoneLayer))
         {
             ActionManager.onWin.Invoke();

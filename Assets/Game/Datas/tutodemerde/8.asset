@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef974563c6f53b44b47a80283aea169, type: 3}
-  m_Name: TutorialWindowData
+  m_Name: 8
   m_EditorClassIdentifier: Assembly-CSharp::TutorialWindowData
-  <title>k__BackingField: 
-  <description>k__BackingField: "Tu es pr\xEAt \xE0 jouer !"
-  <imagePrefab>k__BackingField: {fileID: 0}
+  <title>k__BackingField: Jetons
+  <description>k__BackingField: "Regarde ton poignet droit, ce sont tes jetons. Tu
+    en gagnes en posant ta carte au bon moment. Mais tu en perds en faisant une mauvaise
+    action. Si tu n'as plus de jeton, la partie est termin\xE9e."
+  <imagePrefab>k__BackingField: {fileID: 8950980214238536223, guid: a56491c05c4f9764883ea9360807191e, type: 3}
