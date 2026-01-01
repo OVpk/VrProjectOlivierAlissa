@@ -7,6 +7,7 @@ public class MainMenue : UIFade
 {
     [SerializeField] private CanvasGroup shop;
     [SerializeField] private CanvasGroup playGroup;
+    [SerializeField] private CanvasGroup settingsGroup;
     [SerializeField] private RoundManager roundManager;
     [SerializeField] private Button playButton;
 
@@ -33,11 +34,14 @@ public class MainMenue : UIFade
 
         yield return StartCoroutine(FadeOut(shop.gameObject));
         yield return StartCoroutine(FadeOut(playGroup.gameObject));
+        yield return StartCoroutine(FadeOut(settingsGroup.gameObject));
 
         roundManager.enabled = true;
         ActionManager.startRound.Invoke(null);
+
         shop.gameObject.SetActive(false);
         playGroup.gameObject.SetActive(false);
+        settingsGroup.gameObject.SetActive(false);
     }
 
 
@@ -45,10 +49,12 @@ public class MainMenue : UIFade
     {
         playButton.enabled = true;
         shop.gameObject.SetActive(true);
+        settingsGroup.gameObject.SetActive(true);
         gameObject.SetActive(true);
 
         StartCoroutine(FadeIn(shop.gameObject));
         StartCoroutine(FadeIn(playGroup.gameObject));
+        StartCoroutine(FadeIn(settingsGroup.gameObject));
     }
 
     public void OnTutoPressed()
