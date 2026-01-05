@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba8696938e831248b0c7910d2b705eb, type: 3}
   m_Name: feudeCampsChallenge
   m_EditorClassIdentifier: Assembly-CSharp::ChipChallenge
-  requiredChips: 30
+  requiredChips: 80

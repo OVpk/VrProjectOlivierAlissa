@@ -367,7 +367,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_FontSize: 22
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 3805531046399030833}
   - component: {fileID: 3792518041922292479}
   - component: {fileID: 1026760700817310370}
-  - component: {fileID: 6939021975655889788}
+  - component: {fileID: 8498182095299838248}
   m_Layer: 0
   m_Name: TutoWindow
   m_TagString: Untagged
@@ -407,7 +407,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5658246040789253799}
-  m_LocalRotation: {x: 0.13052624, y: 0.00033363682, z: -0.000043935775, w: 0.9914448}
+  m_LocalRotation: {x: 0.13052616, y: 0.00033742166, z: -0.000044422388, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0, z: -0.30701995}
   m_LocalScale: {x: 0.0015, y: 0.0014999999, z: 0.0015000002}
   m_ConstrainProportionsScale: 0
@@ -442,7 +442,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 9
   m_TargetDisplay: 0
 --- !u!114 &3805531046399030833
 MonoBehaviour:
@@ -503,7 +503,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
---- !u!114 &6939021975655889788
+--- !u!114 &8498182095299838248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5658246040789253799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d365196e092bc4989fc13cde157b6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 58d522d83bdba11429cc56a88d4215f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutoWindow
   explanatoryWindow: {fileID: 1989970894142657343}
@@ -798,7 +798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CanContinue
+      value: ContinueButtonPressed
       objectReference: {fileID: 0}
     - target: {fileID: 1004097911450439891, guid: 56686f82f64b0af4688a89676403a500, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

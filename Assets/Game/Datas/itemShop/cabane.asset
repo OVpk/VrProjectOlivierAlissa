@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: cabane
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   <itemName>k__BackingField: Cabane
-  <price>k__BackingField: 45
+  <price>k__BackingField: 50
   <icon>k__BackingField: {fileID: 21300000, guid: 2a30a76137292ac4887d4f0afbe4d254, type: 3}
-  <DescriptionItem>k__BackingField: "Reussis 5 manches sans perdre pour d\xE9bloquer
+  <DescriptionItem>k__BackingField: "Reussis 10 manches sans perdre pour d\xE9bloquer
     l'achat"

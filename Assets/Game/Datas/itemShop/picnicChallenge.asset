@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d695c130c8c10034ab411e9c2ba173dc, type: 3}
   m_Name: picnicChallenge
   m_EditorClassIdentifier: Assembly-CSharp::NoHitRoundChallenge
-  requiredNoHitRounds: 2
+  requiredNoHitRounds: 5

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: picnic
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   <itemName>k__BackingField: Table de Picnic
-  <price>k__BackingField: 25
+  <price>k__BackingField: 35
   <icon>k__BackingField: {fileID: 21300000, guid: abb3f95f5a0d4b44193ff8332bf57ad7, type: 3}
-  <DescriptionItem>k__BackingField: "Reussis 2 manches sans perdre pour d\xE9bloquer
+  <DescriptionItem>k__BackingField: "Reussis 5 manches sans perdre pour d\xE9bloquer
     l'achat"

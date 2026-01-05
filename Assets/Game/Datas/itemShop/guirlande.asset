@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: guirlande
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   <itemName>k__BackingField: Guirlande
-  <price>k__BackingField: 30
+  <price>k__BackingField: 45
   <icon>k__BackingField: {fileID: 21300000, guid: 7a11cdb5d8187b54d8e4b4a9647bd2e9, type: 3}
-  <DescriptionItem>k__BackingField: "Reussis 3 manches sans perdre pour d\xE9bloquer
+  <DescriptionItem>k__BackingField: "Reussis 6 manches sans perdre pour d\xE9bloquer
     l'achat"

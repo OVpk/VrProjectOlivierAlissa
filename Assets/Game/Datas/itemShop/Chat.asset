@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chat
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   <itemName>k__BackingField: chat
-  <price>k__BackingField: 15
+  <price>k__BackingField: 20
   <icon>k__BackingField: {fileID: 21300000, guid: b0cf37d5673adde4f83a393c78f8015a, type: 3}
   <DescriptionItem>k__BackingField: "Gagne 20 jetons en une partie pour d\xE9bloquer
     l'achat"

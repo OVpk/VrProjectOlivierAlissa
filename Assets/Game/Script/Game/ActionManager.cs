@@ -22,6 +22,7 @@ public static class ActionManager
     public static Action updateMoneyLoss;
     public static Action gameOver;
     public static Action<float> beatStart;
+    public static Action OnTutoLaunch;
     
     public static void Reset()
     {

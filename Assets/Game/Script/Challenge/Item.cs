@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private Challenge unlockCondition;
+    public Challenge unlockCondition;
     public ItemData itemData;
 
     public bool isUnlock = false;
@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        Debug.Log("enabled");
         if (unlockCondition)
         {
             unlockCondition.OnComplete += Unlock;

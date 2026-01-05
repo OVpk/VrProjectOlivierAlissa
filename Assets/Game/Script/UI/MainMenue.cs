@@ -59,6 +59,7 @@ public class MainMenue : UIFade
 
     public void OnTutoPressed()
     {
+        ActionManager.Reset();
         SceneManager.LoadScene(tutorialSceneName);
     }
 }
