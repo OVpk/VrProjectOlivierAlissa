@@ -35087,6 +35087,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7682053285027480972, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1006
+      objectReference: {fileID: 0}
     - target: {fileID: 8180541928009085040, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -35101,6 +35105,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8180541928009085040, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
       propertyPath: m_StartingInteractionOverridesMap.Array.data[0].overrideGroupMembers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893115175497547657, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
+      propertyPath: 'm_StartingGroupMembers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893115175497547657, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
+      propertyPath: m_StartingInteractionOverridesMap.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8893115175497547657, guid: 2394e57a02a304a4bb9faf12b5c649aa, type: 3}
