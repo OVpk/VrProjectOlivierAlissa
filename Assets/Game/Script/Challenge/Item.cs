@@ -11,6 +11,7 @@ public class Item : MonoBehaviour
 
     private void OnEnable()
     {
+        
         if (unlockCondition)
         {
             unlockCondition.OnComplete += Unlock;

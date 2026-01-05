@@ -22,6 +22,7 @@ public class NoHitRoundChallenge : Challenge
     private void IncreaseCounter()
     {
         roundCount++;
+        Debug.Log("check condition");
         CheckCondition(roundCount);
     }
 
@@ -29,7 +30,11 @@ public class NoHitRoundChallenge : Challenge
 
     public override void CheckCondition<T>(T value)
     {
+        Debug.Log("value is no hit round, should be true " + value is int);
         if (value is int noHitRounds && noHitRounds >= requiredNoHitRounds)
+        {
             OnComplete?.Invoke();
+            Debug.Log("devrait se de bloquer");
+        }
     }
 }
