@@ -28,7 +28,6 @@ public class ChallengeManager : MonoBehaviour
     private void IncreaseCounter()
     {
         roundCount++;
-        Debug.Log("check condition");
         Notify(roundCount, typeof(NoHitRoundChallenge));
     }
 
